@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image"
 import Link from "next/link"
 // import { auth } from "@/auth"
@@ -10,8 +11,53 @@ import { Navigation } from "@/components/nav/navigation"
 import { NavigationMobile } from "@/components/nav/navigation-mobile"
 import { ThemeToggle } from "@/components/theme-toggle"
 import LogoImage from "@/components/common/logo-image"
+import { useEffect, useState } from "react"
+
+
+const fetchMenu = async () => {
+  const response = await fetch(`/api/menus`, {
+    // headers: {
+    //   Authorization: `Bearer ${BearerToken}`,
+    // },
+  });
+
+  const data = await response.json();
+  return data;
+}
 
 export function Header() {
+  const [loading, setLoading] = useState(true);
+  const [result, setResult] = useState({
+    items: [],
+    total: 0,
+  })
+
+
+  const fetchData = async () => {
+    try {
+      setLoading(true)
+      const data = await fetchMenu()
+      setResult({
+        items: data.items,
+        total: data.total,
+      })
+    } catch (error) {
+      // setError(error);
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  useEffect(() => {
+    fetchData()
+  }, [])
+
+  // console.log(result)
+
+
+  loading && <div>Loading...</div>
+
+
   return (
     <header className="sticky top-0 z-40 flex h-20 w-full bg-gray-200 dark:bg-slate-800">
       <div className="flex w-full items-center justify-center md:container">
@@ -22,7 +68,7 @@ export function Header() {
           >
             <IoIosSearch className="text-xl text-gray-700 md:hidden lg:flex dark:text-gray-300" />
           </Link>
-          <Navigation navItems={siteConfig.navItems} />
+          <Navigation navItems={result} />
           <LogoImage logotheme={null} />
         </div>
 

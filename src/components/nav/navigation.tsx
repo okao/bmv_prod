@@ -18,13 +18,20 @@ interface NavigationProps {
   navItems: NavItem[]
 }
 
-export function Navigation({ navItems }: NavigationProps) {
+export function Navigation({ navItems }: any) {
+
+  const menus = navItems?.items;
+  console.log(menus)
+
   return (
     <NavigationMenu className="hidden transition-all duration-500 ease-in-out md:flex">
       <NavigationMenuList>
-        {navItems.map((item) => (
-          <NavigationMenuItem key={item.title} asChild>
-            <Link href={item.href} legacyBehavior passHref>
+        {menus?.map(({item, index} : any) => (
+          <NavigationMenuItem key={index} asChild>
+            {/* {
+              console.log(item?.data?.name?.iv)
+            } */}
+            <Link href={item?.data?.name?.iv} legacyBehavior passHref>
               <NavigationMenuLink
                 className={cn(
                   navigationMenuTriggerStyle(),
@@ -32,7 +39,7 @@ export function Navigation({ navItems }: NavigationProps) {
                   mvWaheed.className
                 )}
               >
-                {item.title}
+                {item?.data?.name?.iv}
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
