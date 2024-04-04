@@ -14,13 +14,13 @@ import LogoImage from "@/components/common/logo-image"
 export function Header() {
   return (
     <header className="sticky top-0 z-40 flex h-20 w-full bg-gray-200 dark:bg-slate-800">
-      <div className="flex w-full items-center justify-center border md:container">
+      <div className="flex w-full items-center justify-center md:container">
         <div className="flex w-full justify-between gap-x-4">
           <Link
             href="/"
             className="ml-4 flex items-center justify-end gap-2 text-lg font-bold tracking-wide transition-all duration-300 ease-in-out"
           >
-            <IoIosSearch className="text-xl text-gray-700 dark:text-gray-300 md:hidden lg:flex" />
+            <IoIosSearch className="text-xl text-gray-700 md:hidden lg:flex dark:text-gray-300" />
           </Link>
           <Navigation navItems={siteConfig.navItems} />
           <LogoImage logotheme={null} />

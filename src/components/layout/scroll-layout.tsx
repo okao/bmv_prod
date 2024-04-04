@@ -9,7 +9,7 @@ export default function ScrollLayout({
     <div className={""}>
       <div
         className={cn(
-          "w-full bg-background bg-gradient-to-r from-background to-pink-400/10 font-sans antialiased"
+          // "bg-background from-background w-full bg-gradient-to-r to-pink-400/10 font-sans antialiased"
         )}
       >
         {children}

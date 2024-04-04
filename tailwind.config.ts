@@ -136,6 +136,10 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        code: {
+          DEFAULT: "hsl(var(--code))",
+          foreground: "hsl(var(--code-foreground))",
+        },
       },
       borderRadius: {
         lg: `var(--radius)`,
@@ -150,6 +154,16 @@ const config = {
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
+        },
+        "flip-in": {
+          "0%": {
+            transform: "rotateY(-180deg)",
+            opacity: "0",
+          },
+          "100%": {
+            transform: "rotateY(0)",
+            opacity: "1",
+          },
         },
         "fade-up": {
           "0%": {
@@ -207,6 +221,7 @@ const config = {
         "fade-down": "fade-down 0.5s",
         "fade-in": "fade-in 0.4s",
         "fade-out": "fade-out 0.4s",
+
       },
     },
   },

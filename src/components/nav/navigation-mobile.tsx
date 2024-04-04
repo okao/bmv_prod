@@ -11,6 +11,7 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Icons } from "@/components/icons"
+import AnimateIn from "../animations/animate-in"
 
 interface NavigationMobileProps {
   navItems: NavItem[]
@@ -34,7 +35,7 @@ function MobileLink({
     <Link
       href={href}
       className={cn(
-        "rtl text-foreground/70 transition-colors duration-300 ease-in-out hover:text-foreground dark:text-slate-100 dark:hover:text-slate-100",
+        "rtl text-foreground/70 hover:text-foreground transition-colors duration-300 ease-in-out dark:text-slate-100 dark:hover:text-slate-100",
         href.includes(segment) && "text-foreground",
         disabled && "pointer-events-none opacity-60"
       )}
@@ -59,24 +60,20 @@ export function NavigationMobile({ navItems }: NavigationMobileProps) {
       </SheetTrigger>
       <SheetContent
         side="right"
-        className="flex flex-col gap-12 bg-background transition-all duration-500 ease-in-out dark:bg-slate-800"
+        className="flex w-full flex-col gap-12 bg-white/30 backdrop-blur-sm backdrop-brightness-150 transition-all duration-500 ease-in-out dark:bg-slate-800"
       >
-        <div className="pl-4">
+        {/* <div className="pl-4">
           <Link
             href="/"
             className="flex items-center gap-2"
             onClick={() => setIsOpen(false)}
           >
-            {/* <Icons.rocket className="mr-2 size-8" aria-hidden="true" /> */}
-            {/* <span className="text-2xl font-bold leading-none tracking-wide">
-              {siteConfig.name}
-            </span> */}
             <span className="sr-only">Home</span>
           </Link>
-        </div>
+        </div> */}
         <div
           className={cn(
-            "rtl flex flex-col gap-10 pr-8 text-center text-2xl font-medium leading-6 tracking-wider  dark:text-slate-100 dark:hover:bg-slate-900",
+            "rtl mt-[20%] flex flex-col gap-10 pr-8 text-center text-2xl font-medium  leading-6 tracking-wider dark:text-slate-100 dark:hover:bg-slate-900",
             mvRasmee.className
           )}
         >
