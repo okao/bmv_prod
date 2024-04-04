@@ -29,6 +29,13 @@ const config = {
         heading: ["var(--font-heading)"],
       },
       colors: {
+        // foreground: {
+        //   DEFAULT: "hsl(var(--foreground))",
+        //   70: "hsl(var(--foreground-70))",
+        //   50: "hsl(var(--foreground-50))",
+        //   30: "hsl(var(--foreground-30))",
+        //   10: "hsl(var(--foreground-10))",
+        // },
         okaogreen: {
           50: "#EBFFFA",
           100: "#D6FFF5",
@@ -107,10 +114,16 @@ const config = {
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+        },
+        foreground: {
+          DEFAULT: "hsl(var(--foreground))",
+          70: "hsl(var(--foreground-70))",
+          50: "hsl(var(--foreground-50))",
+          30: "hsl(var(--foreground-30))",
+          10: "hsl(var(--foreground-10))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -163,6 +176,16 @@ const config = {
           "100%": {
             transform: "rotateY(0)",
             opacity: "1",
+          },
+        },
+        "flip-out": {
+          "0%": {
+            transform: "rotateY(0)",
+            opacity: "1",
+          },
+          "100%": {
+            transform: "rotateY(-180deg)",
+            opacity: "0",
           },
         },
         "fade-up": {
@@ -221,7 +244,8 @@ const config = {
         "fade-down": "fade-down 0.5s",
         "fade-in": "fade-in 0.4s",
         "fade-out": "fade-out 0.4s",
-
+        "flip-in": "flip-in 0.4s",
+        "flip-out": "flip-out 0.4s",
       },
     },
   },

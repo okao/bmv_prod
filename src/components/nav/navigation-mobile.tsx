@@ -35,13 +35,23 @@ function MobileLink({
     <Link
       href={href}
       className={cn(
-        "rtl text-foreground/70 hover:text-foreground transition-colors duration-300 ease-in-out dark:text-slate-100 dark:hover:text-slate-100",
-        href.includes(segment) && "text-foreground",
+        "rtl rounded-lg transition-colors duration-300 ease-in-out hover:bg-slate-100 hover:text-slate-900 dark:text-slate-100 dark:hover:bg-slate-900 dark:hover:text-slate-100",
+        href.includes(segment),
         disabled && "pointer-events-none opacity-60"
       )}
       onClick={() => setIsOpen(false)}
     >
-      {children}
+      <span>
+        <AnimateIn
+          as="h2"
+          from="opacity-0 translate-y-32"
+          to="opacity-100 translate-y-0"
+          delay={500}
+          duration={300}
+          className="text-2xl hover:text-slate-900 dark:text-slate-100 dark:hover:text-slate-100"
+          style={{transitionTimingFunction:"cubic-bezier(0.25, 0.4, 0.55, 1.4)"}}
+        >{children}</AnimateIn>
+      </span>
     </Link>
   )
 }
@@ -60,7 +70,7 @@ export function NavigationMobile({ navItems }: NavigationMobileProps) {
       </SheetTrigger>
       <SheetContent
         side="right"
-        className="flex w-full flex-col gap-12 bg-white/30 backdrop-blur-sm backdrop-brightness-150 transition-all duration-500 ease-in-out dark:bg-slate-800"
+        className="flex w-full flex-col gap-12 bg-white/30 backdrop-blur-sm backdrop-brightness-150 transition-all duration-500 ease-in-out dark:bg-slate-800/60 dark:backdrop-blur-sm dark:backdrop-brightness-150"
       >
         {/* <div className="pl-4">
           <Link
@@ -88,7 +98,7 @@ export function NavigationMobile({ navItems }: NavigationMobileProps) {
             </MobileLink>
           ))}
         </div>
-      </SheetContent>
+        </SheetContent>
     </Sheet>
   )
 }
