@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     title: "ބޭންކުން މިގެނައި ބަދަލުން ވީ ގޮތެއް އެނގޭތަ؟",
     description:
       "މި ބަދަލާއެކު ފްރީލާންސް މީހުން ބޭރުން އަންނަ ފައިސާ ރާއްޖޭގެ އެކައުންޓުން ނެގޭނެ އެވެ. މި ބަދަލަކީ ރައީސްގެ ރިޔާސީ ވައުދެކެވެ.",
-    url: "https://local.oala.dev/single",
+    url: "https://breaking.oala.dev/single",
     images: [
       {
         url: "https://images.pexels.com/photos/214574/pexels-photo-214574.jpeg",
