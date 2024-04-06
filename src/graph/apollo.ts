@@ -54,58 +54,103 @@ export async function getMenu() {
   return data.menuConnection.edges;
 }
 
-const GET_LASTEST_NEWS = gql`
-query HomeArticles {
-  articleConnection(orderBy: id_DESC, stage: PUBLISHED, last: 3) {
-    pageInfo {
-      pageSize
-      startCursor
-      endCursor
-      hasNextPage
-      hasPreviousPage
-    }
-    edges {
-      cursor
-      node {
-        id
-        createdAt
-        menus {
-          ... on Menus {
+// const GET_LASTEST_NEWS = gql`
+// query HomeArticles {
+//   articleConnection(orderBy: id_DESC, stage: PUBLISHED, last: 3) {
+//     pageInfo {
+//       pageSize
+//       startCursor
+//       endCursor
+//       hasNextPage
+//       hasPreviousPage
+//     }
+//     edges {
+//       cursor
+//       node {
+//         id
+//         createdAt
+//         menus {
+//           ... on Menus {
+//             id
+//             name
+//             number
+//           }
+//         }
+//         title
+//         subTitle
+//         publishedAt
+//         newsContent {
+//           ... on NewsContents {
+//             id
+//             articleBody
+//             links
+//             mainImage {
+//               id
+//               fileName
+//               handle
+//             }
+//             otherImages {
+//               handle
+//               fileName
+//               id
+//             }
+//           }
+//         }
+//         typeOfArticle
+//       }
+//     }
+//   }
+// }
+// `;
+
+const GET_HOME_ARTICLES = gql`
+  query HomeArticles {
+    articleConnection(
+      orderBy: id_DESC
+      stage: PUBLISHED
+      last: 4
+    ) {
+      pageInfo {
+        pageSize
+        startCursor
+        endCursor
+        hasNextPage
+        hasPreviousPage
+      }
+      edges {
+        cursor
+        node {
+          id
+          title
+          subTitle
+          typeOfArticle
+          mainImage {
             id
+            handle
+            fileName
+          }
+          menus {
+            ... on Menus {
+              id
+              name
+              number
+            }
+          }
+          publishedBy {
             name
-            number
+            picture
           }
+          publishedAt
+          createdAt
         }
-        title
-        subTitle
-        publishedAt
-        newsContent {
-          ... on NewsContents {
-            id
-            articleBody
-            links
-            mainImage {
-              id
-              fileName
-              handle
-            }
-            otherImages {
-              handle
-              fileName
-              id
-            }
-          }
-        }
-        typeOfArticle
       }
     }
   }
-}
 `;
 
-export async function getLatestNews() {
+export async function getHomeArticles() {
   const { data } = await client.query({
-    query: GET_LASTEST_NEWS,
+    query: GET_HOME_ARTICLES,
   });
   return data.articleConnection.edges;
 }

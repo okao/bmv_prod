@@ -5,7 +5,7 @@ import AdBanner from "@/components/common/ad-banner"
 import HomeGallery from "@/components/home/home-gallery"
 import HomePage from "@/components/pages/home.page"
 import { useEffect, useState } from "react"
-import { getLatestNews } from '@/graph/apollo';
+import { getHomeArticles } from '@/graph/apollo';
 
 
 export default function LandingPage() {
@@ -15,7 +15,7 @@ export default function LandingPage() {
 
   const fetchArticles = async () => {
     setLoading(true);
-    const data = await getLatestNews();
+    const data = await getHomeArticles();
     setArticles(data);
 
     setLoading(false);

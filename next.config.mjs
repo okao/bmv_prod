@@ -25,7 +25,7 @@ const nextConfig = {
         hostname: 'ap-south-1.graphassets.com',
       }
     ],
-    unoptimized: false, // Cache images false and true means no cache
+    unoptimized: true, // Cache images false and true means no cache
     // loader: "cloudinary",
     // path: "https://res.cloudinary.com/your-unique-account-id/",
   },

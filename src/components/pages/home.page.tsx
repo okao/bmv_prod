@@ -5,6 +5,7 @@ import AdBanner from "@/components/common/ad-banner"
 import HomeGallery from "@/components/home/home-gallery"
 import Link from 'next/link'
 import Image from 'next/image'
+import MainArticle from './home/main-article'
 
 const imageMainUrl = "https://ap-south-1.graphassets.com/clume5wz10c1507pi8xxhh972"
 
@@ -25,22 +26,15 @@ const HomePage = ({ articles, loading }: any) => {
           <div className="mx-auto md:container">
             <div className="gap-6 md:flex md:flex-row-reverse">
 
-              <div className="rtl mb-10 bg-okaogray-400 dark:bg-slate-900 dark:shadow-lg md:mb-0 md:flex md:w-4/6 md:rounded-lg">
+              {/* <div className="rtl mb-10 bg-okaogray-400 dark:bg-slate-900 dark:shadow-lg md:mb-0 md:flex md:w-4/6 md:rounded-lg">
                 <div className="mb-6 flex-1 md:mb-0">
                   <Link
                     className="relative flex size-full"
                     href={`/article/${firstArticle?.node?.id}`}
                   >
-                    {/* <img
-                      className="h-max-[300px] w-full object-cover md:rounded-r"
-                      alt=""
-                      src={
-                        `${imageMainUrl}/${firstArticle?.node?.newsContent?.mainImage?.handle}`
-                      }
-                    /> */}
                     <Image
                       src={
-                        `${imageMainUrl}/${firstArticle?.node?.newsContent?.mainImage?.handle}`
+                        `${imageMainUrl}/${firstArticle?.node?.mainImage?.handle}`
                       }
                       alt=""
                       width={600}
@@ -86,7 +80,9 @@ const HomePage = ({ articles, loading }: any) => {
                     </div>
                   </div>
                 </Link>
-              </div>
+              </div> */}
+
+              <MainArticle loading={loading} firstArticle={firstArticle} imageMainUrl={imageMainUrl} />
 
 
               <div className="flex flex-col space-y-4 bg-okaogray-500 bg-opacity-50 p-5 dark:bg-slate-900 dark:shadow-lg md:ml-3 md:w-2/6 md:rounded-lg">
