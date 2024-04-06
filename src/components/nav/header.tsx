@@ -12,47 +12,38 @@ import { NavigationMobile } from "@/components/nav/navigation-mobile"
 import { ThemeToggle } from "@/components/theme-toggle"
 import LogoImage from "@/components/common/logo-image"
 import { useEffect, useState } from "react"
+import { getMenu } from '@/graph/apollo';
 
 
-const fetchMenu = async () => {
-  const response = await fetch(`/api/menus`, {
-    // headers: {
-    //   Authorization: `Bearer ${BearerToken}`,
-    // },
-  });
+// const fetchMenu = async () => {
+//   const response = await fetch(`/api/menus`, {
+//     // headers: {
+//     //   Authorization: `Bearer ${BearerToken}`,
+//     // },
+//   });
 
-  const data = await response.json();
-  return data;
-}
+//   const data = await response.json();
+//   return data;
+// }
 
 export function Header() {
+  // const [loading, setLoading] = useState(true);
+  // const [result, setResult] = useState({
+  //   items: [],
+  //   total: 0,
+  // })
+
+  const [menus, setMenus] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [result, setResult] = useState({
-    items: [],
-    total: 0,
-  })
 
-
-  const fetchData = async () => {
-    try {
-      setLoading(true)
-      const data = await fetchMenu()
-      setResult({
-        items: data.items,
-        total: data.total,
-      })
-    } catch (error) {
-      // setError(error);
-    } finally {
-      setLoading(false)
-    }
-  }
+  const fetchMenus = async () => {
+    const data = await getMenu();
+    setMenus(data);
+  };
 
   useEffect(() => {
-    fetchData()
-  }, [])
-
-  // console.log(result)
+    fetchMenus();
+  }, []);
 
 
   loading && <div>Loading...</div>
@@ -66,9 +57,9 @@ export function Header() {
             href="/"
             className="ml-4 flex items-center justify-end gap-2 text-lg font-bold tracking-wide transition-all duration-300 ease-in-out"
           >
-            <IoIosSearch className="text-xl text-gray-700 md:hidden lg:flex dark:text-gray-300" />
+            <IoIosSearch className="text-xl text-gray-700 dark:text-gray-300 md:hidden lg:flex" />
           </Link>
-          <Navigation navItems={result} />
+          <Navigation navItems={menus} />
           <LogoImage logotheme={null} />
         </div>
 

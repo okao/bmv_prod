@@ -1,4 +1,6 @@
-import React from "react"
+import { useEffect, useState } from 'react';
+
+
 
 const AdBanner = ({ src, href }: { src: string; href: string }) => {
   return (

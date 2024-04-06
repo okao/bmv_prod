@@ -13,59 +13,124 @@ import {
   WhatsappIcon,
   WhatsappShareButton,
 } from "next-share"
-
 import { mvAanamu, mvFaseyha, mvRasmee, mvWaheed } from "@/config/fonts"
 import { cn } from "@/lib/utils"
 import AdBanner from "@/components/common/ad-banner"
 import ShareButtons from "@/components/common/share-buttons"
 
-export const metadata: Metadata = {
-  title: "ބޭންކުން މިގެނައި ބަދަލުން ވީ ގޮތެއް އެނގޭތަ؟",
-  description:
-    "މި ބަދަލާއެކު ފްރީލާންސް މީހުން ބޭރުން އަންނަ ފައިސާ ރާއްޖޭގެ އެކައުންޓުން ނެގޭނެ އެވެ. މި ބަދަލަކީ ރައީސްގެ ރިޔާސީ ވައުދެކެވެ.",
-  openGraph: {
-    title: "ބޭންކުން މިގެނައި ބަދަލުން ވީ ގޮތެއް އެނގޭތަ؟",
-    description:
-      "މި ބަދަލާއެކު ފްރީލާންސް މީހުން ބޭރުން އަންނަ ފައިސާ ރާއްޖޭގެ އެކައުންޓުން ނެގޭނެ އެވެ. މި ބަދަލަކީ ރައީސްގެ ރިޔާސީ ވައުދެކެވެ.",
-    url: "https://breaking.oala.dev/single",
-    images: [
-      {
-        url: "https://images.pexels.com/photos/214574/pexels-photo-214574.jpeg",
-        width: 600,
-        height: 315,
-        alt: "މި ބަދަލާއެކު ފްރީލާންސް މީހުން ބޭރުން އަންނަ ފައިސާ ރާއްޖޭގެ އެކައުންޓުން ނެގޭނެ އެވެ. މި ބަދަލަކީ ރައީސްގެ ރިޔާސީ ވައުދެކެވެ.",
-      },
-    ],
-    type: "article",
-    locale: "en_US",
-    siteName: "Breaking Mv",
-  },
-  twitter: {
-    site: "@okmvok",
-    creator: "@okmvok",
-    card: "summary_large_image",
-    title: "ބޭންކުން މިގެނައި ބަދަލުން ވީ ގޮތެއް އެނގޭތަ؟",
-    description:
-      "މި ބަދަލާއެކު ފްރީލާންސް މީހުން ބޭރުން އަންނަ ފައިސާ ރާއްޖޭގެ އެކައުންޓުން ނެގޭނެ އެވެ. މި ބަދަލަކީ ރައީސްގެ ރިޔާސީ ވައުދެކެވެ.",
-    images: [
-      {
-        url: "https://images.pexels.com/photos/214574/pexels-photo-214574.jpeg",
-        width: 600,
-        height: 315,
-        alt: "މި ބަދަލާއެކު ފްރީލާންސް މީހުން ބޭރުން އަންނަ ފައިސާ ރާއްޖޭގެ އެކައުންޓުން ނެގޭނެ އެވެ. މި ބަދަލަކީ ރައީސްގެ ރިޔާސީ ވައުދެކެވެ.",
-      },
-    ],
-  },
+async function myAction(id: string) {
+    'use server'
+  const { getArticleById } = await import('@/graph/apollo');
+  // console.log("ID", id);
+  const data = await getArticleById(id);
+
+  return data;
 }
 
-const Single = () => {
+// export const metadata: Metadata = {
+
+//   title: "ބޭންކުން މިގެނައި ބަދަލުން ވީ ގޮތެއް އެނގޭތަ؟",
+//   description:
+//     "މި ބަދަލާއެކު ފްރީލާންސް މީހުން ބޭރުން އަންނަ ފައިސާ ރާއްޖޭގެ އެކައުންޓުން ނެގޭނެ އެވެ. މި ބަދަލަކީ ރައީސްގެ ރިޔާސީ ވައުދެކެވެ.",
+//   openGraph: {
+//     title: "ބޭންކުން މިގެނައި ބަދަލުން ވީ ގޮތެއް އެނގޭތަ؟",
+//     description:
+//       "މި ބަދަލާއެކު ފްރީލާންސް މީހުން ބޭރުން އަންނަ ފައިސާ ރާއްޖޭގެ އެކައުންޓުން ނެގޭނެ އެވެ. މި ބަދަލަކީ ރައީސްގެ ރިޔާސީ ވައުދެކެވެ.",
+//     url: "https://breaking.oala.dev/single",
+//     images: [
+//       {
+//         url: "https://images.pexels.com/photos/214574/pexels-photo-214574.jpeg",
+//         width: 600,
+//         height: 315,
+//         alt: "މި ބަދަލާއެކު ފްރީލާންސް މީހުން ބޭރުން އަންނަ ފައިސާ ރާއްޖޭގެ އެކައުންޓުން ނެގޭނެ އެވެ. މި ބަދަލަކީ ރައީސްގެ ރިޔާސީ ވައުދެކެވެ.",
+//       },
+//     ],
+//     type: "article",
+//     locale: "en_US",
+//     siteName: "Breaking Mv",
+//   },
+//   twitter: {
+//     site: "@okmvok",
+//     creator: "@okmvok",
+//     card: "summary_large_image",
+//     title: "ބޭންކުން މިގެނައި ބަދަލުން ވީ ގޮތެއް އެނގޭތަ؟",
+//     description:
+//       "މި ބަދަލާއެކު ފްރީލާންސް މީހުން ބޭރުން އަންނަ ފައިސާ ރާއްޖޭގެ އެކައުންޓުން ނެގޭނެ އެވެ. މި ބަދަލަކީ ރައީސްގެ ރިޔާސީ ވައުދެކެވެ.",
+//     images: [
+//       {
+//         url: "https://images.pexels.com/photos/214574/pexels-photo-214574.jpeg",
+//         width: 600,
+//         height: 315,
+//         alt: "މި ބަދަލާއެކު ފްރީލާންސް މީހުން ބޭރުން އަންނަ ފައިސާ ރާއްޖޭގެ އެކައުންޓުން ނެގޭނެ އެވެ. މި ބަދަލަކީ ރައީސްގެ ރިޔާސީ ވައުދެކެވެ.",
+//       },
+//     ],
+//   },
+// }
+
+export async function generateMetadata({ params } : { params: { id: string } }) {
+
+  const getArticle = await myAction(params?.id) || {};
+  const article = getArticle[0];
+
+  return {
+    title: article?.title,
+    description: article?.subTitle,
+    openGraph: {
+      title: article?.title,
+      description: article?.subTitle,
+      url: `https://breaking.oala.dev/article/${article?.id}`,
+      images: [
+        {
+          url: `${imageMainUrl}/${article?.newsContent?.mainImage?.handle}`,
+          width: 600,
+          height: 315,
+          alt: "މި ބަދަލާއެކު ފްރީލާންސް މީހުން ބޭރުން އަންނަ ފައިސާ ރާއްޖޭގެ އެކައުންޓުން ނެގޭނެ އެވެ. މި ބަދަލަކީ ރައީސްގެ ރިޔާސީ ވައުދެކެވެ.",
+        },
+      ],
+      type: "article",
+      locale: "en_US",
+      siteName: "Breaking Mv",
+    },
+    twitter: {
+      site: "@okmvok",
+      creator: "@okmvok",
+      card: "summary_large_image",
+      title: article?.title,
+      description:
+        article?.subTitle,
+      images: [
+        {
+          url: `${imageMainUrl}/${article?.newsContent?.mainImage?.handle}`,
+          width: 600,
+          height: 315,
+          alt: article?.subTitle,
+        },
+      ],
+    },
+  }
+}
+
+const imageMainUrl = "https://ap-south-1.graphassets.com/clume5wz10c1507pi8xxhh972"
+
+const Single = async ({ params } : any ) => {
+  // console.log("Params", { params });
+  const getArticle = await myAction(params?.id) || {};
+  const article = getArticle[0];
+  // console.log("Article", `${imageMainUrl}/${article?.newsContent?.mainImage?.handle}`);
+  console.log("Article", article);
+
+  const articleTags = article?.articleTags;
+
+  console.log("Article Tags", articleTags);
+
+
   return (
     <div>
       <div className="container grid grid-cols-12 px-0 lg:gap-x-8 lg:gap-y-4 lg:p-4">
         <div className="col-span-12 lg:order-1 lg:col-span-9">
           <div className="lg:pb-8">
             <div className="relative flex flex-col items-end lg:mb-8">
-              <div className="bg-okaogray-400 relative aspect-square size-full overflow-hidden p-4 lg:aspect-[704/433] lg:rounded-[20px] dark:bg-slate-900">
+              <div className="relative aspect-square size-full overflow-hidden bg-okaogray-400 p-4 dark:bg-slate-900 lg:aspect-[704/433] lg:rounded-[20px]">
                 <img
                   loading="lazy"
                   decoding="async"
@@ -78,7 +143,8 @@ const Single = () => {
                     color: "transparent",
                   }}
                   className="object-cover"
-                  src="https://minoos-space.sgp1.digitaloceanspaces.com/content/media/big_bdFBUmM1ouMZt4wzuogT5uszf.jpg"
+                  // src="https://minoos-space.sgp1.digitaloceanspaces.com/content/media/big_bdFBUmM1ouMZt4wzuogT5uszf.jpg"
+                  src={`${imageMainUrl}/${article?.newsContent?.mainImage?.handle}`}
                   alt=""
                 />
               </div>
@@ -117,11 +183,11 @@ const Single = () => {
                 <div className="rtl relative max-w-3xl px-8 py-6 pt-4 lg:px-14">
                   <h1
                     className={cn(
-                      "mb-4 line-clamp-5 text-[32px] font-bold leading-snug transition-all lg:me-12 dark:text-white",
+                      "mb-4 line-clamp-5 text-[32px] font-bold leading-snug transition-all dark:text-white lg:me-12",
                       mvWaheed.className
                     )}
                   >
-                    ބޭންކުން މިގެނައި ބަދަލުން ވީ ގޮތެއް އެނގޭތަ؟
+                    {article?.title}
                   </h1>
                   <div className="mb-4 flex flex-wrap items-center gap-4 gap-y-3">
                     <a
@@ -135,7 +201,9 @@ const Single = () => {
                           mvRasmee.className
                         )}
                       >
-                        އައިޝަތު އިފާޝާ
+                       {
+                         article?.publishedBy?.name
+                       }
                       </p>
                     </a>
                     <span className="absolute -top-5 right-2 size-6 overflow-hidden rounded-full">
@@ -145,7 +213,7 @@ const Single = () => {
                         decoding="async"
                         data-nimg="fill"
                         sizes="100vw"
-                        srcSet="https://gaafu.mv/_next/image?url=%2Flogo.png&amp;w=640&amp;q=75 640w, https://gaafu.mv/_next/image?url=%2Flogo.png&amp;w=750&amp;q=75 750w, https://gaafu.mv/_next/image?url=%2Flogo.png&amp;w=828&amp;q=75 828w, https://gaafu.mv/_next/image?url=%2Flogo.png&amp;w=1080&amp;q=75 1080w, https://gaafu.mv/_next/image?url=%2Flogo.png&amp;w=1200&amp;q=75 1200w, https://gaafu.mv/_next/image?url=%2Flogo.png&amp;w=1920&amp;q=75 1920w, https://gaafu.mv/_next/image?url=%2Flogo.png&amp;w=2048&amp;q=75 2048w, https://gaafu.mv/_next/image?url=%2Flogo.png&amp;w=3840&amp;q=75 3840w"
+                        // srcSet="https://gaafu.mv/_next/image?url=%2Flogo.png&amp;w=640&amp;q=75 640w, https://gaafu.mv/_next/image?url=%2Flogo.png&amp;w=750&amp;q=75 750w, https://gaafu.mv/_next/image?url=%2Flogo.png&amp;w=828&amp;q=75 828w, https://gaafu.mv/_next/image?url=%2Flogo.png&amp;w=1080&amp;q=75 1080w, https://gaafu.mv/_next/image?url=%2Flogo.png&amp;w=1200&amp;q=75 1200w, https://gaafu.mv/_next/image?url=%2Flogo.png&amp;w=1920&amp;q=75 1920w, https://gaafu.mv/_next/image?url=%2Flogo.png&amp;w=2048&amp;q=75 2048w, https://gaafu.mv/_next/image?url=%2Flogo.png&amp;w=3840&amp;q=75 3840w"
                         src="https://www.al-monitor.com/sites/default/files/styles/article_header/public/2023-10/49f608a6bf2fa038d6c6388bc5686b2867ea4d5f.jpg?h=69f2b9d0&itok=p0Ar_W7D"
                         style={{
                           position: "absolute",
@@ -183,7 +251,11 @@ const Single = () => {
                           strokeLinejoin="round"
                         ></path>
                       </svg>
-                      29/03/2024, 14:03:50
+                      {/* 29/03/2024, 14:03:50 */}
+
+                      {
+                        article?.publishedAt && new Date(article?.publishedAt).toLocaleString()
+                      }
                     </p>
                     {/* <div
                       className="flex flex-1 items-center justify-center gap-3 lg:flex-none"
@@ -305,18 +377,19 @@ const Single = () => {
                       summary="ބޭންކުން މިގެނައި ބަދަލުން ވީ ގޮތެއް އެނގޭތަ؟"
                     />
                   </div>
-                  <a
-                    className="text-web-secondary mb-3 me-3 inline-block text-sm dark:text-white"
-                    href="/dv/search?tag=seeriaa"
-                  >
-                    # ބީއެމްއެލް
-                  </a>
-                  <a
-                    className="text-web-secondary mb-3 me-3 inline-block text-sm dark:text-white"
-                    href="/dv/search?tag=yahoodhee israaeel"
-                  >
-                    # ދިވެހިރާއްޖެ
-                  </a>
+                  {
+                    articleTags && articleTags?.value?.map(({tag, index}: any) => {
+                      return (
+                        <a
+                          className="text-web-secondary mb-3 me-3 inline-block text-sm dark:text-white"
+                          href={`dv/search?tag=${tag}`}
+                          key={index}
+                        >
+                          # {tag}
+                        </a>
+                      )
+                    })
+                  }
                 </div>
               </div>
             </div>
@@ -327,8 +400,7 @@ const Single = () => {
               mvRasmee.className
             )}
           >
-            މި ބަދަލާއެކު ފްރީލާންސް މީހުން ބޭރުން އަންނަ ފައިސާ ރާއްޖޭގެ
-            އެކައުންޓުން ނެގޭނެ އެވެ. މި ބަދަލަކީ ރައީސްގެ ރިޔާސީ ވައުދެކެވެ.
+            {article?.subTitle}
           </p>
         </div>
 
@@ -336,7 +408,7 @@ const Single = () => {
           <div className="sticky top-28 grid gap-6 pb-8 lg:gap-8">
             <a
               href="/"
-              className="bg-secondary relative aspect-[300/600] w-full overflow-hidden rounded-xl lg:block"
+              className="relative aspect-[300/600] w-full overflow-hidden rounded-xl bg-secondary lg:block"
             >
               <img
                 alt="މޯލްޑިވްސް ގޭސް"
@@ -364,7 +436,7 @@ const Single = () => {
           <div className="flex items-center justify-center pb-4 pt-8 lg:justify-end lg:px-8 lg:pt-2">
             <a
               className={cn(
-                "hover:text-mired-900 font-normal text-black md:text-lg",
+                "font-normal text-black hover:text-mired-900 md:text-lg",
                 mvWaheed.className
               )}
               href="/category/report"
@@ -375,12 +447,20 @@ const Single = () => {
             </a>
             <a
               className={cn(
-                "text-mired-500 hover:text-mired-900 font-normal md:text-lg",
+                "font-normal text-mired-500 hover:text-mired-900 md:text-lg",
                 mvWaheed.className
               )}
               href="/tags/bank-of-maldives"
             >
-              ބީއެމްއެލް
+              {
+                article?.menus?.map(({menu, index}: any) => {
+                  return (
+                    <span key={index}>
+                      {menu?.name} {index < article?.menus?.length - 1 && " | "}
+                    </span>
+                  )
+                })
+              }
             </a>
           </div>
         </div>
@@ -392,7 +472,7 @@ const Single = () => {
           className="separator--dotted mx-auto mt-8 md:container"
         ></div>
         <div className="mt-10 flex">
-          <div className="bg-okaogray-500 mb-6 hidden w-full overflow-hidden rounded-[10px] p-4 pb-8 md:block dark:bg-slate-800">
+          <div className="mb-6 hidden w-full overflow-hidden rounded-[10px] bg-okaogray-500 p-4 pb-8 dark:bg-slate-800 md:block">
             <h6
               className={cn(
                 "rtl mb-4 border-b border-gray-400 pb-4 text-xl font-bold dark:border-slate-500 dark:text-white",
@@ -404,7 +484,7 @@ const Single = () => {
 
             <div className="relative grid gap-y-6 overflow-x-auto">
               <a
-                className="bg-okaogray-600 group relative grid min-w-[70vw] rounded-lg p-4 md:min-w-[unset] md:grid-cols-5 md:gap-4 dark:bg-slate-900"
+                className="group relative grid min-w-[70vw] rounded-lg bg-okaogray-600 p-4 dark:bg-slate-900 md:min-w-[unset] md:grid-cols-5 md:gap-4"
                 href="/dv/143700"
               >
                 <div className="dark:bg-web-accent-wall bg-web-accent-wall-dark relative col-span-2 mb-[18px] aspect-[223/157] overflow-hidden rounded-2xl lg:rounded-[20px]">
@@ -448,7 +528,7 @@ const Single = () => {
               </a>
 
               <a
-                className="bg-okaogray-600 group relative grid min-w-[70vw] rounded-lg p-4 md:min-w-[unset] md:grid-cols-5 md:gap-4 dark:bg-slate-900"
+                className="group relative grid min-w-[70vw] rounded-lg bg-okaogray-600 p-4 dark:bg-slate-900 md:min-w-[unset] md:grid-cols-5 md:gap-4"
                 href="/dv/143700"
               >
                 <div className="dark:bg-web-accent-wall bg-web-accent-wall-dark relative col-span-2 mb-[18px] aspect-[223/157] overflow-hidden rounded-2xl lg:rounded-[20px]">
@@ -493,7 +573,7 @@ const Single = () => {
               </a>
 
               <a
-                className="bg-okaogray-600 group relative grid min-w-[70vw] rounded-lg p-4 md:min-w-[unset] md:grid-cols-5 md:gap-4 dark:bg-slate-900"
+                className="group relative grid min-w-[70vw] rounded-lg bg-okaogray-600 p-4 dark:bg-slate-900 md:min-w-[unset] md:grid-cols-5 md:gap-4"
                 href="/dv/143700"
               >
                 <div className="dark:bg-web-accent-wall bg-web-accent-wall-dark relative col-span-2 mb-[18px] aspect-[223/157] overflow-hidden rounded-2xl lg:rounded-[20px]">
@@ -537,7 +617,7 @@ const Single = () => {
               </a>
 
               <a
-                className="bg-okaogray-600 group relative grid min-w-[70vw] rounded-lg p-4 md:min-w-[unset] md:grid-cols-5 md:gap-4 dark:bg-slate-900"
+                className="group relative grid min-w-[70vw] rounded-lg bg-okaogray-600 p-4 dark:bg-slate-900 md:min-w-[unset] md:grid-cols-5 md:gap-4"
                 href="/dv/143700"
               >
                 <div className="dark:bg-web-accent-wall bg-web-accent-wall-dark relative col-span-2 mb-[18px] aspect-[223/157] overflow-hidden rounded-2xl lg:rounded-[20px]">
@@ -582,18 +662,8 @@ const Single = () => {
             </div>
           </div>
           <div className="mt-6 max-w-3xl text-justify lg:pl-6">
-            <p
-              className={cn(
-                "rtl mb-6 pl-0 text-lg font-medium leading-8 tracking-widest",
-                mvFaseyha.className
-              )}
-            >
-              ކުރީގެ ރައީސް އިބްރާހިމް މުހައްމަދު ސޯލިހުގެ ސަރުކާރުން މާލޭގެ
-              ރައްޔިތުންނަށް އިސްކަން ނުދެއްވާ ކަމަށް ވިދާޅުވެ އެސަރުކާރުން
-              ރައީސް ޑރ މުހައްމަދު މުއިއްޒު ފާޑުވިދާޅުވެއްޖެ އެވެ.
-            </p>
             <a
-              className="bg-secondary relative mb-6 block aspect-[300/300] w-full overflow-hidden rounded-xl lg:float-left lg:mr-4 lg:max-w-[304px]"
+              className="relative mb-6 block aspect-[300/300] w-full overflow-hidden rounded-xl bg-secondary lg:float-left lg:mr-4 lg:max-w-[304px]"
               href="https://www.facebook.com/thinadhoo.dhekunu"
             >
               <img
@@ -621,46 +691,17 @@ const Single = () => {
                 mvFaseyha.className
               )}
             >
-              ޕީއެންސީ ކެންޑިޑޭޓް އިބްރާހިމް މުހައްމަދުގެ ކެމްޕޭން ހަރަކާތް
-              ރަސްމީކޮށް ފައްޓަވާ، ޖަގަހަ ހުޅުވުމަށް ބޭއްވި ޖަލްސާގައި ދެއްކެވި
-              ވާހަކަފުޅުގައި އެވެ. އެގޮތުން ރައީސް ވިދާޅުވީ 2018 ވަނަ އަހަރު
-              މާލޭގެ ރައްޔިތުންވެސް އެމްޑީޕީގެ ވެރިކަމެއް ހިޔާރުކުރީ
-              ބޯހިޔާވަހިކަމަށް ގޯތި ދިނުމުގެ ވައުދު ފުއްދަވައިދެއްވާނެ ކަމުގައި
-              އުންމީދުގައި ކަމަށެވެ. އަދި މަޖިލިސް މެޖޯރިޓީވެސް އެމްޑީޕިއަށް
-              ދިނީ އެކަމަށްޓަކައި ކަމަށާއި ހުރިހާ ބާރެއް އޮވެވެސް މާލޭގެ
-              ރައްޔިތުންނަށް ބޯހިޔާވަހިލަށް ހޯދައިދިނުމަށް އިސްކަން ނުދީ
-              ދޫކޮށްލީ ކަމަށެވެ. ނަމަވެސް ލޯކަލް ކައުންސިލް އިންތިހާބު
-              އެމަނިކުފާނަށް މާލޭގެ ރައްޔިތުން ކާމިޔާބުކޮށްދިނީ އެމްޑީޕީއިން
-              ވައުދުވި ކަންކަން ފުެއްދައިނުދިނުމުން ކަން ފާހަގަކުރައްވައި އޭރުގެ
-              މޭޔަރު އަދި މިހާރުގެ ރައީސް ޑރ މުއިއްޒު ވިދާޅުވީ ބޯހިޔާވަހިކަމުގެ
-              މައްސަލައަށް ހައްލު ހޯދަން ސަރުކާރުގެ އެއްބާރުލުން ކައުންސިލަށް
-              ދިނުމަށް އެދިވަޑައިގަތުމުން ވެސް ސަރުކާރުން އެ ކަން
-              ނުކުރީކަމަށެވެ. ރައްޔިތުން ނިންމެވީ އެކަން ބަދަލު ކުރަން. އެގޮތުން
-              ނިމިދިޔަ ރިޔާސީ އިންތިހާބުގައި ރައްޔިތުން ވަނީ އެކަން
-              ބަދަލުކޮށްފައި. އަޅުގަނޑު ދެއްކި ވާހަކައަށް ރައްޔިތުން އިތުބާރު
-              ކުރެއްވެވި. އެއީ މިހާރު އޮތް މަޖިލީހުގެ މެޖޯރިޓީ އޮވެ، އަދި
-              އެބޭފުޅުންނަށް ސަރުކާރު އޮވެ ދައުރު ނިމެން ކުޑަ ދުވަސްކޮޅަކަށް
-              ވީމާ މާލޭގެ ރައްޔިތުންނަށް އެންމެ މުހިއްމު މައްސަލައާގެން އުޅުނ
-              ރައީސް ވިދާޅުވި އެވެ. މީގެ އިތުރުންވެސް މާލޭގެ ތަރައްޤީއަށް
-              ކައުންސިލުން ކުރުމަށް ރޭވި ގިނަ މަސައްކަތްތަކަށް އޭރުގެ ސަރުކާރުން
-              އެއްބާރުލުން ނުދިންކަންވެސް ރައީސް ފާހަގަކުރެއްވި އެވެ. އޭގެ
-              ތެރޭގައި މާލޭގެ މަގުތައް ހެދުމުގެ މަޝްރޫއު ރައީސް ފާހަގަކުރެއްވި
-              އެެވެ. ރައީސް ވިދާޅުވީ އެމްޑީޕީއަށް މެޖޯރިޓީ ލިބިގެން މާލެ
-              ތަރައްގީ ކުރެވޭނެ ކަމަށް ދައްކާ ވާހަކަ ގަބޫލު ކުރަން ނުޖެހޭ
-              ކަމަށެވެ. ރައީސް ވިދާޅުވީ މާލޭގެ ރައްޔިތުންނަށް ކުރީސަރުކާރުން
-              އިސްކަން ނުދިން ނަމަވެސް މި ސަރުކާރުން މާލޭގެ ރައްޔިތުންނަށް
-              އިސްކަންދީގެން ބޯހިޔާވަހިކަމާއި، ޕާކިން މައްސަލަ ހައްލުކުރުމާއި،
-              މަގުތައް ތަރައްގީކުރުމުގެ މަސައްކަތް ކުރަމުން އަންނަކަމަށް
-              ވިދާޅުވިއެވެ. އަދި އެ ކަންކަމުގައި މާލޭ ރައްޔިތުން އެއްބާރުލުން
-              ދިނުމަށް ރައީސް އެދިވަޑައިގަތެވެ.
+              {
+                article?.newsContent?.articleBody
+              }
             </p>
           </div>
         </div>
-        <div className="bg-okaogray-500 relative mb-8 mt-10 gap-4 rounded-[20px] p-6 pb-12 md:hidden lg:grid-cols-4 dark:bg-slate-800">
+        <div className="relative mb-8 mt-10 gap-4 rounded-[20px] bg-okaogray-500 p-6 pb-12 dark:bg-slate-800 md:hidden lg:grid-cols-4">
           <div className="col-span-2 lg:col-span-4">
             <h6
               className={cn(
-                "rtl border-okaogray-400 mb-4 border-b pb-4 text-xl font-bold",
+                "rtl mb-4 border-b border-okaogray-400 pb-4 text-xl font-bold",
                 mvWaheed.className
               )}
             >
