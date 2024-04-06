@@ -3,13 +3,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
 import { mvAanamu, mvRasmee } from '@/config/fonts'
-import Logo from 'public/logos/logo.svg'
-
-const imagixLoader = ({ src, width, quality }) => {
-  // return `${src}?w=${width}&q=${quality || 75}`
-  return `${src}`
-}
-
 
 const MainArticle = ({firstArticle, imageMainUrl, loading} : {firstArticle: any, imageMainUrl: string, loading: boolean}) => {
   return (
