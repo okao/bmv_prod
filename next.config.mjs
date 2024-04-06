@@ -20,8 +20,12 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'minoos-space.sgp1.cdn.digitaloceanspaces.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'ap-south-1.graphassets.com',
+      }
     ],
-    unoptimized: true, // Cache images false and true means no cache
+    unoptimized: false, // Cache images false and true means no cache
     // loader: "cloudinary",
     // path: "https://res.cloudinary.com/your-unique-account-id/",
   },

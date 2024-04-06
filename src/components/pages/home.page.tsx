@@ -4,6 +4,7 @@ import { mvAanamu, mvRasmee, mvWaheed } from "@/config/fonts"
 import AdBanner from "@/components/common/ad-banner"
 import HomeGallery from "@/components/home/home-gallery"
 import Link from 'next/link'
+import Image from 'next/image'
 
 const imageMainUrl = "https://ap-south-1.graphassets.com/clume5wz10c1507pi8xxhh972"
 
@@ -30,13 +31,22 @@ const HomePage = ({ articles, loading }: any) => {
                     className="relative flex size-full"
                     href={`/article/${firstArticle?.node?.id}`}
                   >
-                    <img
+                    {/* <img
                       className="h-max-[300px] w-full object-cover md:rounded-r"
-                      // src="https://minoos-space.sgp1.digitaloceanspaces.com/content/media/big_74zQEYO6aPgwsxypJT3OGgDnE.jpg"
                       alt=""
                       src={
                         `${imageMainUrl}/${firstArticle?.node?.newsContent?.mainImage?.handle}`
                       }
+                    /> */}
+                    <Image
+                      src={
+                        `${imageMainUrl}/${firstArticle?.node?.newsContent?.mainImage?.handle}`
+                      }
+                      alt=""
+                      width={600}
+                      height={400}
+                      className="w-full object-cover md:rounded-r"
+                      priority
                     />
                   </Link>
                 </div>
