@@ -10,8 +10,8 @@ interface SmoothScrollProviderProps {
 const LenisOptions = {
   lerp: 0.1,
   duration: 1.5,
-  syncTouch: true,
-  smooth: true,
+  // syncTouch: true,
+  smoothTouch: true,
 }
 
 export function SmoothScrollProvider({ children }: SmoothScrollProviderProps) {
