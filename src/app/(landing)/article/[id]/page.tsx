@@ -84,7 +84,7 @@ export async function generateMetadata({ params } : { params: { id: string } }) 
           url: `${imageMainUrl}/${article?.newsContent?.mainImage?.handle}`,
           width: 600,
           height: 315,
-          alt: "މި ބަދަލާއެކު ފްރީލާންސް މީހުން ބޭރުން އަންނަ ފައިސާ ރާއްޖޭގެ އެކައުންޓުން ނެގޭނެ އެވެ. މި ބަދަލަކީ ރައީސްގެ ރިޔާސީ ވައުދެކެވެ.",
+          alt: article?.subTitle,
         },
       ],
       type: "article",
@@ -372,13 +372,13 @@ const Single = async ({ params } : any ) => {
                       </button>
                     </div> */}
                     <ShareButtons
-                      title="ބޭންކުން މިގެނައި ބަދަލުން ވީ ގޮތެއް އެނގޭތަ؟"
-                      url="https://local.oala.dev/single"
-                      summary="ބޭންކުން މިގެނައި ބަދަލުން ވީ ގޮތެއް އެނގޭތަ؟"
+                      title={article?.title}
+                      url={`https://breaking.oala.dev/article/${article?.id}`}
+                      summary={article?.subTitle}
                     />
                   </div>
                   {
-                    articleTags && articleTags?.value?.map(({tag, index}: any) => {
+                    articleTags && articleTags?.value?.map((tag: string, index: number) => {
                       return (
                         <a
                           className="text-web-secondary mb-3 me-3 inline-block text-sm dark:text-white"
@@ -453,7 +453,7 @@ const Single = async ({ params } : any ) => {
               href="/tags/bank-of-maldives"
             >
               {
-                article?.menus?.map(({menu, index}: any) => {
+                article?.menus?.map((menu: any, index: number) => {
                   return (
                     <span key={index}>
                       {menu?.name} {index < article?.menus?.length - 1 && " | "}
