@@ -729,7 +729,11 @@ const Single = async ({ params } : any ) => {
                               width="100%"
                               height="100%"
                               controls
-                              className="mb-8 rounded-xl object-cover "
+                              className="mb-8 rounded-xl object-cover"
+                              autoPlay
+                              muted
+                              loop
+                              playsInline
                             />
                           ) : (
                             <Image
