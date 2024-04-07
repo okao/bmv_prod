@@ -65,7 +65,7 @@ const ShareButtons = ({
       <TwitterShareButton
         url={url}
         title={title}
-        hashtags={summary.split(" ")}
+        hashtags={[summary]}
         className="cursor-pointer"
       >
         <div

@@ -17,6 +17,7 @@ import { mvAanamu, mvFaseyha, mvRasmee, mvWaheed } from "@/config/fonts"
 import { cn } from "@/lib/utils"
 import AdBanner from "@/components/common/ad-banner"
 import ShareButtons from "@/components/common/share-buttons"
+import Image from "next/image"
 
 async function myAction(id: string) {
     'use server'
@@ -72,6 +73,8 @@ export async function generateMetadata({ params } : { params: { id: string } }) 
   const getArticle = await myAction(params?.id) || {};
   const article = getArticle[0];
 
+  // console.log("Article", article['articleContent']);
+
   return {
     title: article?.title,
     description: article?.subTitle,
@@ -117,16 +120,17 @@ const Single = async ({ params } : any ) => {
   const getArticle = await myAction(params?.id) || {};
   const article = getArticle[0];
   // console.log("Article", `${imageMainUrl}/${article?.newsContent?.mainImage?.handle}`);
-  console.log("Article", article);
+  console.log("Article", article?.articleContent);
 
   const articleTags = article?.articleTags;
 
-  console.log("Article Tags", articleTags);
+  // console.log("Article Tags", articleTags);
 
 
   return (
     <div>
       <div className="container grid grid-cols-12 px-0 lg:gap-x-8 lg:gap-y-4 lg:p-4">
+        {/* Single Article Image Banner Title and SubTitle */}
         <div className="col-span-12 lg:order-1 lg:col-span-9">
           <div className="lg:pb-8">
             <div className="relative flex flex-col items-end lg:mb-8">
@@ -143,8 +147,7 @@ const Single = async ({ params } : any ) => {
                     color: "transparent",
                   }}
                   className="object-cover"
-                  // src="https://minoos-space.sgp1.digitaloceanspaces.com/content/media/big_bdFBUmM1ouMZt4wzuogT5uszf.jpg"
-                  src={`${imageMainUrl}/${article?.newsContent?.mainImage?.handle}`}
+                  src={`${imageMainUrl}/${article?.mainImage?.handle}`}
                   alt=""
                 />
               </div>
@@ -194,7 +197,9 @@ const Single = async ({ params } : any ) => {
                       className="group relative flex items-center gap-2"
                       href="#"
                     >
-                      <span className="relative mb-1 aspect-square w-10 overflow-hidden rounded-full bg-gray-800 text-white dark:bg-gray-200"></span>
+                      <span className="relative mb-1 aspect-square w-10 overflow-hidden rounded-full bg-gray-800 text-white dark:bg-gray-200">
+                        <img src={article?.publishedBy?.picture} alt="" />
+                      </span>
                       <p
                         className={cn(
                           "text-lg font-bold text-black dark:text-white",
@@ -213,7 +218,6 @@ const Single = async ({ params } : any ) => {
                         decoding="async"
                         data-nimg="fill"
                         sizes="100vw"
-                        // srcSet="https://gaafu.mv/_next/image?url=%2Flogo.png&amp;w=640&amp;q=75 640w, https://gaafu.mv/_next/image?url=%2Flogo.png&amp;w=750&amp;q=75 750w, https://gaafu.mv/_next/image?url=%2Flogo.png&amp;w=828&amp;q=75 828w, https://gaafu.mv/_next/image?url=%2Flogo.png&amp;w=1080&amp;q=75 1080w, https://gaafu.mv/_next/image?url=%2Flogo.png&amp;w=1200&amp;q=75 1200w, https://gaafu.mv/_next/image?url=%2Flogo.png&amp;w=1920&amp;q=75 1920w, https://gaafu.mv/_next/image?url=%2Flogo.png&amp;w=2048&amp;q=75 2048w, https://gaafu.mv/_next/image?url=%2Flogo.png&amp;w=3840&amp;q=75 3840w"
                         src="https://www.al-monitor.com/sites/default/files/styles/article_header/public/2023-10/49f608a6bf2fa038d6c6388bc5686b2867ea4d5f.jpg?h=69f2b9d0&itok=p0Ar_W7D"
                         style={{
                           position: "absolute",
@@ -404,6 +408,7 @@ const Single = async ({ params } : any ) => {
           </p>
         </div>
 
+        {/* Single Article Main Ad */}
         <div className="col-span-12 hidden px-4 lg:col-span-3 lg:row-span-2 lg:block lg:px-0">
           <div className="sticky top-28 grid gap-6 pb-8 lg:gap-8">
             <a
@@ -431,6 +436,7 @@ const Single = async ({ params } : any ) => {
           </div>
         </div>
       </div>
+
       <div className="container grid grid-cols-12 px-0">
         <div className="order-1 col-span-12">
           <div className="flex items-center justify-center pb-4 pt-8 lg:justify-end lg:px-8 lg:pt-2">
@@ -661,8 +667,8 @@ const Single = async ({ params } : any ) => {
               </a>
             </div>
           </div>
-          <div className="mt-6 max-w-3xl text-justify lg:pl-6">
-            <a
+          <div className="mt-6 max-w-3xl text-justify md:mt-0 lg:pl-6">
+            {/* <a
               className="relative mb-6 block aspect-[300/300] w-full overflow-hidden rounded-xl bg-secondary lg:float-left lg:mr-4 lg:max-w-[304px]"
               href="https://www.facebook.com/thinadhoo.dhekunu"
             >
@@ -675,7 +681,6 @@ const Single = async ({ params } : any ) => {
                 sizes="75vw"
                 srcSet="https://gaafu.mv/_next/image?url=%2Fsikundi-content%2Fuploads%2F2024%2F3%2Fphoto_2024-03-31_15-41-46.jpg&amp;w=640&amp;q=75 640w, https://gaafu.mv/_next/image?url=%2Fsikundi-content%2Fuploads%2F2024%2F3%2Fphoto_2024-03-31_15-41-46.jpg&amp;w=750&amp;q=75 750w, https://gaafu.mv/_next/image?url=%2Fsikundi-content%2Fuploads%2F2024%2F3%2Fphoto_2024-03-31_15-41-46.jpg&amp;w=828&amp;q=75 828w, https://gaafu.mv/_next/image?url=%2Fsikundi-content%2Fuploads%2F2024%2F3%2Fphoto_2024-03-31_15-41-46.jpg&amp;w=1080&amp;q=75 1080w, https://gaafu.mv/_next/image?url=%2Fsikundi-content%2Fuploads%2F2024%2F3%2Fphoto_2024-03-31_15-41-46.jpg&amp;w=1200&amp;q=75 1200w, https://gaafu.mv/_next/image?url=%2Fsikundi-content%2Fuploads%2F2024%2F3%2Fphoto_2024-03-31_15-41-46.jpg&amp;w=1920&amp;q=75 1920w, https://gaafu.mv/_next/image?url=%2Fsikundi-content%2Fuploads%2F2024%2F3%2Fphoto_2024-03-31_15-41-46.jpg&amp;w=2048&amp;q=75 2048w, https://gaafu.mv/_next/image?url=%2Fsikundi-content%2Fuploads%2F2024%2F3%2Fphoto_2024-03-31_15-41-46.jpg&amp;w=3840&amp;q=75 3840w"
                 src="https://gaafu.mv/_next/image?url=%2Fsikundi-content%2Fuploads%2F2024%2F3%2Fphoto_2024-03-31_15-41-46.jpg&amp;w=3840&amp;q=75"
-                // style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;"
                 style={{
                   position: "absolute",
                   height: "100%",
@@ -684,17 +689,67 @@ const Single = async ({ params } : any ) => {
                   color: "transparent",
                 }}
               />
-            </a>
-            <p
-              className={cn(
-                "rtl mb-6 pl-0 text-lg font-thin leading-8 tracking-widest",
-                mvFaseyha.className
-              )}
-            >
-              {
+            </a> */}
+            <div className="">
+              {/* {
                 article?.newsContent?.articleBody
+              } */}
+
+              {
+                // article?.newsContent?.articleBody?.map((body: any, index: number) => {
+                //   return (
+                //     <p key={index}>
+                //       {body?.content}
+                //     </p>
+                //   )
+                // })
+
+                article?.articleContent?.map((content: any, index: number) => {
+                  if(content?.__typename === "ArticleBody") {
+                    return (
+                      <p key={index} className={cn(
+                          "rtl mb-6 pl-0 text-lg font-thin leading-8 tracking-widest",
+                          mvFaseyha.className
+                        )}>
+                        {content?.content}
+                      </p>
+                    )
+                  } else if (content?.__typename === "ArticleImage") {
+                    return (
+                      <a
+                        className="my-4 size-[200px] w-full rounded-xl bg-gray-200 dark:bg-gray-800"
+                        href={`/article/${article?.id}`}
+                        key={index}
+                      >
+
+                        {
+                          content?.image?.mimeType === "video/mp4" ? (
+                            <video
+                              src={`${imageMainUrl}/${content?.image?.handle}`}
+                              width="100%"
+                              height="100%"
+                              controls
+                              className="mb-8 rounded-xl object-cover "
+                            />
+                          ) : (
+                            <Image
+                              src={`${imageMainUrl}/${content?.image?.handle}`}
+                              alt="Picture of the author"
+                              width={500}
+                              height={500}
+                              layout="responsive"
+                              className="mb-8 rounded-xl object-cover "
+                            />
+                          )
+                        }
+                      </a>
+                    )
+                  }
+                })
+
+
               }
-            </p>
+            </div>
           </div>
         </div>
         <div className="relative mb-8 mt-10 gap-4 rounded-[20px] bg-okaogray-500 p-6 pb-12 dark:bg-slate-800 md:hidden lg:grid-cols-4">

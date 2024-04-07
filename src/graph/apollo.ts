@@ -154,7 +154,7 @@ export async function getHomeArticles() {
   // revalidatePath('/home');
 
   //sleep for 0.5 seconds
-  await new Promise(resolve => setTimeout(resolve, 500));
+  // await new Promise(resolve => setTimeout(resolve, 500));
 
   const { data } = await client.query({
     query: GET_HOME_ARTICLES,
@@ -166,43 +166,57 @@ const GET_ARTICLE_BY_ID = gql`
 query Article($id: ID!) {
   article(where: {id: $id}) {
     id
+    title
+    subTitle
+    mainImage {
+      id
+      fileName
+      handle
+      mimeType
+    }
+    typeOfArticle
+    stage
     menus {
       ... on Menus {
         id
         name
       }
     }
-    title
-    subTitle
     publishedAt
-    typeOfArticle
-    stage
     publishedBy {
       name
-      id
       picture
-      isActive
-    }
-    newsContent {
-      ... on NewsContents {
-        id
-        articleBody
-        links
-        mainImage {
-          handle
-          fileName
-          locale
-        }
-        otherImages {
-          fileName
-          handle
-          locale
-        }
-      }
     }
     articleTags {
       value
       id
+    }
+    articleContent {
+      ... on ArticleBody {
+        id
+        content
+      }
+      ... on ArticleImage {
+        id
+        image {
+          handle
+          fileName
+          id
+          mimeType
+        }
+      }
+      ... on ArticleLink {
+        id
+        websiteLink
+      }
+      ... on ArticleQuotes {
+        id
+        quote
+      }
+      ... on ArticleTwitterLink {
+        id
+        twitterLink
+      }
     }
   }
 }
