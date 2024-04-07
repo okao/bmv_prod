@@ -153,8 +153,8 @@ export async function getHomeArticles() {
   //revalidate: 1,
   // revalidatePath('/home');
 
-  //sleep for 15 seconds
-  await new Promise(resolve => setTimeout(resolve, 15000));
+  //sleep for 0.5 seconds
+  await new Promise(resolve => setTimeout(resolve, 500));
 
   const { data } = await client.query({
     query: GET_HOME_ARTICLES,
