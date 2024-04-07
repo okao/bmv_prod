@@ -14,6 +14,7 @@ export default function LandingPage() {
   const [loading, setLoading] = useState(true);
 
   const fetchArticles = async () => {
+
     setLoading(true);
     const data = await getHomeArticles();
     setArticles(data);
@@ -24,6 +25,50 @@ export default function LandingPage() {
   useEffect(() => {
     fetchArticles();
   }, []);
+
+  if (loading) {
+    return (
+      <div className="flex-1">
+        <section className="relative">
+          <div className="md:mt-10">
+            <div className="mx-auto md:container">
+              <div className="gap-6 p-4 md:flex md:flex-row-reverse">
+                <div className="rtl mb-10 min-h-[400px] bg-okaogray-400 dark:bg-slate-900 dark:shadow-lg md:mb-0 md:flex md:w-4/6 md:rounded-lg">
+                  <div className="mb-6 flex-1 md:mb-0">
+                    <div className="size-full">
+                      <div className="flex size-full flex-col justify-between gap-6 p-4 md:flex-row">
+                        <div className="h-[150px] w-full animate-pulse bg-okaogray-600/50 md:h-full">
+
+                        </div>
+                        <div className="h-[150px] w-full animate-pulse bg-okaogray-600/50 md:h-full">
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-col space-y-4 bg-okaogray-400 p-5 opacity-50 dark:bg-slate-900 dark:shadow-lg md:ml-3 md:w-2/6 md:rounded-lg">
+                  <div className="flex h-full flex-col justify-between gap-6">
+                    <div className="h-4 animate-pulse rounded bg-okaogray-600/50"></div>
+                    <div className="h-4 animate-pulse rounded bg-okaogray-600/50"></div>
+                    <div className="h-4 animate-pulse rounded bg-okaogray-600/50"></div>
+                    <div className="h-4 animate-pulse rounded bg-okaogray-600/50"></div>
+                    <div className="h-4 animate-pulse rounded bg-okaogray-600/50"></div>
+                    <div className="h-4 animate-pulse rounded bg-okaogray-600/50"></div>
+                    <div className="h-4 animate-pulse rounded bg-okaogray-600/50"></div>
+                    <div className="h-4 animate-pulse rounded bg-okaogray-600/50"></div>
+                    <div className="h-4 animate-pulse rounded bg-okaogray-600/50"></div>
+                    <div className="h-4 animate-pulse rounded bg-okaogray-600/50"></div>
+                    <div className="h-4 animate-pulse rounded bg-okaogray-600/50"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    )
+  }
 
   return (
     <div className="grid w-full grid-cols-1 items-center justify-center gap-16 md:gap-32">

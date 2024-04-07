@@ -1,4 +1,5 @@
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
+import { revalidatePath } from 'next/cache';
 
 // Initialize Apollo Client
 const client = new ApolloClient({
@@ -149,6 +150,12 @@ const GET_HOME_ARTICLES = gql`
 `;
 
 export async function getHomeArticles() {
+  //revalidate: 1,
+  // revalidatePath('/home');
+
+  //sleep for 15 seconds
+  await new Promise(resolve => setTimeout(resolve, 15000));
+
   const { data } = await client.query({
     query: GET_HOME_ARTICLES,
   });

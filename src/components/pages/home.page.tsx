@@ -11,13 +11,10 @@ const imageMainUrl = "https://ap-south-1.graphassets.com/clume5wz10c1507pi8xxhh9
 
 const HomePage = ({ articles, loading }: any) => {
 
-  console.log("Articles", articles[0])
-
-  {
-    loading && <div>Loading...</div>
-  }
 
   const firstArticle = articles[0];
+
+
 
   return (
     <div className="flex-1">
@@ -26,7 +23,7 @@ const HomePage = ({ articles, loading }: any) => {
           <div className="mx-auto md:container">
             <div className="gap-6 md:flex md:flex-row-reverse">
 
-              {/* <div className="rtl mb-10 bg-okaogray-400 dark:bg-slate-900 dark:shadow-lg md:mb-0 md:flex md:w-4/6 md:rounded-lg">
+              <div className="rtl mb-10 bg-okaogray-400 dark:bg-slate-900 dark:shadow-lg md:mb-0 md:flex md:w-4/6 md:rounded-lg">
                 <div className="mb-6 flex-1 md:mb-0">
                   <Link
                     className="relative flex size-full"
@@ -80,12 +77,12 @@ const HomePage = ({ articles, loading }: any) => {
                     </div>
                   </div>
                 </Link>
-              </div> */}
+              </div>
 
-              <MainArticle loading={loading} firstArticle={firstArticle} imageMainUrl={imageMainUrl} />
+              {/* <MainArticle loading={loading} firstArticle={firstArticle} imageMainUrl={imageMainUrl} /> */}
 
 
-              <div className="flex flex-col space-y-4 bg-okaogray-500 bg-opacity-50 p-5 dark:bg-slate-900 dark:shadow-lg md:ml-3 md:w-2/6 md:rounded-lg">
+              <div className="flex flex-col space-y-4 bg-okaogray-500 p-5 opacity-90 dark:bg-slate-900 dark:shadow-lg md:ml-3 md:w-2/6 md:rounded-lg">
                 <a className="rtl" href="/single">
                   <div className="relative float-right mb-2 ml-6">
                     <img

@@ -5,7 +5,7 @@ import Link from "next/link"
 import { useSelectedLayoutSegment } from "next/navigation"
 import type { NavItem } from "@/types"
 
-import { mvAanamu, mvRasmee } from "@/config/fonts"
+import { mvAanamu, mvRasmee, mvWaheed } from "@/config/fonts"
 // import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -37,7 +37,8 @@ function MobileLink({
       className={cn(
         "rtl rounded-lg transition-colors duration-300 ease-in-out hover:bg-slate-100 hover:text-slate-900 dark:text-slate-100 dark:hover:bg-slate-900 dark:hover:text-slate-100",
         href.includes(segment),
-        disabled && "pointer-events-none opacity-60"
+        disabled && "pointer-events-none opacity-60",
+        mvWaheed.className
       )}
       onClick={() => setIsOpen(false)}
     >
@@ -48,7 +49,7 @@ function MobileLink({
           to="opacity-100 translate-y-0"
           delay={500}
           duration={300}
-          className="text-2xl hover:text-slate-900 dark:text-slate-100 dark:hover:text-slate-100"
+          className="text-3xl hover:text-slate-900 dark:text-slate-100 dark:hover:text-slate-100"
           style={{transitionTimingFunction:"cubic-bezier(0.25, 0.4, 0.55, 1.4)"}}
         >{children}</AnimateIn>
       </span>
@@ -70,7 +71,7 @@ export function NavigationMobile({ navItems }: NavigationMobileProps) {
       </SheetTrigger>
       <SheetContent
         side="right"
-        className="flex w-full flex-col gap-12 bg-white/30 backdrop-blur-sm backdrop-brightness-150 transition-all duration-500 ease-in-out dark:bg-slate-800/60 dark:backdrop-blur-sm dark:backdrop-brightness-150"
+        className="flex w-full flex-col gap-12 bg-gray-500/80 font-bold backdrop-blur-sm backdrop-brightness-150 transition-all duration-500 ease-in-out dark:bg-slate-800/60 dark:backdrop-blur-sm dark:backdrop-brightness-150"
       >
         {/* <div className="pl-4">
           <Link
@@ -83,7 +84,7 @@ export function NavigationMobile({ navItems }: NavigationMobileProps) {
         </div> */}
         <div
           className={cn(
-            "rtl mt-[20%] flex flex-col gap-10 pr-8 text-center text-2xl font-medium  leading-6 tracking-wider dark:text-slate-100 dark:hover:bg-slate-900",
+            "rtl mt-[20%] flex flex-col gap-10 pr-8 text-center text-3xl font-medium  leading-6 tracking-wider dark:text-slate-100 dark:hover:bg-slate-900",
             mvRasmee.className
           )}
         >

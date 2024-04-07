@@ -10,9 +10,9 @@ interface LandingLayoutProps {
 
 export default function LandingLayout({ children }: LandingLayoutProps) {
    return (
-    <div className="bg-okaogray-50 flex min-h-screen flex-col overflow-visible dark:bg-slate-950">
+    <div className="flex min-h-screen flex-col overflow-visible bg-white dark:bg-slate-950">
       <div>
-        <div className="bg-okaogray-500 py-4 dark:bg-slate-900">
+        <div className="bg-white py-4 dark:bg-slate-900">
           <AdBanner
             src={
               "https://minoos-space.sgp1.cdn.digitaloceanspaces.com/content/miad/3G8vkkhnT9BxeJf6w7WbqQYGn.jpg"
@@ -24,7 +24,7 @@ export default function LandingLayout({ children }: LandingLayoutProps) {
           <div className="container mx-auto">
             <div className="flex">
               <div className="hidden w-1/4 space-x-3 pb-2 pt-12">
-                <button className="text-miblue-600 bg-gray-200">
+                <button className="bg-gray-200 text-miblue-600">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="size-5"
@@ -70,7 +70,7 @@ export default function LandingLayout({ children }: LandingLayoutProps) {
        <Header />
       <main className="flex-1">
          {children}
-      </main>
+       </main>
       <Footer />
     </div>
   )
