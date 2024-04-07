@@ -6,7 +6,9 @@ import HomeGallery from "@/components/home/home-gallery"
 import HomePage from "@/components/pages/home.page"
 import { useEffect, useState } from "react"
 import { getHomeArticles } from '@/graph/apollo';
-
+// import HomeGallery from "@/components/home/home-gallery"
+import Link from 'next/link'
+import Image from 'next/image'
 
 export default function LandingPage() {
 
@@ -25,6 +27,8 @@ export default function LandingPage() {
   useEffect(() => {
     fetchArticles();
   }, []);
+
+  const imageMainUrl = "https://ap-south-1.graphassets.com/clume5wz10c1507pi8xxhh972";
 
   if (loading) {
     return (
@@ -69,6 +73,11 @@ export default function LandingPage() {
       </div>
     )
   }
+
+
+  const firstArticle = articles[0];
+
+  console.log("firstArticle", firstArticle);
 
   return (
     <div className="grid w-full grid-cols-1 items-center justify-center gap-16 md:gap-32">

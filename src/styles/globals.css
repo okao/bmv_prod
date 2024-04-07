@@ -300,7 +300,7 @@
   pointer-events: none
 }
 
-* {
+/* * {
   font-family: 'system-ui,
     -apple-system,
     BlinkMacSystemFont,
@@ -314,7 +314,7 @@
     Segoe UI Emoji,
     Segoe UI Symbol,
     Noto Color Emoji';
-}
+} */
 
 .author {
   border-bottom: none;
@@ -323,7 +323,7 @@
 }
 
 .author .name {
-  font-family: "mv-waheed", "MV Waheed", "MV Eamaan XP";
+  /* font-family: "mv-waheed", "MV Waheed", "MV Eamaan XP"; */
   line-height: 1.5em;
   font-style: normal;
   font-weight: normal;
@@ -333,7 +333,7 @@
 }
 
 .author .time {
-  font-family: "Roboto", sans-serif, Arial;
+  /* font-family: "Roboto", sans-serif, Arial; */
   direction: ltr;
   font-size: 15px;
   color: #707070;
@@ -349,7 +349,7 @@
   margin: auto;
 }
 
-@keyframes spin {
+/* @keyframes spin {
   0% {
     transform: rotate(0deg);
   }
@@ -357,4 +357,4 @@
   100% {
     transform: rotate(360deg);
   }
-}
+} */
