@@ -3,6 +3,7 @@ import type * as React from "react"
 import AdBanner from "@/components/common/ad-banner"
 import { Footer } from "@/components/nav/footer"
 import { Header } from "@/components/nav/header"
+import NextTopLoader from "nextjs-toploader"
 
 interface LandingLayoutProps {
   children: React.ReactNode
@@ -68,7 +69,7 @@ export default function LandingLayout({ children }: LandingLayoutProps) {
         </div>
       </div>
        <Header />
-      <main className="flex-1">
+       <main className="flex-1">
          {children}
        </main>
       <Footer />

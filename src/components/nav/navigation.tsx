@@ -23,22 +23,6 @@ export function Navigation({ navItems } : any) {
   return (
     <NavigationMenu className="hidden transition-all duration-500 ease-in-out md:flex">
       <NavigationMenuList>
-        {/* {navItems?.map((menu, index) => (
-          <NavigationMenuItem key={index} asChild>
-            <Link href={menu?.node?.name} legacyBehavior passHref>
-              <NavigationMenuLink
-                className={cn(
-                  navigationMenuTriggerStyle(),
-                  "rtl bg-transparent text-xl",
-                  mvWaheed.className
-                )}
-              >
-                {menu?.node?.name}
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
-        ))} */}
-
         {
           navItems?.map((menu : any, index: number) => {
             return (

@@ -71,7 +71,7 @@ export function NavigationMobile({ navItems }: NavigationMobileProps) {
       </SheetTrigger>
       <SheetContent
         side="right"
-        className="flex w-full flex-col gap-12 bg-gray-500/80 font-bold backdrop-blur-sm backdrop-brightness-150 transition-all duration-500 ease-in-out dark:bg-slate-800/60 dark:backdrop-blur-sm dark:backdrop-brightness-150"
+        className="flex w-[98%] flex-col gap-6 bg-gray-300/30 font-bold backdrop-blur-md backdrop-brightness-150 transition-all duration-500 ease-in-out dark:bg-slate-800/60 dark:backdrop-blur-sm dark:backdrop-brightness-150"
       >
         {/* <div className="pl-4">
           <Link
@@ -84,7 +84,7 @@ export function NavigationMobile({ navItems }: NavigationMobileProps) {
         </div> */}
         <div
           className={cn(
-            "rtl mt-[20%] flex flex-col gap-10 pr-8 text-center text-3xl font-medium  leading-6 tracking-wider dark:text-slate-100 dark:hover:bg-slate-900",
+            "rtl mt-[10%] flex flex-col gap-6 pr-8 text-center text-3xl font-medium  leading-6 tracking-wider dark:text-slate-100 dark:hover:bg-slate-900",
             mvRasmee.className
           )}
         >

@@ -50,7 +50,7 @@ export function Header() {
 
 
   return (
-    <header className="sticky top-0 z-40 flex h-20 w-full bg-gray-200 dark:bg-slate-800">
+    <header className="sticky top-0 z-40 flex h-20 w-full bg-gray-500/30 backdrop-blur-md dark:bg-slate-800">
       <div className="flex w-full items-center justify-center md:container">
         <div className="flex w-full justify-between gap-x-4">
           <Link

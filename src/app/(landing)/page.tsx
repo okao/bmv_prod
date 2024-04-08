@@ -3,7 +3,7 @@ import { mvAanamu, mvRasmee, mvWaheed } from "@/config/fonts"
 import { cn } from "@/lib/utils"
 import AdBanner from "@/components/common/ad-banner"
 import HomeGallery from "@/components/home/home-gallery"
-import HomePage from "@/components/pages/home.page"
+import HomePage from "@/components/pages/home/home.page"
 import { useEffect, useState } from "react"
 import { getHomeArticles } from '@/graph/apollo';
 // import HomeGallery from "@/components/home/home-gallery"

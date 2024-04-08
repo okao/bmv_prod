@@ -9,7 +9,8 @@ import { TailwindIndicator } from "@/components/tailwind-indicator"
 import ScrollLayout from "@/components/layout/scroll-layout"
 import { SmoothScrollProvider } from "@/providers/smooth-scroll-provider"
 import { siteConfig } from "@/config/site";
-
+import NextTopLoader from 'nextjs-toploader';
+import ScrollToTopButton from "@/components/common/scroll-to-top-button";
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -73,6 +74,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <NextTopLoader
+            color="#2286dd"
+            initialPosition={0.08}
+            crawlSpeed={200}
+            height={3}
+            crawl={true}
+            showSpinner={true}
+            easing="ease"
+            speed={400}
+            shadow="0 0 10px #3fbef5,0 0 5px #1d76c4"
+        />
         <ScrollLayout>
           <SmoothScrollProvider>
             <ThemeProvider
@@ -80,9 +92,10 @@ export default function RootLayout({
                 defaultTheme="white"
                 enableSystem
                 disableTransitionOnChange
-              >
+            >
               <div className={inter.className}>{children}</div>
               <Toaster />
+              <ScrollToTopButton />
               <TailwindIndicator />
             </ThemeProvider>
           </SmoothScrollProvider>

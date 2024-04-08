@@ -18,8 +18,7 @@ const ShareButtons = ({
 }) => {
   return (
     <div
-      className="flex flex-1 items-center justify-center gap-3 lg:flex-none"
-      dir="ltr"
+      className="flex flex-1 items-center justify-center gap-3 px-6 lg:flex-none"
     >
       <FacebookShareButton
         url={url}
