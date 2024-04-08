@@ -1,8 +1,13 @@
 import React from 'react'
 import { cn } from '@/lib/utils'
-import { mvAanamu, mvRasmee } from '@/config/fonts'
+import { mvAanamu, mvFaseyha, mvRasmee } from '@/config/fonts'
+import { BsBlockquoteLeft } from "react-icons/bs";
 
-const LatestNews = ({ articles, imageMainUrl, loading }: {articles: any, imageMainUrl: string, loading: boolean}) => {
+const LatestNews = ({ articles, imageMainUrl, loading }: { articles: any, imageMainUrl: string, loading: boolean }) => {
+
+  //from articles take from 2nd to 6th article
+  // const latestArticles = articles.slice(1, 3);
+
   return (
     <div className="rtl mx-auto px-4 md:container">
       <div className="grid-cols-1 gap-8 md:grid md:grid-cols-12">
@@ -242,10 +247,13 @@ const LatestNews = ({ articles, imageMainUrl, loading }: {articles: any, imageMa
             </a>
           </div>
 
-          <div className="mt-5 flex items-center justify-center">
-            <button className="ltr relative z-10 flex size-8 items-center justify-center rounded-full border border-okaoblue-500 bg-okaogray-300 text-xl font-semibold text-okaoblue-600 hover:border-okaoblue-600 hover:bg-okaoblue-800 hover:text-white dark:border-slate-600 dark:bg-slate-500 dark:text-slate-600 dark:hover:bg-slate-600 dark:hover:text-white md:size-10">
-              <span>+</span>
-            </button>
+          <div className='flex justify-center'>
+            <a href="" className="z-20 flex items-center gap-2 rounded-3xl border bg-gray-200 p-2 text-center text-gray-600 shadow-lg dark:bg-slate-800 dark:text-slate-300 dark:shadow-lg">
+                <span className={cn('rtl text-xs', mvRasmee.className)}>
+                    އިތުރު ހަބަރު
+                </span>
+                <BsBlockquoteLeft size={14} />
+            </a>
           </div>
         </div>
 

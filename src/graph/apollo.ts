@@ -1,5 +1,4 @@
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
-import { revalidatePath } from 'next/cache';
 
 // Initialize Apollo Client
 const client = new ApolloClient({
@@ -36,7 +35,7 @@ export async function getProducts() {
 
 const GET_MENU = gql`
   query SiteMenus {
-    menuConnection(orderBy: number_ASC) {
+    menuConnection(orderBy: number_DESC, stage: PUBLISHED) {
       edges {
         node {
           id

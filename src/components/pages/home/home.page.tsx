@@ -4,20 +4,17 @@ import { mvAanamu, mvRasmee, mvWaheed } from "@/config/fonts"
 import AdBanner from "@/components/common/ad-banner"
 import Link from 'next/link'
 import Image from 'next/image'
-import MainArticle from './main-article'
-import MainOtherArticle from './main-other-article'
 import LatestNews from './latest-news'
 import EditorialSection from './editorial-section'
 import PoliticsSection from './politics-section'
+import MaldivesSection from './maldives-section'
+import WorldSection from './world-section'
+import MainSection from './main-section'
+import PeopleSection from './people-section'
 
 const imageMainUrl = "https://ap-south-1.graphassets.com/clume5wz10c1507pi8xxhh972"
 
 const HomePage = ({ articles, loading }: any) => {
-
-
-  const firstArticle = articles[0];
-
-
 
   return (
     <div className="flex-1">
@@ -25,9 +22,7 @@ const HomePage = ({ articles, loading }: any) => {
         <div className="md:mt-10">
           <div className="mx-auto md:container">
             <div className="gap-6 md:flex md:flex-row-reverse">
-              <MainArticle loading={loading} firstArticle={firstArticle} imageMainUrl={imageMainUrl} />
-
-              <MainOtherArticle articles={articles} imageMainUrl={imageMainUrl} loading={loading} />
+              <MainSection articles={articles} imageMainUrl={imageMainUrl} loading={loading} />
             </div>
           </div>
         </div>
@@ -62,7 +57,7 @@ const HomePage = ({ articles, loading }: any) => {
           />
         </div>
 
-        <EditorialSection article={firstArticle} imageMainUrl={imageMainUrl} loading={loading} />
+        <EditorialSection article={articles} imageMainUrl={imageMainUrl} loading={loading} />
 
         <div className="mt-10 md:mt-16">
           <AdBanner
@@ -73,7 +68,9 @@ const HomePage = ({ articles, loading }: any) => {
           />
         </div>
 
-        <PoliticsSection article={firstArticle} imageMainUrl={imageMainUrl} loading={loading} />
+        <MaldivesSection article={articles} imageMainUrl={imageMainUrl} loading={loading} />
+
+        <WorldSection article={articles} imageMainUrl={imageMainUrl} loading={loading} />
 
         <div className="mt-8 md:mt-10">
           <AdBanner
@@ -82,6 +79,14 @@ const HomePage = ({ articles, loading }: any) => {
             }
             href={"https://www.maldivesfinest.com/"}
           />
+        </div>
+
+        <div className="md:mt-10">
+          <div className="mx-auto md:container">
+            <div className="gap-6 md:flex md:flex-row-reverse">
+              <PeopleSection articles={articles} imageMainUrl={imageMainUrl} loading={loading} />
+            </div>
+          </div>
         </div>
 
       </section>

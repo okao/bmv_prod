@@ -57,9 +57,11 @@ function MobileLink({
   )
 }
 
-export function NavigationMobile({ navItems }: NavigationMobileProps) {
+export function NavigationMobile({ navItems }: any) {
   const segment = useSelectedLayoutSegment()
   const [isOpen, setIsOpen] = React.useState<boolean>(false)
+
+  console.log("navItems", navItems);
 
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -84,18 +86,20 @@ export function NavigationMobile({ navItems }: NavigationMobileProps) {
         </div> */}
         <div
           className={cn(
-            "rtl mt-[10%] flex flex-col gap-6 pr-8 text-center text-3xl font-medium  leading-6 tracking-wider dark:text-slate-100 dark:hover:bg-slate-900",
+            "rtl mt-[10%] flex flex-col-reverse gap-6 pr-8 text-center text-3xl  font-medium leading-6 tracking-wider dark:text-slate-100 dark:hover:bg-slate-900",
             mvRasmee.className
           )}
         >
-          {navItems.map((item: NavItem) => (
+
+          {navItems.map((menu: any, key: number) => (
+
             <MobileLink
-              key={item.title}
-              href={item.href}
+              key={key}
+              href={menu?.node?.name}
               segment={String(segment)}
               setIsOpen={setIsOpen}
             >
-              {item.title}
+              {menu?.node?.name}
             </MobileLink>
           ))}
         </div>

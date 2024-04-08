@@ -24,7 +24,7 @@ const ContentBody = ({ article }:  {article: any}) => {
           } else if (content?.__typename === "ArticleImage") {
             return (
               <div
-                className="float-start my-4 overflow-hidden rounded-xl dark:bg-gray-800 lg:pr-6"
+                className="float-start my-4 overflow-hidden rounded-xl lg:pr-6"
                 // href={`#`}
                 key={index}
               >

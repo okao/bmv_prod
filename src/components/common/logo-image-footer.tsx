@@ -10,7 +10,7 @@ import { siteConfig } from "@/config/site"
 import logo from "../../../public/logos/logo.svg"
 import darkLogo from "../../../public/logos/logodark.svg"
 
-const LogoImage = ({ logotheme = null }: { logotheme: string | null }) => {
+const LogoImageFooter = ({ logotheme = null }: { logotheme: string | null }) => {
   const { theme } = useTheme()
   const router = useRouter()
 
@@ -24,7 +24,7 @@ const LogoImage = ({ logotheme = null }: { logotheme: string | null }) => {
   if (logotheme === "dark") {
     return (
       <div
-        className="flex w-full items-center justify-center gap-2 md:justify-end"
+        className="flex w-full items-center justify-center gap-2"
         onClick={() => home()}
       >
         <Image src={darkLogo} alt={siteConfig.name} width={130} height={40} />
@@ -33,7 +33,7 @@ const LogoImage = ({ logotheme = null }: { logotheme: string | null }) => {
   } else if (logotheme === "light") {
     return (
       <div
-        className="flex w-full items-center justify-center gap-2 md:justify-end"
+        className="flex w-full items-center justify-center gap-2"
         onClick={() => home()}
       >
         <Image src={logo} alt={siteConfig.name} width={130} height={40} />
@@ -44,7 +44,7 @@ const LogoImage = ({ logotheme = null }: { logotheme: string | null }) => {
   if (theme === "dark") {
     return (
       <div
-        className="flex w-full items-center justify-end gap-2 md:justify-end"
+        className="flex w-full items-center justify-end gap-2"
         onClick={() => home()}
       >
         <Image src={darkLogo} alt={siteConfig.name} width={130} height={40} />
@@ -53,7 +53,7 @@ const LogoImage = ({ logotheme = null }: { logotheme: string | null }) => {
   } else if (theme === "light") {
     return (
       <div
-        className="flex w-full items-center justify-end gap-2 md:justify-end"
+        className="flex w-full items-center justify-end gap-2"
         onClick={() => home()}
       >
         <Image src={logo} alt={siteConfig.name} width={130} height={40} />
@@ -62,7 +62,7 @@ const LogoImage = ({ logotheme = null }: { logotheme: string | null }) => {
   } else {
     return (
       <div
-        className="flex w-full items-center justify-end gap-2 md:justify-end"
+        className="flex w-full items-center justify-end gap-2"
         onClick={() => home()}
       >
         <Image src={logo} alt={siteConfig.name} width={130} height={40} />
@@ -73,4 +73,4 @@ const LogoImage = ({ logotheme = null }: { logotheme: string | null }) => {
   // return <div className="flex items-center justify-end gap-2"></div>
 }
 
-export default LogoImage
+export default LogoImageFooter

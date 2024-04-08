@@ -50,22 +50,22 @@ export function Header() {
 
 
   return (
-    <header className="sticky top-0 z-40 flex h-20 w-full bg-gray-500/30 backdrop-blur-md dark:bg-slate-800">
+    <header className="sticky top-0 z-40 flex h-20 w-full bg-gray-300/30 backdrop-blur-md dark:bg-slate-800/30">
       <div className="flex w-full items-center justify-center md:container">
         <div className="flex w-full justify-between gap-x-4">
-          <Link
+          {/* <Link
             href="/"
             className="ml-4 flex items-center justify-end gap-2 text-lg font-bold tracking-wide transition-all duration-300 ease-in-out"
           >
             <IoIosSearch className="text-xl text-gray-700 dark:text-gray-300 md:hidden lg:flex" />
-          </Link>
+          </Link> */}
           <Navigation navItems={menus} />
           <LogoImage logotheme={null} />
         </div>
 
         <div className="flex items-center justify-center">
           <ThemeToggle />
-          <NavigationMobile navItems={siteConfig.navItems} />
+          <NavigationMobile navItems={menus} />
 
           {/* <nav className="space-x-1">
             {session?.user ? (

@@ -18,7 +18,7 @@ const ShareButtons = ({
 }) => {
   return (
     <div
-      className="flex flex-1 items-center justify-center gap-3 px-6 lg:flex-none"
+      className="mt-6 flex flex-1 items-center justify-center gap-3 px-6 lg:flex-none "
     >
       <FacebookShareButton
         url={url}
@@ -94,8 +94,7 @@ const ShareButtons = ({
       </TwitterShareButton>
       <TelegramShareButton url={url} title={title} className="cursor-pointer">
         <div
-          className="react-share__ShareButton"
-          // style="background-color: transparent; border: none; padding: 0px; font: inherit; color: inherit; cursor: pointer;"
+          className=""
           style={{
             backgroundColor: "transparent",
             border: "none",

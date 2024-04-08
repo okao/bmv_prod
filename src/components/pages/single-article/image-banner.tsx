@@ -172,8 +172,8 @@ const ImageBanner = async ({article}: any) => {
       </div>
       <p
         className={cn(
-          "rtl mx-5 text-xl font-bold opacity-75",
-          mvRasmee.className
+          "rtl mx-5 my-10 text-center text-xl opacity-75 dark:text-white lg:mx-14",
+          mvWaheed.className
         )}
       >
         {article?.subTitle}

@@ -12,6 +12,7 @@ import { Icons } from "@/components/icons"
 import { ThemeToggle } from "@/components/theme-toggle"
 
 import Logo from "../../../public/images/news/logo-mini.png"
+import LogoImageFooter from "../common/logo-image-footer"
 
 export function Footer() {
   return (
@@ -23,15 +24,19 @@ export function Footer() {
       <div className="container mx-auto">
         <div className="rtl py-10 md:flex">
           <div className="flex-1">
-            <div className="rtl text-center md:text-right">
+            <div className="rtl text-center">
               <a className="ltr" href="/">
-                <LogoImage logotheme="dark" />
+                {/* <div className="flex justify-center md:justify-end"> */}
+                <div className="flex justify-center">
+                  <LogoImageFooter logotheme="dark" />
+                </div>
               </a>
               <p className={cn("mt-8 text-gray-100", mvRasmee.className)}>
                 މި މަސައްކަތުގައި އަހަރެމެން ހަމަ ހަމަ ވާނެ، އިންސާފުވެރި ވާނެ،
                 އިތުބާރު ދަމަހައްޓާނެ
               </p>
-              <div className="rtl mt-5 flex items-center justify-center space-x-4 space-x-reverse md:justify-start">
+              {/* <div className="rtl mt-5 flex items-center justify-center space-x-4 space-x-reverse md:justify-start"> */}
+              <div className="rtl mt-5 flex items-center justify-center space-x-4 space-x-reverse">
                 <a
                   href="https://twitter.com/minoosmv"
                   target="_blank"
@@ -85,26 +90,21 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="ltr mt-10 flex-1 text-gray-500 md:mt-0">
+          {/* <div className="ltr mt-10 flex-1 text-gray-500 md:mt-0">
             <div className="space-y-5 text-center md:flex md:space-y-0 md:text-left">
               <div className="flex-1">
-                <div className="mb-2 font-bold text-gray-500">Newsroom</div>
-                <div className="text-gray-400">Phone: 7819333</div>
-                <div className="text-gray-400">Email: news@minoos.mv</div>
-              </div>
-              <div className="flex-1">
-                <div className="mb-2 font-bold text-gray-500">Marketing</div>
-                <div className="text-gray-400">Phone: 7399333</div>
-                <div className="text-gray-400">Email: marketing@minoos.mv</div>
+                <div className="mb-2 font-bold text-gray-500">Call Us On</div>
+                <div className="text-gray-400">Phone: 9948154</div>
+                <div className="text-gray-400">Email: news@breaking.mv</div>
               </div>
             </div>
             <div className="mt-10 text-center md:text-left">
-              H. Fairlin, Bodu thakurufaanu magu, Male <br /> Republic of
+              Ethan Mithan, Nirolhu Magu, Hulhumale <br /> Republic of
               Maldives
             </div>
-          </div>
+          </div> */}
         </div>
-        <div className="border-t border-gray-700 py-6 text-sm">
+        {/* <div className="border-t border-gray-700 py-6 text-sm">
           <div className="justify-between md:flex">
             <div className="text-center md:text-left">
               <div className="text-gray-400">
@@ -126,7 +126,7 @@ export function Footer() {
               </a>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* <div className="container flex items-center justify-between">
