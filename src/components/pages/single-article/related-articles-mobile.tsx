@@ -2,7 +2,7 @@ import React from 'react'
 import { mvWaheed, mvRasmee } from '@/config/fonts'
 import { cn } from '@/lib/utils'
 
-const RelatedArticlesMobile = ({ }) => {
+const RelatedArticlesMobile = ({article}: {article: any}) => {
 
   return (
     <div className='relative mb-8 mt-10 gap-4 rounded-[20px] bg-okaogray-500 p-6 pb-12 dark:bg-slate-800 md:hidden lg:grid-cols-4'>

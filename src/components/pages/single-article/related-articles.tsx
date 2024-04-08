@@ -2,7 +2,7 @@ import React from 'react'
 import { mvWaheed, mvRasmee } from '@/config/fonts'
 import { cn } from '@/lib/utils'
 
-const RelatedArticles = () => {
+const RelatedArticles = ({article}: {article: any}) => {
   return (
     <div>
       <h6

@@ -2,7 +2,7 @@ import React from 'react'
 import { cn } from '@/lib/utils'
 import { mvAanamu, mvRasmee } from '@/config/fonts'
 
-const LatestNews = ({ article, imageMainUrl, loading }: {article: any, imageMainUrl: string, loading: boolean}) => {
+const LatestNews = ({ articles, imageMainUrl, loading }: {articles: any, imageMainUrl: string, loading: boolean}) => {
   return (
     <div className="rtl mx-auto px-4 md:container">
       <div className="grid-cols-1 gap-8 md:grid md:grid-cols-12">

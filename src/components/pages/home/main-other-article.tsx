@@ -2,7 +2,7 @@ import React from 'react'
 import { mvAanamu, mvRasmee } from '@/config/fonts'
 import { cn } from '@/lib/utils'
 
-const MainOtherArticle = ({ article, imageMainUrl, loading }: {article: any, imageMainUrl: string, loading: boolean}) => {
+const MainOtherArticle = ({ articles, imageMainUrl, loading }: {articles: any, imageMainUrl: string, loading: boolean}) => {
   return (
     <div className="flex flex-col space-y-4 bg-okaogray-500 p-5 opacity-90 dark:bg-slate-900 dark:shadow-lg md:ml-3 md:w-2/6 md:rounded-lg">
       <a className="rtl" href="/single">
