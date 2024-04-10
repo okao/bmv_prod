@@ -1,5 +1,5 @@
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
-
+import { revalidatePath } from "next/cache";
 // Initialize Apollo Client
 const client = new ApolloClient({
   uri: 'https://api-ap-south-1.hygraph.com/v2/clume5vsq0h7s07wgpf4wdcai/master',
@@ -106,7 +106,7 @@ export async function getMenu() {
 const GET_MAIN_ARTICLES = gql`
   query MainArticles {
     articleConnection(
-      stage: PUBLISHED, orderBy: createdAt_DESC, first: 4
+      stage: PUBLISHED, orderBy: createdAt_DESC, first: 3
       where: {
         AND: {
           OR: [
@@ -168,8 +168,7 @@ const HOME_ARTICLES = gql`
 query HomeArticles {
   articleConnection(
     orderBy: createdAt_DESC
-    first: 30
-    skip: 4
+    first: 6
     stage: PUBLISHED
     where: {articleMenus_every: {number_gte: 1}}
   ) {
@@ -183,6 +182,7 @@ query HomeArticles {
     edges {
       cursor
       node {
+        id
         title
         subTitle
         latinTitle
@@ -220,21 +220,20 @@ query Article($id: ID!) {
   article(where: {id: $id}) {
     id
     title
+    latinTitle
     subTitle
+    latinSubTitle
     mainImage {
       id
       fileName
       handle
-      mimeType
-      url
     }
     typeOfArticle
     stage
-    menus {
-      ... on Menus {
-        id
-        name
-      }
+    articleMenus {
+      id
+      name
+      number
     }
     publishedAt
     publishedBy {
@@ -257,11 +256,8 @@ query Article($id: ID!) {
           fileName
           id
           mimeType
+          url(transformation: {image: {resize: {width: 500}}})
         }
-      }
-      ... on ArticleLink {
-        id
-        websiteLink
       }
       ... on ArticleQuotes {
         id
@@ -271,12 +267,23 @@ query Article($id: ID!) {
         id
         twitterLink
       }
+      ... on ExternalLinks {
+        id
+        title
+        image {
+          fileName
+          handle
+          url(transformation: {image: {resize: {width: 200}}})
+        }
+        link
+      }
     }
   }
 }
 `;
 
-export async function getArticleById(id : string) {
+export async function getArticleById(id: string) {
+  revalidatePath(`/article/${id}`);
   const { data } = await client.query({
     query: GET_ARTICLE_BY_ID,
     variables: { id },
