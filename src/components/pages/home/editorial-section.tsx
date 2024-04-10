@@ -1,7 +1,7 @@
 import React from 'react'
 import { cn } from '@/lib/utils'
 import { mvAanamu, mvRasmee, mvWaheed } from '@/config/fonts'
-import HomeGallery from "@/components/home/home-gallery"
+// import HomeGallery from "@/components/home/home-gallery"
 
 
 const EditorialSection = ({ article, imageMainUrl, loading }: {article: any, imageMainUrl: string, loading: boolean}) => {

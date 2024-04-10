@@ -7,7 +7,6 @@ import { mvFaseyha } from '@/config/fonts'
 //remove eslint-disable
 // eslint-disable-next-line
 const ContentBody = ({ article }: { article: any }) => {
-  console.log("Article", article);
   return (
     <div>
       {

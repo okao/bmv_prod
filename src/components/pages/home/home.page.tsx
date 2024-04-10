@@ -94,6 +94,7 @@ const HomePage = () => {
     <div className="flex-1">
       <section className="relative">
 
+        {/*
         <div className="md:mt-10">
           <div className="mx-auto md:container">
             <div className="gap-6 md:flex md:flex-row-reverse">
@@ -135,7 +136,7 @@ const HomePage = () => {
 
         <EditorialSection article={articles} imageMainUrl={imageMainUrl} loading={loading} />
 
-        {/*
+
         <div className="mt-10 md:mt-16">
           <AdBanner
             src={
