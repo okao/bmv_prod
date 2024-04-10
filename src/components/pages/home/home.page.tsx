@@ -90,7 +90,7 @@ const HomePage = () => {
     <div className="flex-1">
       <section className="relative">
 
-        {/*
+
         <div className="md:mt-10">
           <div className="mx-auto md:container">
             <div className="gap-6 md:flex md:flex-row-reverse">
@@ -141,6 +141,8 @@ const HomePage = () => {
             href={"https://www.maldivesfinest.com/"}
           />
         </div>
+
+        {/*
 
         <MaldivesSection article={articles} imageMainUrl={imageMainUrl} loading={loading} />
 
