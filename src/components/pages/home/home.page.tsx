@@ -16,10 +16,6 @@ import { useEffect, useState } from "react"
 import { getHomeArticles, getMainArticles } from '@/graph/apollo';
 
 
-const imageMainUrl = "https://ap-south-1.graphassets.com/clume5wz10c1507pi8xxhh972"
-
-
-
 const HomePage = () => {
   const [articles, setArticles] = useState([]);
   const [homeArticles, setHomeArticles] = useState([]);
