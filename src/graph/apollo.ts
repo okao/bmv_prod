@@ -103,20 +103,20 @@ export async function getMenu() {
 // }
 // `;
 
-const GET_HOME_ARTICLES = gql`
-  query HomeArticles {
+const GET_MAIN_ARTICLES = gql`
+  query MainArticles {
     articleConnection(
-      orderBy: id_DESC
-      stage: PUBLISHED
-      last: 4
-    ) {
-      pageInfo {
-        pageSize
-        startCursor
-        endCursor
-        hasNextPage
-        hasPreviousPage
+      stage: PUBLISHED, orderBy: createdAt_DESC, first: 4
+      where: {
+        AND: {
+          OR: [
+            { typeOfArticle: breaking },
+            { typeOfArticle: main }
+          ]
+        }
+        articleMenus_every: {number_gte: 1}
       }
+    ) {
       edges {
         cursor
         node {
@@ -128,13 +128,14 @@ const GET_HOME_ARTICLES = gql`
             id
             handle
             fileName
+            url(
+              transformation: {document: {output: {format: jpg}}, image: {resize: {width: 500}}}
+            )
           }
-          menus {
-            ... on Menus {
-              id
-              name
-              number
-            }
+          articleMenus {
+            id
+            name
+            number
           }
           publishedBy {
             name
@@ -148,7 +149,7 @@ const GET_HOME_ARTICLES = gql`
   }
 `;
 
-export async function getHomeArticles() {
+export async function getMainArticles() {
   //revalidate: 1,
   // revalidatePath('/home');
 
@@ -156,9 +157,62 @@ export async function getHomeArticles() {
   // await new Promise(resolve => setTimeout(resolve, 500));
 
   const { data } = await client.query({
-    query: GET_HOME_ARTICLES,
+    query: GET_MAIN_ARTICLES,
   });
   return data.articleConnection.edges;
+}
+
+
+
+const HOME_ARTICLES = gql`
+query HomeArticles {
+  articleConnection(
+    orderBy: createdAt_DESC
+    first: 30
+    skip: 4
+    stage: PUBLISHED
+    where: {articleMenus_every: {number_gte: 1}}
+  ) {
+    pageInfo {
+      pageSize
+      startCursor
+      endCursor
+      hasNextPage
+      hasPreviousPage
+    }
+    edges {
+      cursor
+      node {
+        title
+        subTitle
+        latinTitle
+        latinSubTitle
+        articleMenus {
+          id
+          name
+          number
+        }
+        mainImage {
+          fileName
+          handle
+          mimeType
+          url(
+            transformation: {document: {output: {format: jpg}}, image: {resize: {width: 300}}}
+          )
+        }
+        publishedAt
+        createdAt
+      }
+    }
+  }
+}
+`;
+
+export async function getHomeArticles() {
+  const { data } = await client.query({
+    query: HOME_ARTICLES,
+  });
+  return data.articleConnection;
 }
 
 const GET_ARTICLE_BY_ID = gql`
@@ -172,6 +226,7 @@ query Article($id: ID!) {
       fileName
       handle
       mimeType
+      url
     }
     typeOfArticle
     stage

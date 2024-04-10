@@ -36,7 +36,10 @@ const LogoImage = ({ logotheme = null }: { logotheme: string | null }) => {
         className="flex w-full items-center justify-center gap-2 md:justify-end"
         onClick={() => home()}
       >
-        <Image src={logo} alt={siteConfig.name} width={130} height={40} />
+        <Image
+          className="cursor-pointer"
+          src={logo} alt={siteConfig.name} width={130} height={40}
+        />
       </div>
     )
   }

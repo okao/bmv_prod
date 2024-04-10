@@ -37,7 +37,7 @@ const MainSection = ({ articles, imageMainUrl, loading }: { articles: any, image
             {
               <Image
                   src={
-                    `${imageMainUrl}/${firstArticle?.node?.mainImage?.handle}`
+                    `${firstArticle?.node?.mainImage?.url}`
                   }
                   alt=""
                   width={600}
@@ -118,7 +118,7 @@ const MainSection = ({ articles, imageMainUrl, loading }: { articles: any, image
                     <div className="relative float-right mb-2 ml-6">
                       <img
                         className="float-right w-32 md:w-44"
-                        src={`${imageMainUrl}/${article?.node?.mainImage?.handle}`}
+                        src={`${article?.node?.mainImage?.url}`}
                         alt=""
                       />
                     </div>

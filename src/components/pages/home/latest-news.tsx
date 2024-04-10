@@ -2,249 +2,69 @@ import React from 'react'
 import { cn } from '@/lib/utils'
 import { mvAanamu, mvFaseyha, mvRasmee } from '@/config/fonts'
 import { BsBlockquoteLeft } from "react-icons/bs";
+import moment from 'moment'
 
-const LatestNews = ({ articles, imageMainUrl, loading }: { articles: any, imageMainUrl: string, loading: boolean }) => {
+const LatestNews = ({ homeArticles, loading }: { homeArticles: any, loading: boolean }) => {
 
   //from articles take from 2nd to 6th article
   // const latestArticles = articles.slice(1, 3);
+
+  console.log("Home Articles", homeArticles)
 
   return (
     <div className="rtl mx-auto px-4 md:container">
       <div className="grid-cols-1 gap-8 md:grid md:grid-cols-12">
         <div className="col-span-12 md:col-span-12 md:ml-2">
           <div className="mb-10 grid grid-cols-1 gap-10 md:grid-cols-3">
-            <a
-              className="block rounded-lg bg-okaogray-500 p-4 dark:z-10 dark:border-gray-100 dark:bg-slate-900 dark:shadow-lg"
-              href="/single"
-            >
-              <div className="relative float-right mb-2 ml-6">
-                <img
-                  className="float-right w-32 md:w-44"
-                  src="https://minoos-space.sgp1.digitaloceanspaces.com/content/media/rect_jLxVgfwwfQPqEnjMB0RsPHdMx.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="flex items-center space-x-3 space-x-reverse">
-                <div className="flex items-center space-x-1 space-x-reverse">
-                  <span className="ltr text-xs text-gray-500">
-                    8 hours
-                  </span>
-                </div>
-              </div>
-              <h2
-                className={cn(
-                  "my-3 text-xl font-normal leading-loose",
-                  mvAanamu.className
-                )}
-              >
-                ފެބްރުއަރީގައި މުދަލުގެ އަގު: އުފުލުނީ މޭވާ ދަށްވީ
-                ތަރުކާރީ
-              </h2>
-              <p
-                className={cn(
-                  "mb-2 text-gray-500",
-                  mvRasmee.className
-                )}
-              >
-                ސީޕީއައި ހިސާބު ކުރުމުގައި ބަލަނީ އާންމުކޮށް ގޭބީސީ
-                އަކަށް ގަންނަ މުދާ އެއް ބާސްކެޓަކަށް އެޅުމަށް ފަހު، އެ
-                ބާސްކެޓުގެ އަގަށް އެވްރެޖްކޮށް އަންނަ ބަދަލަށެވެ.
-              </p>
-            </a>
 
-            <a
-              className="block rounded-lg bg-okaogray-500 p-4 dark:z-10 dark:border-gray-100 dark:bg-slate-900 dark:shadow-lg"
-              href="/single"
-            >
-              <div className="relative float-right mb-2 ml-6">
-                <img
-                  className="float-right w-32 md:w-44"
-                  src="https://minoos-space.sgp1.digitaloceanspaces.com/content/media/rect_ntBChuGVdBUdSDJl0zas2Eivx.jpeg"
-                  alt=""
-                />
-              </div>
-              <div className="flex items-center space-x-3 space-x-reverse">
-                <div className="flex items-center space-x-1 space-x-reverse">
-                  <span className="ltr text-xs text-gray-500">
-                    11 hours
-                  </span>
-                </div>
-              </div>
-              <h2
-                className={cn(
-                  "my-3 text-xl font-normal leading-loose",
-                  mvAanamu.className
-                )}
-              >
-                ދެ ނައިބުންނާ ލީޑާޝިޕް ނުކުމެ ޔާމީނަށް ރައްދު ދީފި
-              </h2>
-              <p
-                className={cn(
-                  "mb-2 text-gray-500",
-                  mvRasmee.className
-                )}
-              >
-                ޔާމީން ވިދާޅުވީ ޕީޕީއެމަށް ދިރުމެއް ދޭން
-                ރައީސުލްޖުމްހޫރިއްޔާ / ޕީއެންސީގެ ރައީސް ޑރ. މުއިއްޒު
-                ބޭނުންވެވަޑައިނުގަންނަވާ ކަމަށެވެ.
-              </p>
-            </a>
-
-            <a
-              className="block rounded-lg bg-okaogray-500 p-4 dark:z-10 dark:border-gray-100 dark:bg-slate-900 dark:shadow-lg"
-              href="/single"
-            >
-              <div className="relative float-right mb-2 ml-6">
-                <img
-                  className="float-right w-32 md:w-44"
-                  src="https://minoos-space.sgp1.digitaloceanspaces.com/content/media/rect_b5Ft4ZqOf4j75YHwnnA23kHww.jpeg"
-                  alt=""
-                />
-              </div>
-              <div className="flex items-center space-x-3 space-x-reverse">
-                <div className="flex items-center space-x-1 space-x-reverse">
-                  <span className="ltr text-xs text-gray-500">
-                    10 hours
-                  </span>
-                </div>
-              </div>
-              <h2
-                className={cn(
-                  "my-3 text-xl font-normal leading-loose",
-                  mvAanamu.className
-                )}
-              >
-                ރައީސްކަން ކުރެއްވުމަކީ ދޮގު ހަދަން ލިބޭ ލައިސަންސެއް
-                ނޫން
-              </h2>
-              <p
-                className={cn(
-                  "mb-2 text-gray-500",
-                  mvRasmee.className
-                )}
-              >
-                ފަސް އަހަރު ރައީސްކަން ކުރެއްވުމަކީ ހިތަށް އަރާހައި
-                ގޮތަކަށް ދޮގު ހެއްދެވުމަށް ލިބިފައި އޮންނަ
-                ލައިސަންސެއް ނޫން ކަމަށް ވިދާޅުވެ ވާހަކަ އަމާޒު
-                ކުރެއްވީ ކުރީގެ ރައީސް ސޯލިހަށެވެ.
-              </p>
-            </a>
-
-            <a
-              className="block rounded-lg bg-okaogray-500 p-4 dark:z-10 dark:border-gray-100 dark:bg-slate-900 dark:shadow-lg"
-              href="/single"
-            >
-              <div className="relative float-right mb-2 ml-6">
-                <img
-                  className="float-right w-32 md:w-44"
-                  src="https://minoos-space.sgp1.digitaloceanspaces.com/content/media/rect_3FtudEzLJRq9xb0Rb2Q07h71d.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="flex items-center space-x-3 space-x-reverse">
-                <div className="flex items-center space-x-1 space-x-reverse">
-                  <span className="ltr text-xs text-gray-500">
-                    7 hours
-                  </span>
-                </div>
-              </div>
-              <h2
-                className={cn(
-                  "my-3 text-xl font-normal leading-loose",
-                  mvAanamu.className
-                )}
-              >
-                ރިޒާވް ބައި ބިލިއަން ފަހަނަޅައި، 40 މިލިއަން ޑޮލަރުގެ
-                އިތުރުވުމެއް
-              </h2>
-              <p
-                className={cn(
-                  "mb-2 text-gray-500",
-                  mvRasmee.className
-                )}
-              >
-                އެމްއެމްއޭއިން ބުނެފައިވާ ގޮތުގައި ރާއްޖޭގެ ޔޫޒަބަލް
-                ރިޒާވް ހުންނާނެ ކަމަށް ބެލެވެނީ 100 މިލިއަން
-                ޑޮލަރަށްވުރެ މަތީގަ އެވެ.
-              </p>
-            </a>
-
-            <a
-              className="block rounded-lg bg-okaogray-500 p-4 dark:z-10 dark:border-gray-100 dark:bg-slate-900 dark:shadow-lg"
-              href="/single"
-            >
-              <div className="relative float-right mb-2 ml-6">
-                <img
-                  className="float-right w-32 md:w-44"
-                  src="https://minoos-space.sgp1.digitaloceanspaces.com/content/media/rect_jLxVgfwwfQPqEnjMB0RsPHdMx.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="flex items-center space-x-3 space-x-reverse">
-                <div className="flex items-center space-x-1 space-x-reverse">
-                  <span className="ltr text-xs text-gray-500">
-                    8 hours
-                  </span>
-                </div>
-              </div>
-              <h2
-                className={cn(
-                  "my-3 text-xl font-normal leading-loose",
-                  mvAanamu.className
-                )}
-              >
-                ފެބްރުއަރީގައި މުދަލުގެ އަގު: އުފުލުނީ މޭވާ ދަށްވީ
-                ތަރުކާރީ
-              </h2>
-              <p
-                className={cn(
-                  "mb-2 text-gray-500",
-                  mvRasmee.className
-                )}
-              >
-                ސީޕީއައި ހިސާބު ކުރުމުގައި ބަލަނީ އާންމުކޮށް ގޭބީސީ
-                އަކަށް ގަންނަ މުދާ އެއް ބާސްކެޓަކަށް އެޅުމަށް ފަހު، އެ
-                ބާސްކެޓުގެ އަގަށް އެވްރެޖްކޮށް އަންނަ ބަދަލަށެވެ.
-              </p>
-            </a>
-
-            <a
-              className="block rounded-lg bg-okaogray-500 p-4 dark:z-10 dark:border-gray-100 dark:bg-slate-900 dark:shadow-lg"
-              href="/single"
-            >
-              <div className="relative float-right mb-2 ml-6">
-                <img
-                  className="float-right w-32 md:w-44"
-                  src="https://minoos-space.sgp1.digitaloceanspaces.com/content/media/rect_ntBChuGVdBUdSDJl0zas2Eivx.jpeg"
-                  alt=""
-                />
-              </div>
-              <div className="flex items-center space-x-3 space-x-reverse">
-                <div className="flex items-center space-x-1 space-x-reverse">
-                  <span className="ltr text-xs text-gray-500">
-                    11 hours
-                  </span>
-                </div>
-              </div>
-              <h2
-                className={cn(
-                  "my-3 text-xl font-normal leading-loose",
-                  mvAanamu.className
-                )}
-              >
-                ދެ ނައިބުންނާ ލީޑާޝިޕް ނުކުމެ ޔާމީނަށް ރައްދު ދީފި
-              </h2>
-              <p
-                className={cn(
-                  "mb-2 text-gray-500",
-                  mvRasmee.className
-                )}
-              >
-                ޔާމީން ވިދާޅުވީ ޕީޕީއެމަށް ދިރުމެއް ދޭން
-                ރައީސުލްޖުމްހޫރިއްޔާ / ޕީއެންސީގެ ރައީސް ޑރ. މުއިއްޒު
-                ބޭނުންވެވަޑައިނުގަންނަވާ ކަމަށެވެ.
-              </p>
-            </a>
+            {
+              homeArticles?.edges?.map((article: any, index: number) => {
+                return (
+                  <a
+                    key={index}
+                    className="block rounded-lg bg-okaogray-500 p-4 dark:z-10 dark:border-gray-100 dark:bg-slate-900 dark:shadow-lg"
+                    href="/single"
+                  >
+                    <div className="relative float-right mb-2 ml-6">
+                      <img
+                        className="float-right w-32 md:w-44"
+                        src={article?.node?.mainImage?.url}
+                        alt=""
+                      />
+                    </div>
+                    <div className="flex items-center space-x-3 space-x-reverse">
+                      <div className="flex items-center space-x-1 space-x-reverse">
+                        <span className="ltr text-xs text-gray-500">
+                          {
+                            moment(article?.node?.createdAt).fromNow()
+                          }
+                        </span>
+                      </div>
+                    </div>
+                    <h2
+                      className={cn(
+                        "my-3 text-xl font-normal leading-loose",
+                        mvAanamu.className
+                      )}
+                    >
+                      {
+                        article?.node?.title
+                      }
+                    </h2>
+                    <p
+                      className={cn(
+                        "mb-2 line-clamp-2 text-gray-500",
+                        mvRasmee.className
+                      )}
+                    >
+                      {
+                        article?.node?.subTitle
+                      }
+                    </p>
+                  </a>
+                )
+              })
+            }
           </div>
 
           <div className='flex justify-center'>
