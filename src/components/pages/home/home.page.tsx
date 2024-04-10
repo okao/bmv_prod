@@ -34,8 +34,8 @@ const HomePage = () => {
 
   const fetchHomeArticles = async () => {
     setLoading(true);
-    const data = await getHomeArticles();
-    setHomeArticles(data);
+    const homeData = await getHomeArticles();
+    setHomeArticles(homeData);
     setLoading(false);
   }
 
@@ -102,7 +102,7 @@ const HomePage = () => {
           </div>
         </div>
 
-        {/*
+
         <div className="mx-4 md:container">
           <div
             id="homebreak"
@@ -135,6 +135,7 @@ const HomePage = () => {
 
         <EditorialSection article={articles} imageMainUrl={imageMainUrl} loading={loading} />
 
+        {/*
         <div className="mt-10 md:mt-16">
           <AdBanner
             src={
