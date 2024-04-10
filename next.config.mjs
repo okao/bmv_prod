@@ -23,7 +23,9 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'ap-south-1.graphassets.com',
-      }
+      },
+      { protocol: 'https', hostname: 'pbs.twimg.com' },
+      { protocol: 'https', hostname: 'abs.twimg.com' },
     ],
     unoptimized: true, // Cache images false and true means no cache
     // loader: "cloudinary",

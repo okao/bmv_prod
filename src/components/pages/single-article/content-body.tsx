@@ -3,8 +3,8 @@ import React from 'react'
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
 import { mvFaseyha } from '@/config/fonts'
-// import { Tweet } from "react-tweet"; // first import
-
+// import TweetBlock from '@/components/common/tweet-block'
+import { Tweet } from 'react-tweet';
 
 //remove eslint-disable
 // eslint-disable-next-line
@@ -85,12 +85,13 @@ const ContentBody = ({ article }: { article: any }) => {
             return (
               <div key={index} className="float-end my-4 flex overflow-hidden lg:pl-6">
                 <div className="mb-8 flex w-full max-w-lg flex-col">
-                  {/* <Tweet
-                    id={content?.twitterLink?.match(
-                          /\/status\/(\d+)/
-                        )?.[1] as string}
-                    // id={"1777209884402151779"}
-                  /> */}
+                  <Tweet
+                    // id={content?.twitterLink?.match(
+                    //       /\/status\/(\d+)/
+                    //     )?.[1] as string}
+                    id={"1777209884402151779"}
+
+                  />
                 </div>
               </div>
             )
