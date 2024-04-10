@@ -6,19 +6,20 @@ import AdBanner from "@/components/common/ad-banner"
 import Link from 'next/link'
 import Image from 'next/image'
 import LatestNews from './latest-news'
-import EditorialSection from './editorial-section'
+import ReportSection from './report-section'
 import PoliticsSection from './politics-section'
 import MaldivesSection from './maldives-section'
 import WorldSection from './world-section'
 import MainSection from './main-section'
 import PeopleSection from './people-section'
 import { useEffect, useState } from "react"
-import { getHomeArticles, getMainArticles } from '@/graph/apollo';
+import { getHomeArticles, getMainArticles, getReportArticles } from '@/graph/apollo';
 
 
 const HomePage = () => {
   const [articles, setArticles] = useState([]);
   const [homeArticles, setHomeArticles] = useState([]);
+  const [reportArticles, setReportArticles] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const fetchArticles = async () => {
@@ -35,9 +36,17 @@ const HomePage = () => {
     setLoading(false);
   }
 
+  const fetchReportArticles = async () => {
+    setLoading(true);
+    const reportData = await getReportArticles();
+    setReportArticles(reportData);
+    setLoading(false);
+  }
+
   useEffect(() => {
     fetchArticles();
     fetchHomeArticles();
+    fetchReportArticles();
   }, []);
 
   if (loading) {
@@ -130,7 +139,7 @@ const HomePage = () => {
           />
         </div>
 
-        <EditorialSection article={articles} loading={loading} />
+        <ReportSection article={reportArticles} loading={loading} />
 
 
         <div className="mt-10 md:mt-16">

@@ -215,6 +215,59 @@ export async function getHomeArticles() {
   return data.articleConnection;
 }
 
+
+const REPORT_ARTICLES = gql`
+query ReportArticles {
+  articleConnection(
+    orderBy: createdAt_DESC
+    first: 3
+    stage: PUBLISHED
+    where: {articleMenus_every: {name: "ރިޕޯޓް"}}
+  ) {
+    pageInfo {
+      pageSize
+      startCursor
+      endCursor
+      hasNextPage
+      hasPreviousPage
+    }
+    edges {
+      cursor
+      node {
+        id
+        title
+        subTitle
+        latinTitle
+        latinSubTitle
+        articleMenus {
+          id
+          name
+          number
+        }
+        mainImage {
+          fileName
+          handle
+          mimeType
+          url(
+            transformation: {document: {output: {format: jpg}}, image: {resize: {width: 300}}}
+          )
+        }
+        publishedAt
+        createdAt
+      }
+    }
+  }
+}
+`;
+
+
+export async function getReportArticles() {
+  const { data } = await client.query({
+    query: REPORT_ARTICLES,
+  });
+  return data.articleConnection;
+}
+
 const GET_ARTICLE_BY_ID = gql`
 query Article($id: ID!) {
   article(where: {id: $id}) {
