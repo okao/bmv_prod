@@ -81,7 +81,7 @@ const ContentBody = ({ article }: { article: any }) => {
             return (
               <div key={index} className="float-end my-4 flex overflow-hidden lg:pl-6">
                 <div className="mb-8 flex w-full max-w-lg flex-col">
-                  Twitter Link
+
                 </div>
               </div>
             )
