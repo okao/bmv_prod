@@ -24,7 +24,7 @@ const ReportSection = ({ article, loading }: { article: any, loading: boolean })
   return (
     <div className="mt-10 w-full md:mt-10">
       <div className="rtl mx-auto grid grid-cols-12 gap-8 md:container md:gap-10">
-        <a href="/single" className="col-span-12 md:col-span-6 md:py-20">
+        <a href={`/article/${firstArticle?.id}`} className="col-span-12 md:col-span-6 md:py-20">
           <div className="flex h-full flex-col">
             <img
               className="relative mx-auto -mb-20 h-12 w-4/5 flex-1 object-cover"
@@ -51,7 +51,7 @@ const ReportSection = ({ article, loading }: { article: any, loading: boolean })
           otherTwoArticles?.map((article: any, index: number) => {
             return (
               <a
-                href="/single"
+                href={`/article/${article?.node?.id}`}
                 className="col-span-12 h-full md:col-span-3 md:py-20"
                 key={index}
               >
