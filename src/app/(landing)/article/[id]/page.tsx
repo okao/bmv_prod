@@ -16,7 +16,7 @@ import {
 import { mvAanamu, mvFaseyha, mvRasmee, mvWaheed } from "@/config/fonts"
 import { cn } from "@/lib/utils"
 import AdBanner from "@/components/common/ad-banner"
-// import ContentBody from "@/components/pages/single-article/content-body"
+import ContentBody from "@/components/pages/single-article/content-body"
 import RelatedArticles from "@/components/pages/single-article/related-articles"
 import RelatedArticlesMobile from "@/components/pages/single-article/related-articles-mobile"
 import ImageBanner from "@/components/pages/single-article/image-banner"
@@ -67,7 +67,7 @@ const Single = async ({ params }: any) => {
             <RelatedArticles article={article} />
           </div>
           <div className="mt-6 max-w-3xl text-justify md:mt-0 lg:pl-6">
-            {/* <ContentBody article={article} /> */}
+            <ContentBody article={article} />
           </div>
         </div>
         <RelatedArticlesMobile article={article} />
