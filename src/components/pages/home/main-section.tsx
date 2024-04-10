@@ -22,7 +22,7 @@ export function Skeleton({ number, width, height }: { number: number, width?: st
   )
 }
 
-const MainSection = ({ articles, imageMainUrl, loading }: { articles: any, imageMainUrl: string, loading: boolean }) => {
+const MainSection = ({ articles, loading }: { articles: any, loading: boolean }) => {
   const firstArticle = articles[0];
   const mainOtherArticles = articles.slice(1, 3);
 

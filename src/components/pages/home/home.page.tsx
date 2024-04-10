@@ -94,7 +94,7 @@ const HomePage = () => {
         <div className="md:mt-10">
           <div className="mx-auto md:container">
             <div className="gap-6 md:flex md:flex-row-reverse">
-              <MainSection articles={articles} imageMainUrl={imageMainUrl} loading={loading} />
+              <MainSection articles={articles} loading={loading} />
             </div>
           </div>
         </div>
@@ -130,7 +130,7 @@ const HomePage = () => {
           />
         </div>
 
-        <EditorialSection article={articles} imageMainUrl={imageMainUrl} loading={loading} />
+        <EditorialSection article={articles} loading={loading} />
 
 
         <div className="mt-10 md:mt-16">

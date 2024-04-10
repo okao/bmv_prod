@@ -4,7 +4,7 @@ import { mvAanamu, mvRasmee, mvWaheed } from '@/config/fonts'
 // import HomeGallery from "@/components/home/home-gallery"
 
 
-const EditorialSection = ({ article, imageMainUrl, loading }: {article: any, imageMainUrl: string, loading: boolean}) => {
+const EditorialSection = ({ article, loading }: {article: any, loading: boolean}) => {
   return (
     <div className="mt-10 w-full md:mt-10">
       <div className="rtl mx-auto grid grid-cols-12 gap-8 md:container md:gap-10">
