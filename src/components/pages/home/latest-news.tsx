@@ -23,7 +23,7 @@ const LatestNews = ({ homeArticles, loading }: { homeArticles: any, loading: boo
                   <a
                     key={index}
                     className="block rounded-lg bg-okaogray-500 p-4 dark:z-10 dark:border-gray-100 dark:bg-slate-900 dark:shadow-lg"
-                    href="/single"
+                    href={`/article/${article?.node?.id}`}
                   >
                     <div className="relative float-right mb-2 ml-6">
                       <img

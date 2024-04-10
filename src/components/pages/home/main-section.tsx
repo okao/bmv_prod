@@ -114,7 +114,10 @@ const MainSection = ({ articles, imageMainUrl, loading }: { articles: any, image
 
             return (
               <>
-                <a key={index} className="rtl" href={`/article/${article?.node?.id}`}>
+                <a
+                  key={index}
+                  className="rtl"
+                  href={`/article/${article?.node?.id}`}>
                     <div className="relative float-right mb-2 ml-6">
                       <img
                         className="float-right w-32 md:w-44"
