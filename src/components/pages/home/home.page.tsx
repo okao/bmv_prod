@@ -139,7 +139,7 @@ const HomePage = () => {
           />
         </div>
 
-        <ReportSection article={reportArticles} loading={loading} />
+        {/* <ReportSection article={reportArticles} loading={loading} /> */}
 
 
         <div className="mt-10 md:mt-16">
