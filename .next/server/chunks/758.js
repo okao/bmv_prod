@@ -161,6 +161,48 @@ query ReportArticles {
   }
 }
 `,iI`
+query MaldivesArticles {
+  articleConnection(
+    orderBy: createdAt_DESC
+    first: 4
+    stage: PUBLISHED
+    where: {articleMenus_every: {name: "ރާއްޖެ"}}
+  ) {
+    pageInfo {
+      pageSize
+      startCursor
+      endCursor
+      hasNextPage
+      hasPreviousPage
+    }
+    edges {
+      cursor
+      node {
+        id
+        title
+        subTitle
+        latinTitle
+        latinSubTitle
+        articleMenus {
+          id
+          name
+          number
+        }
+        mainImage {
+          fileName
+          handle
+          mimeType
+          url(
+            transformation: {document: {output: {format: jpg}}, image: {resize: {width: 300}}}
+          )
+        }
+        publishedAt
+        createdAt
+      }
+    }
+  }
+}
+`,iI`
 query Article($id: ID!) {
   article(where: {id: $id}) {
     id

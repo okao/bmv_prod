@@ -3,11 +3,11 @@ import { cn } from '@/lib/utils'
 import { mvAanamu, mvRasmee, mvWaheed } from '@/config/fonts'
 
 
-const ReportSection = ({ article, loading }: { article: any, loading: boolean }) => {
+const ReportSection = ({ articles, loading }: { articles: any, loading: boolean }) => {
 
   //if edge is empty return null
 
-  if (!article?.edges) {
+  if (!articles?.edges) {
     <div className="mt-10 w-full md:mt-10">
       <div className="rtl mx-auto grid grid-cols-12 gap-8 md:container md:gap-10">
         <a href="/" className="col-span-12 md:col-span-6 md:py-20">
@@ -17,9 +17,9 @@ const ReportSection = ({ article, loading }: { article: any, loading: boolean })
     </div>
   }
 
-  const firstArticle = article?.edges && article.edges[0].node || null;
+  const firstArticle = articles?.edges && articles.edges[0].node || null;
 
-  const otherTwoArticles = article?.edges && article.edges.slice(1, 3) || [];
+  const otherTwoArticles = articles?.edges && articles.edges.slice(1, 3) || [];
 
   return (
     <div className="mt-10 w-full md:mt-10">

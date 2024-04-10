@@ -6,11 +6,6 @@ import moment from 'moment'
 
 const LatestNews = ({ homeArticles, loading }: { homeArticles: any, loading: boolean }) => {
 
-  //from articles take from 2nd to 6th article
-  // const latestArticles = articles.slice(1, 3);
-
-  console.log("Home Articles", homeArticles)
-
   return (
     <div className="rtl mx-auto px-4 md:container">
       <div className="grid-cols-1 gap-8 md:grid md:grid-cols-12">

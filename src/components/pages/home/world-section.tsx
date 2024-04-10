@@ -4,7 +4,7 @@ import { mvAanamu, mvRasmee, mvWaheed } from '@/config/fonts'
 import HomeGallery from "@/components/home/home-gallery"
 
 
-const WorldSection = ({ article, imageMainUrl, loading }: {article: any, imageMainUrl: string, loading: boolean}) => {
+const WorldSection = ({ article, loading }: {article: any, loading: boolean}) => {
   return (
     <div className="mt-10 md:mt-16">
       <div className="rtl mx-auto md:container">

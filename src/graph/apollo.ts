@@ -268,6 +268,58 @@ export async function getReportArticles() {
   return data.articleConnection;
 }
 
+const MADLDIVES_ARTICLES = gql`
+query MaldivesArticles {
+  articleConnection(
+    orderBy: createdAt_DESC
+    first: 4
+    stage: PUBLISHED
+    where: {articleMenus_every: {name: "ރާއްޖެ"}}
+  ) {
+    pageInfo {
+      pageSize
+      startCursor
+      endCursor
+      hasNextPage
+      hasPreviousPage
+    }
+    edges {
+      cursor
+      node {
+        id
+        title
+        subTitle
+        latinTitle
+        latinSubTitle
+        articleMenus {
+          id
+          name
+          number
+        }
+        mainImage {
+          fileName
+          handle
+          mimeType
+          url(
+            transformation: {document: {output: {format: jpg}}, image: {resize: {width: 300}}}
+          )
+        }
+        publishedAt
+        createdAt
+      }
+    }
+  }
+}
+`;
+
+
+export async function getMaldivesArticles() {
+  const { data } = await client.query({
+    query: MADLDIVES_ARTICLES,
+  });
+  return data.articleConnection;
+}
+
 const GET_ARTICLE_BY_ID = gql`
 query Article($id: ID!) {
   article(where: {id: $id}) {

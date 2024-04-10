@@ -13,13 +13,19 @@ import WorldSection from './world-section'
 import MainSection from './main-section'
 import PeopleSection from './people-section'
 import { useEffect, useState } from "react"
-import { getHomeArticles, getMainArticles, getReportArticles } from '@/graph/apollo';
+import {
+  getHomeArticles,
+  getMainArticles,
+  getReportArticles,
+  getMaldivesArticles,
+} from '@/graph/apollo';
 
 
 const HomePage = () => {
   const [articles, setArticles] = useState([]);
   const [homeArticles, setHomeArticles] = useState([]);
   const [reportArticles, setReportArticles] = useState([]);
+  const [maldivesArticles, setMaldivesArticles] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const fetchArticles = async () => {
@@ -43,10 +49,18 @@ const HomePage = () => {
     setLoading(false);
   }
 
+  const fetchMaldivesArticles = async () => {
+    setLoading(true);
+    const maldivesData = await getMaldivesArticles();
+    setMaldivesArticles(maldivesData);
+    setLoading(false);
+  }
+
   useEffect(() => {
     fetchArticles();
     fetchHomeArticles();
     fetchReportArticles();
+    fetchMaldivesArticles();
   }, []);
 
   if (loading) {
@@ -139,7 +153,7 @@ const HomePage = () => {
           />
         </div>
 
-        <ReportSection article={reportArticles} loading={loading} />
+        <ReportSection articles={reportArticles} loading={loading} />
 
 
         <div className="mt-10 md:mt-16">
@@ -151,11 +165,11 @@ const HomePage = () => {
           />
         </div>
 
-        {/*
 
-        <MaldivesSection article={articles} imageMainUrl={imageMainUrl} loading={loading} />
 
-        <WorldSection article={articles} imageMainUrl={imageMainUrl} loading={loading} />
+        <MaldivesSection articles={maldivesArticles} loading={loading} />
+
+        <WorldSection article={articles} loading={loading} />
 
         <div className="mt-8 md:mt-10">
           <AdBanner
@@ -169,10 +183,10 @@ const HomePage = () => {
         <div className="md:mt-10">
           <div className="mx-auto md:container">
             <div className="gap-6 md:flex md:flex-row-reverse">
-              <PeopleSection articles={articles} imageMainUrl={imageMainUrl} loading={loading} />
+              <PeopleSection articles={articles} loading={loading} />
             </div>
           </div>
-        </div> */}
+        </div>
 
       </section>
     </div>
