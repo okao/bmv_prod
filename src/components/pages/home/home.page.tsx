@@ -94,9 +94,7 @@ const HomePage = () => {
     <div className="flex-1">
       <section className="relative">
 
-        <h2>Here .................</h2>
-
-        {/* <div className="md:mt-10">
+        <div className="md:mt-10">
           <div className="mx-auto md:container">
             <div className="gap-6 md:flex md:flex-row-reverse">
               <MainSection articles={articles} imageMainUrl={imageMainUrl} loading={loading} />
@@ -104,6 +102,7 @@ const HomePage = () => {
           </div>
         </div>
 
+        {/*
         <div className="mx-4 md:container">
           <div
             id="homebreak"
