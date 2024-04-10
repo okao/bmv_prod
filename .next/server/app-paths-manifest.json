@@ -1,5 +1,3 @@
 {
-  "/not-found": "app/not-found.js",
-  "/(landing)/page": "app/(landing)/page.js",
-  "/(landing)/article/[id]/page": "app/(landing)/article/[id]/page.js"
+  "/(landing)/page": "app/(landing)/page.js"
 }
