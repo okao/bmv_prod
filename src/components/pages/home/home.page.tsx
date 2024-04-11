@@ -19,6 +19,7 @@ import {
   getReportArticles,
   getMaldivesArticles,
   getWorldArticles,
+  getPeopleArticles
 } from '@/graph/apollo';
 
 
@@ -28,6 +29,7 @@ const HomePage = () => {
   const [reportArticles, setReportArticles] = useState([]);
   const [maldivesArticles, setMaldivesArticles] = useState([]);
   const [worldArticles, setWorldArticles] = useState([]);
+  const [peopleArticles, setPeopleArticles] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const fetchArticles = async () => {
@@ -65,12 +67,20 @@ const HomePage = () => {
     setLoading(false);
   }
 
+  const fetchPeopleArticles = async () => {
+    setLoading(true);
+    const peopleData = await getPeopleArticles();
+    setPeopleArticles(peopleData);
+    setLoading(false);
+  }
+
   useEffect(() => {
     fetchArticles();
     fetchHomeArticles();
     fetchReportArticles();
     fetchMaldivesArticles();
     fetchWorldArticles();
+    fetchPeopleArticles();
   }, []);
 
   if (loading) {
@@ -179,7 +189,14 @@ const HomePage = () => {
 
         <MaldivesSection articles={maldivesArticles} loading={loading} />
 
-        <WorldSection articles={worldArticles} loading={loading} />
+        <div className="mt-4 bg-gray-200 py-4 md:mt-10">
+          <div className="mx-auto">
+            <div className="gap-6 md:flex md:flex-row-reverse">
+              <PeopleSection articles={peopleArticles} loading={loading} />
+            </div>
+          </div>
+        </div>
+
 
         <div className="mt-8 md:mt-10">
           <AdBanner
@@ -190,13 +207,8 @@ const HomePage = () => {
           />
         </div>
 
-        <div className="md:mt-10">
-          <div className="mx-auto md:container">
-            <div className="gap-6 md:flex md:flex-row-reverse">
-              <PeopleSection articles={articles} loading={loading} />
-            </div>
-          </div>
-        </div>
+        <WorldSection articles={worldArticles} loading={loading} />
+
 
       </section>
     </div>

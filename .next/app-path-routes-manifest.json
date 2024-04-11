@@ -1,1 +1,1 @@
-{"/_not-found":"/_not-found","/admin/page":"/admin","/api/articles/route":"/api/articles","/favicon.ico/route":"/favicon.ico","/api/menus/route":"/api/menus","/api/latestNews/route":"/api/latestNews","/(landing)/article/[id]/page":"/article/[id]","/(landing)/page":"/"}
+{"/_not-found":"/_not-found","/admin/page":"/admin","/api/latestNews/route":"/api/latestNews","/api/articles/route":"/api/articles","/api/menus/route":"/api/menus","/favicon.ico/route":"/favicon.ico","/(landing)/article/[id]/page":"/article/[id]","/(landing)/page":"/"}

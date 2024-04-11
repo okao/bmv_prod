@@ -386,6 +386,59 @@ export async function getWorldArticles() {
   return data.articleConnection;
 }
 
+const PEOPLE_ARTICLES = gql`
+query PeopleArticles {
+  articleConnection(
+    orderBy: createdAt_DESC
+    first: 4
+    stage: PUBLISHED
+    where: {articleMenus_every: {name: "މީހުން"}}
+  ) {
+    pageInfo {
+      pageSize
+      startCursor
+      endCursor
+      hasNextPage
+      hasPreviousPage
+    }
+    edges {
+      cursor
+      node {
+        id
+        title
+        subTitle
+        latinTitle
+        latinSubTitle
+        articleMenus {
+          id
+          name
+          number
+        }
+        mainImage {
+          fileName
+          handle
+          mimeType
+          url(
+            transformation: {document: {output: {format: jpg}}, image: {resize: {width: 300}}}
+          )
+        }
+        publishedAt
+        createdAt
+      }
+    }
+  }
+}
+`;
+
+
+export async function getPeopleArticles() {
+  // revalidatePath(`/`);
+  const { data } = await client.query({
+    query: PEOPLE_ARTICLES,
+  });
+  return data.articleConnection;
+}
+
 const GET_ARTICLE_BY_ID = gql`
 query Article($id: ID!) {
   article(where: {id: $id}) {

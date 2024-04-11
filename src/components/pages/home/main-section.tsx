@@ -57,7 +57,7 @@ const MainSection = ({ articles, loading }: { articles: any, loading: boolean })
           <div>
             <h2
               className={cn(
-                "mb-4 px-2 text-center text-3xl leading-loose",
+                "mb-4 text-center text-3xl leading-loose md:px-4 md:text-right",
                 mvAanamu.className
               )}
             >
