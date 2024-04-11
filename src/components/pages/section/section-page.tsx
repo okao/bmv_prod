@@ -2,16 +2,55 @@
 
 import { cn } from '@/lib/utils'
 import { mvWaheed } from '@/config/fonts'
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useCallback} from 'react'
 import { getArticleWithTypeCount } from '@/graph/apollo';
 import moment from 'moment';
+import { useSearchParams } from 'next/navigation';
 
-const SectionPage = ({ articles }: { articles: any }) => {
+const SectionPage = () => {
 
-  console.log("Section Articles", articles)
+  const searchParams = useSearchParams();
+  const [loading, setLoading] = useState(true)
+  const [section, setSection] = useState('')
+  const [articles, setArticles] = useState([]);
+
+  const fetchArticles = useCallback(async (name: string) => {
+    setLoading(true);
+    const data = await getArticleWithTypeCount(name, 40);
+
+    if (data?.pageInfo?.pageSize > 0) {
+      setArticles(data?.edges);
+    } else {
+      setArticles([]);
+    }
+    setLoading(false);
+  }, []);
+
+  useEffect(() => {
+    try {
+      setSection('')
+      if (searchParams.has('name')) {
+        const name = searchParams.get('name') as string;
+        setSection(name);
+        fetchArticles(name);
+      }
+    } catch (e) {
+      console.error('Error in fetching articles', e)
+    }
+  }, [searchParams, fetchArticles]);
+
 
   return (
     <div>
+      <div className='mb-10 bg-gray-300'>
+        <div className='container mx-auto'>
+          <h1 className={
+            cn("mx-4 py-10 text-center text-[40px] text-gray-700 sm:text-[50px]", mvWaheed.className)
+          }>
+            {section}
+          </h1>
+        </div>
+      </div>
       <div className='mt-4 overflow-hidden md:container md:mx-auto'>
         <div className='-my-4 flex flex-row-reverse flex-wrap text-center sm:-mx-4 xl:mx-0'>
           {
