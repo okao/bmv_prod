@@ -62,14 +62,14 @@ const LatestNews = ({ homeArticles, loading }: { homeArticles: any, loading: boo
             }
           </div>
 
-          <div className='flex justify-center'>
+          {/* <div className='flex justify-center'>
             <a href="" className="z-20 flex items-center gap-2 rounded-3xl border bg-gray-200 p-2 text-center text-gray-600 shadow-lg dark:bg-slate-800 dark:text-slate-300 dark:shadow-lg">
                 <span className={cn('rtl text-xs', mvRasmee.className)}>
                     އިތުރު ހަބަރު
                 </span>
                 <BsBlockquoteLeft size={14} />
             </a>
-          </div>
+          </div> */}
         </div>
 
         {/* <div className="col-span-12 mt-8 md:col-span-3 md:mt-0">

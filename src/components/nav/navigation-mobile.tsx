@@ -93,7 +93,8 @@ export function NavigationMobile({ navItems }: any) {
 
             <MobileLink
               key={key}
-              href={menu?.node?.name}
+              // href={menu?.node?.name}
+              href={`/section?name=${menu?.node?.name}`}
               segment={String(segment)}
               setIsOpen={setIsOpen}
             >

@@ -16,10 +16,7 @@ import { useEffect, useState } from "react"
 import {
   getHomeArticles,
   getMainArticles,
-  getReportArticles,
-  getMaldivesArticles,
-  getWorldArticles,
-  getPeopleArticles
+  getArticleWithTypeCount
 } from '@/graph/apollo';
 
 
@@ -48,28 +45,28 @@ const HomePage = () => {
 
   const fetchReportArticles = async () => {
     setLoading(true);
-    const reportData = await getReportArticles();
+    const reportData = await getArticleWithTypeCount("ރިޕޯޓް", 3);
     setReportArticles(reportData);
     setLoading(false);
   }
 
   const fetchMaldivesArticles = async () => {
     setLoading(true);
-    const maldivesData = await getMaldivesArticles();
+    const maldivesData = await getArticleWithTypeCount("ރާއްޖެ", 4);
     setMaldivesArticles(maldivesData);
     setLoading(false);
   }
 
   const fetchWorldArticles = async () => {
     setLoading(true);
-    const worldData = await getWorldArticles();
+    const worldData = await getArticleWithTypeCount("ދުނިޔެ", 4);
     setWorldArticles(worldData);
     setLoading(false);
   }
 
   const fetchPeopleArticles = async () => {
     setLoading(true);
-    const peopleData = await getPeopleArticles();
+    const peopleData = await getArticleWithTypeCount("މީހުން", 4);
     setPeopleArticles(peopleData);
     setLoading(false);
   }

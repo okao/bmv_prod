@@ -10,6 +10,7 @@ const client = new ApolloClient({
     "gcms-locales": "en",
     "apiKey": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImdjbXMtbWFpbi1wcm9kdWN0aW9uIn0.eyJ2ZXJzaW9uIjozLCJpYXQiOjE3MTIzNTcwNTQsImF1ZCI6WyJodHRwczovL2FwaS1hcC1zb3V0aC0xLmh5Z3JhcGguY29tL3YyL2NsdW1lNXZzcTBoN3MwN3dncGY0d2RjYWkvbWFzdGVyIiwibWFuYWdlbWVudC1uZXh0LmdyYXBoY21zLmNvbSJdLCJpc3MiOiJodHRwczovL21hbmFnZW1lbnQtYXAtc291dGgtMS5oeWdyYXBoLmNvbS8iLCJzdWIiOiI3NTFkOWYxYy0wODg0LTQ5MzYtODFjYi0xMDBhNDFlMWUzODkiLCJqdGkiOiJjbHVuOTZlencwa2F2MDdwaWU5M2Q1NzQwIn0.HUcCizTMtw0qRkrc7qU17hL6mTCuTZp1goZeD506xgUNrPXEAbYzpYUcD7bYROiEIQHz-Wb-7gTIfNDFmSGWKGDymgMivBSgjCXfVMjNoJn5LRGuzhF37p6vfdizkaeQaDkcpnQ7bPphO0Kh6Q4fakPb4niFA-Aaf0ZtVcdaZn9EaPFPOey-ZHCPsxHXv3CBJ2OsrPEGRvjdulRKCU7M64BTLwm4kU2MnCyitBICJK-CtcDP-moYDA7IGVmQ3qCJQOcchGQ7jbTP_0MV_-C1D2pAqs7IWmGCqBMje8AX_rVP4QxrjQ96vspWUCqggjEFRDagH6oUfemFc3vjI6rmRNMVRTXsZj8iLErwJRFLX1oulScg--6vw_OWYfPHzpSq1lbTkndMv5lh7ZoSZGie8BhZ7FsRaqsjE6bE6ZRVAetJBuNd0XW3hD4zzt5PVHZhlqQfeQzVn865nC_3h7J3tc7Z_7ZDgOy6ATsD1nvmrrDZW625xba35LrxdygAIUJqKcGqDziJ0RZRfobY8gVk0XpytxpaZ8SBxBrEbeYz3CXah8Pg5Tt4xnNaEsH0EtdVlgR1O3xJ19nHGTvqWEc6E8pr9fStQyYkSPTsi8uIXLTaL5E7WvIW5wcYAhcdnBLS32Utd-7ZwizliSfRRy0EwTFva-bB1Wkd9F9yaFpZNlE",
   },
+  connectToDevTools: true,
 });
 
 // GraphQL query
@@ -226,219 +227,6 @@ export async function getHomeArticles() {
   return data.articleConnection;
 }
 
-
-const REPORT_ARTICLES = gql`
-query ReportArticles {
-  articleConnection(
-    orderBy: createdAt_DESC
-    first: 3
-    stage: PUBLISHED
-    where: {articleMenus_every: {name: "ރިޕޯޓް"}}
-  ) {
-    pageInfo {
-      pageSize
-      startCursor
-      endCursor
-      hasNextPage
-      hasPreviousPage
-    }
-    edges {
-      cursor
-      node {
-        id
-        title
-        subTitle
-        latinTitle
-        latinSubTitle
-        articleMenus {
-          id
-          name
-          number
-        }
-        mainImage {
-          fileName
-          handle
-          mimeType
-          url(
-            transformation: {document: {output: {format: jpg}}, image: {resize: {width: 300}}}
-          )
-        }
-        publishedAt
-        createdAt
-      }
-    }
-  }
-}
-`;
-
-
-export async function getReportArticles() {
-  // revalidatePath(`/`);
-  const { data } = await client.query({
-    query: REPORT_ARTICLES,
-  });
-  return data.articleConnection;
-}
-
-const MADLDIVES_ARTICLES = gql`
-query MaldivesArticles {
-  articleConnection(
-    orderBy: createdAt_DESC
-    first: 4
-    stage: PUBLISHED
-    where: {articleMenus_every: {name: "ރާއްޖެ"}}
-  ) {
-    pageInfo {
-      pageSize
-      startCursor
-      endCursor
-      hasNextPage
-      hasPreviousPage
-    }
-    edges {
-      cursor
-      node {
-        id
-        title
-        subTitle
-        latinTitle
-        latinSubTitle
-        articleMenus {
-          id
-          name
-          number
-        }
-        mainImage {
-          fileName
-          handle
-          mimeType
-          url(
-            transformation: {document: {output: {format: jpg}}, image: {resize: {width: 300}}}
-          )
-        }
-        publishedAt
-        createdAt
-      }
-    }
-  }
-}
-`;
-
-
-export async function getMaldivesArticles() {
-  // revalidatePath(`/`);
-  const { data } = await client.query({
-    query: MADLDIVES_ARTICLES,
-  });
-  return data.articleConnection;
-}
-
-const WORLD_ARTICLES = gql`
-query WorldArticles {
-  articleConnection(
-    orderBy: createdAt_DESC
-    first: 4
-    stage: PUBLISHED
-    where: {articleMenus_every: {name: "ދުނިޔެ"}}
-  ) {
-    pageInfo {
-      pageSize
-      startCursor
-      endCursor
-      hasNextPage
-      hasPreviousPage
-    }
-    edges {
-      cursor
-      node {
-        id
-        title
-        subTitle
-        latinTitle
-        latinSubTitle
-        articleMenus {
-          id
-          name
-          number
-        }
-        mainImage {
-          fileName
-          handle
-          mimeType
-          url(
-            transformation: {document: {output: {format: jpg}}, image: {resize: {width: 300}}}
-          )
-        }
-        publishedAt
-        createdAt
-      }
-    }
-  }
-}
-`;
-
-
-export async function getWorldArticles() {
-  // revalidatePath(`/`);
-  const { data } = await client.query({
-    query: WORLD_ARTICLES,
-  });
-  return data.articleConnection;
-}
-
-const PEOPLE_ARTICLES = gql`
-query PeopleArticles {
-  articleConnection(
-    orderBy: createdAt_DESC
-    first: 4
-    stage: PUBLISHED
-    where: {articleMenus_every: {name: "މީހުން"}}
-  ) {
-    pageInfo {
-      pageSize
-      startCursor
-      endCursor
-      hasNextPage
-      hasPreviousPage
-    }
-    edges {
-      cursor
-      node {
-        id
-        title
-        subTitle
-        latinTitle
-        latinSubTitle
-        articleMenus {
-          id
-          name
-          number
-        }
-        mainImage {
-          fileName
-          handle
-          mimeType
-          url(
-            transformation: {document: {output: {format: jpg}}, image: {resize: {width: 300}}}
-          )
-        }
-        publishedAt
-        createdAt
-      }
-    }
-  }
-}
-`;
-
-
-export async function getPeopleArticles() {
-  // revalidatePath(`/`);
-  const { data } = await client.query({
-    query: PEOPLE_ARTICLES,
-  });
-  return data.articleConnection;
-}
-
 const GET_ARTICLE_BY_ID = gql`
 query Article($id: ID!) {
   article(where: {id: $id}) {
@@ -520,3 +308,69 @@ export async function getArticleById(id: string) {
   });
   return data.article;
 }
+
+
+const ARTICLES_WITH_TYPE_COUNT = gql`
+query ArticleWithTypeCount($name: String!, $first: Int!) {
+  articleConnection(
+    orderBy: createdAt_DESC
+    first: $first
+    stage: PUBLISHED
+    where: {
+      articleMenus_every: {
+        name: $name
+      }
+    }
+  ) {
+    pageInfo {
+      pageSize
+      startCursor
+      endCursor
+      hasNextPage
+      hasPreviousPage
+    }
+    edges {
+      cursor
+      node {
+        id
+        title
+        subTitle
+        latinTitle
+        latinSubTitle
+        articleMenus {
+          id
+          name
+          number
+        }
+        mainImage {
+          fileName
+          handle
+          mimeType
+          url(
+            transformation: {document: {output: {format: jpg}}, image: {resize: {width: 300}}}
+          )
+        }
+        publishedAt
+        createdAt
+      }
+    }
+  }
+}
+`;
+
+
+export async function getArticleWithTypeCount(
+  menuType: string = "ރިޕޯޓް",
+  menuCount: number = 3
+) {
+  const { data } = await client.query({
+    query: ARTICLES_WITH_TYPE_COUNT,
+    variables: {
+      name: menuType,
+      first: menuCount
+    },
+  });
+
+  return data?.articleConnection;
+}
+

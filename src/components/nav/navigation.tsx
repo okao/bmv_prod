@@ -27,7 +27,7 @@ export function Navigation({ navItems } : any) {
           navItems?.map((menu : any, index: number) => {
             return (
               <NavigationMenuItem key={index} asChild>
-                <Link href={menu?.node?.name} legacyBehavior passHref>
+                <Link href={`/section?name=${menu?.node?.name}`} legacyBehavior passHref>
                   <NavigationMenuLink
                     className={cn(
                       navigationMenuTriggerStyle(),
