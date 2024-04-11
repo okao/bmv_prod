@@ -170,7 +170,17 @@ query HomeArticles {
     orderBy: createdAt_DESC
     first: 6
     stage: PUBLISHED
-    where: {articleMenus_every: {number_gte: 1}}
+    where: {
+      articleMenus_every: {number_gte: 1},
+      AND: {
+        articleMenus_some: {
+          NOT: {name: "ދުނިޔެ"},
+          AND: {
+            NOT: {name: "ރިޕޯޓް"}
+          }
+        }
+      }
+    }
   ) {
     pageInfo {
       pageSize
@@ -209,6 +219,7 @@ query HomeArticles {
 `;
 
 export async function getHomeArticles() {
+  // revalidatePath(`/`);
   const { data } = await client.query({
     query: HOME_ARTICLES,
   });
@@ -262,6 +273,7 @@ query ReportArticles {
 
 
 export async function getReportArticles() {
+  // revalidatePath(`/`);
   const { data } = await client.query({
     query: REPORT_ARTICLES,
   });
@@ -314,8 +326,62 @@ query MaldivesArticles {
 
 
 export async function getMaldivesArticles() {
+  // revalidatePath(`/`);
   const { data } = await client.query({
     query: MADLDIVES_ARTICLES,
+  });
+  return data.articleConnection;
+}
+
+const WORLD_ARTICLES = gql`
+query WorldArticles {
+  articleConnection(
+    orderBy: createdAt_DESC
+    first: 4
+    stage: PUBLISHED
+    where: {articleMenus_every: {name: "ދުނިޔެ"}}
+  ) {
+    pageInfo {
+      pageSize
+      startCursor
+      endCursor
+      hasNextPage
+      hasPreviousPage
+    }
+    edges {
+      cursor
+      node {
+        id
+        title
+        subTitle
+        latinTitle
+        latinSubTitle
+        articleMenus {
+          id
+          name
+          number
+        }
+        mainImage {
+          fileName
+          handle
+          mimeType
+          url(
+            transformation: {document: {output: {format: jpg}}, image: {resize: {width: 300}}}
+          )
+        }
+        publishedAt
+        createdAt
+      }
+    }
+  }
+}
+`;
+
+
+export async function getWorldArticles() {
+  // revalidatePath(`/`);
+  const { data } = await client.query({
+    query: WORLD_ARTICLES,
   });
   return data.articleConnection;
 }

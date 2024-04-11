@@ -18,6 +18,7 @@ import {
   getMainArticles,
   getReportArticles,
   getMaldivesArticles,
+  getWorldArticles,
 } from '@/graph/apollo';
 
 
@@ -26,6 +27,7 @@ const HomePage = () => {
   const [homeArticles, setHomeArticles] = useState([]);
   const [reportArticles, setReportArticles] = useState([]);
   const [maldivesArticles, setMaldivesArticles] = useState([]);
+  const [worldArticles, setWorldArticles] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const fetchArticles = async () => {
@@ -56,11 +58,19 @@ const HomePage = () => {
     setLoading(false);
   }
 
+  const fetchWorldArticles = async () => {
+    setLoading(true);
+    const worldData = await getWorldArticles();
+    setWorldArticles(worldData);
+    setLoading(false);
+  }
+
   useEffect(() => {
     fetchArticles();
     fetchHomeArticles();
     fetchReportArticles();
     fetchMaldivesArticles();
+    fetchWorldArticles();
   }, []);
 
   if (loading) {
@@ -169,7 +179,7 @@ const HomePage = () => {
 
         <MaldivesSection articles={maldivesArticles} loading={loading} />
 
-        <WorldSection article={articles} loading={loading} />
+        <WorldSection articles={worldArticles} loading={loading} />
 
         <div className="mt-8 md:mt-10">
           <AdBanner

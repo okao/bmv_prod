@@ -2,7 +2,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
-import { mvFaseyha } from '@/config/fonts'
+import { mvFaseyha, mvWaheed } from '@/config/fonts'
 
 //remove eslint-disable
 // eslint-disable-next-line
@@ -31,6 +31,19 @@ const ContentBody = ({ article }: { article: any }) => {
                 )}
                 dangerouslySetInnerHTML={{ __html: content?.content?.html }}
               >
+              </div>
+            )
+          } else if(content?.__typename === "ArticleQuotes") {
+            return (
+              <div className="mb-8 w-full px-4 xl:px-0" key={index}>
+                <div className="flex flex-col items-center sm:flex-row-reverse sm:items-start">
+                  <img className="mb-6 sm:ml-6" src="https://cdn.mihaaru.com/assets/mhr/icons/icon-article-quote.svg" />
+                  <blockquote
+                    className={cn("rtl max-w-lg break-words text-center  text-[28px]  leading-loose text-black sm:text-right", mvWaheed.className)}
+                  >
+                    {content?.quote}
+                  </blockquote>
+                </div>
               </div>
             )
           } else if (content?.__typename === "ArticleImage") {
@@ -123,6 +136,23 @@ const ContentBody = ({ article }: { article: any }) => {
           </a>
         </div>
       </div> */}
+
+      <div className="w-full">
+        <div className="mb-20 text-right">
+          {
+            article?.articleTags?.value?.map((tag: any, index: number) => {
+              return (
+                <a key={index} href={`/tag?name=${tag}`}>
+                  <span
+                    className={cn("mb-2 ml-2 inline-block cursor-pointer rounded-full bg-gray-100 px-4 py-1 text-[17px] text-black transition duration-300 hover:bg-gray-200", mvWaheed.className)}>
+                    {tag}
+                  </span>
+                </a>
+              )
+            })
+          }
+        </div>
+      </div>
     </div>
   )
 }

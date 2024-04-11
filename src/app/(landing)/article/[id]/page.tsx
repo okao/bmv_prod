@@ -60,7 +60,7 @@ const Single = async ({ params }: any) => {
         <SingleMainAd />
       </div>
 
-      <ArticleTags menus={menus} tags={article?.articleTags?.value} />
+      {/* <ArticleTags tags={article?.articleTags?.value} /> */}
 
       <div className="container">
         <div
