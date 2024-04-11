@@ -236,6 +236,12 @@ query Article($id: ID!) {
         id
         content
       }
+      ... on ArticleRichText {
+        id
+        content {
+          html
+        }
+      }
       ... on ArticleImage {
         id
         image {

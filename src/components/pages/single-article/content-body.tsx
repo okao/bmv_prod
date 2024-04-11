@@ -7,6 +7,7 @@ import { mvFaseyha } from '@/config/fonts'
 //remove eslint-disable
 // eslint-disable-next-line
 const ContentBody = ({ article }: { article: any }) => {
+
   return (
     <div>
       {
@@ -20,6 +21,17 @@ const ContentBody = ({ article }: { article: any }) => {
                 )}>
                 {content?.content}
               </p>
+            )
+          } else if(content?.__typename === "ArticleRichText") {
+            return (
+              <div key={index}
+                className={cn(
+                  "rtl mb-6 text-wrap pl-0 text-lg font-thin leading-8 tracking-widest",
+                  mvFaseyha.className
+                )}
+                dangerouslySetInnerHTML={{ __html: content?.content?.html }}
+              >
+              </div>
             )
           } else if (content?.__typename === "ArticleImage") {
             return (

@@ -44,6 +44,11 @@ const Single = async ({ params }: any) => {
   const getArticle = await myAction(params?.id) || {};
   const article = getArticle[0];
 
+  const menus = [] as string[];
+  article?.articleMenus?.map((menu: any, index: number) => {
+    menus.push(menu?.name);
+  });
+
 
   return (
     <div>
@@ -55,7 +60,7 @@ const Single = async ({ params }: any) => {
         <SingleMainAd />
       </div>
 
-      <ArticleTags article={article} />
+      <ArticleTags menus={menus} tags={article?.articleTags?.value} />
 
       <div className="container">
         <div
