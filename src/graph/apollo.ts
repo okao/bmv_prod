@@ -265,6 +265,9 @@ query Article($id: ID!) {
         id
         content {
           html
+          markdown
+          raw
+          text
         }
       }
       ... on ArticleImage {
@@ -274,7 +277,7 @@ query Article($id: ID!) {
           fileName
           id
           mimeType
-          url(transformation: {image: {resize: {width: 500}}})
+          url(transformation: { image: {resize: {width: 500, height: 500}}})
         }
       }
       ... on ArticleQuotes {
@@ -291,7 +294,7 @@ query Article($id: ID!) {
         image {
           fileName
           handle
-          url(transformation: {image: {resize: {width: 200}}})
+          url(transformation: { image: {resize: {width: 500, height: 500}}})
         }
         link
       }
@@ -347,7 +350,7 @@ query ArticleWithTypeCount($name: String!, $first: Int!) {
           handle
           mimeType
           url(
-            transformation: {document: {output: {format: jpg}}, image: {resize: {width: 300}}}
+            transformation: {document: {output: {format: jpg}}, image: {resize: {width: 500, height: 500}}}
           )
         }
         publishedAt

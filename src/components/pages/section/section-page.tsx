@@ -40,6 +40,8 @@ const SectionPage = () => {
   }, [searchParams, fetchArticles]);
 
 
+
+
   return (
     <div>
       <div className='mb-10 bg-gray-300'>

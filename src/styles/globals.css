@@ -368,6 +368,13 @@
   }
 }
 
+.p-tagged {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
 /* @keyframes spin {
   0% {
     transform: rotate(0deg);

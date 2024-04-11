@@ -8,6 +8,8 @@ import { mvFaseyha, mvWaheed } from '@/config/fonts'
 // eslint-disable-next-line
 const ContentBody = ({ article }: { article: any }) => {
 
+  // console.log("Article", article?.articleContent?.[0]?.content?.raw?.children);
+
   return (
     <div>
       {
@@ -26,11 +28,38 @@ const ContentBody = ({ article }: { article: any }) => {
             return (
               <div key={index}
                 className={cn(
-                  "rtl mb-6 text-wrap pl-0 text-lg font-thin leading-8 tracking-widest",
+                  "rtl mb-6 flex flex-col gap-y-4 text-wrap pl-0 text-lg font-thin leading-8 tracking-widest",
                   mvFaseyha.className
                 )}
-                dangerouslySetInnerHTML={{ __html: content?.content?.html }}
+                // dangerouslySetInnerHTML={{ __html: content?.content?.html }}
               >
+
+                {
+                  content?.content?.raw?.children?.map((child: any, index: number) => {
+                    // return (
+                    //   <p key={index} className={cn(
+                    //       "rtl mb-6 text-wrap pl-0 text-lg font-thin leading-8 tracking-widest",
+                    //       mvFaseyha.className
+                    //     )}>
+                    //     {child?.children[0]?.text}
+                    //   </p>
+                    // )
+
+                    // console.log("Child", child);
+
+                    if(child && child?.type === "paragraph") {
+                      return (
+                        <p key={index} className={cn(
+                          "rtl mb-6 text-wrap pl-0 text-lg font-thin leading-8 tracking-widest",
+                          mvFaseyha.className
+                        )}>
+                          {child?.children[0]?.text}
+                        </p>
+                      )
+                    }
+                  })
+
+                }
               </div>
             )
           } else if(content?.__typename === "ArticleQuotes") {

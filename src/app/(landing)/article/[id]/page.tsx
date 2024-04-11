@@ -44,11 +44,12 @@ const Single = async ({ params }: any) => {
   const getArticle = await myAction(params?.id) || {};
   const article = getArticle[0];
 
+  // console.log("Article", article?.articleContent?.[0]?.content?.raw?.children[0]);
+
   const menus = [] as string[];
   article?.articleMenus?.map((menu: any, index: number) => {
     menus.push(menu?.name);
   });
-
 
   return (
     <div>
