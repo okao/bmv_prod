@@ -130,7 +130,7 @@ const Single = async ({ params }: any) => {
             <ContentBody article={article} />
           </div>
         </div>
-        {/* <RelatedArticlesMobile article={article} /> */}
+        <RelatedArticlesMobile article={article} />
       </div>
 
       {/* <div className="mt-10 md:mt-16">
