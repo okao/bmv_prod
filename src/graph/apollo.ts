@@ -243,6 +243,9 @@ export async function getHomeArticles() {
   return data.articleConnection;
 }
 
+
+
+
 const GET_ARTICLE_BY_ID = gql`
 query Article($id: ID!) {
   article(where: {id: $id}) {
@@ -398,5 +401,64 @@ export async function getArticleWithTypeCount(
   });
 
   return data?.articleConnection;
+}
+
+const GET_ARTICLE_BY_TAG = gql`
+query ArticleByTag($tag: String!, $first: Int!) {
+  articleConnection(
+    orderBy: createdAt_DESC
+    first: $first
+    stage: PUBLISHED
+    where: {articleTags: {_search: $tag}}
+  ) {
+    pageInfo {
+      pageSize
+      startCursor
+      endCursor
+      hasNextPage
+      hasPreviousPage
+    }
+    edges {
+      cursor
+      node {
+        id
+        title
+        subTitle
+        latinTitle
+        latinSubTitle
+        articleMenus {
+          id
+          name
+          number
+        }
+        mainImage {
+          fileName
+          handle
+          mimeType
+          url(
+            transformation: {document: {output: {format: jpg}}, image: {resize: {width: 300}}}
+          )
+        }
+        publishedAt
+        createdAt
+        articleAuthor {
+          image {
+            url(transformation: {image: {resize: {width: 300}}})
+          }
+          name
+        }
+      }
+    }
+  }
+}
+`;
+
+export async function getArticleByTag(tag: string, first: number = 8) {
+
+  const { data } = await client.query({
+    query: GET_ARTICLE_BY_TAG,
+    variables: { tag: tag, first: first },
+  });
+  return data.articleConnection;
 }
 
