@@ -51,8 +51,17 @@ spurious results.`)}}return!1};class ig{constructor(e,t="GraphQL request",r={lin
         node {
           id
           title
+          latinTitle
           subTitle
+          latinSubTitle
           typeOfArticle
+          articleAuthor {
+            image {
+              mimeType
+              url(transformation: {image: {resize: {width: 300}}})
+            }
+            name
+          }
           mainImage {
             id
             handle
@@ -109,6 +118,13 @@ query HomeArticles {
         subTitle
         latinTitle
         latinSubTitle
+        articleAuthor {
+          image {
+            mimeType
+            url(transformation: {image: {resize: {width: 300}}})
+          }
+          name
+        }
         articleMenus {
           id
           name
@@ -136,6 +152,13 @@ query Article($id: ID!) {
     latinTitle
     subTitle
     latinSubTitle
+    articleAuthor {
+      image {
+        mimeType
+        url(transformation: {image: {resize: {width: 300}}})
+      }
+      name
+    }
     mainImage {
       id
       fileName

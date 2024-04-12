@@ -26,6 +26,8 @@ const MainSection = ({ articles, loading }: { articles: any, loading: boolean })
   const firstArticle = articles[0];
   const mainOtherArticles = articles.slice(1, 3);
 
+  console.log("Main Section", firstArticle);
+
   return (
     <>
       <div className="rtl mb-10 cursor-pointer justify-between bg-okaogray-400 dark:bg-slate-900 dark:shadow-lg md:mb-0 md:flex md:w-4/6 md:rounded-lg">
@@ -75,13 +77,13 @@ const MainSection = ({ articles, loading }: { articles: any, loading: boolean })
                       <img
                         className='size-12 rounded-full object-cover'
                           src={
-                            firstArticle?.node?.publishedBy?.picture
+                            firstArticle?.node?.articleAuthor?.image?.url || firstArticle?.node?.publishedBy?.picture
                         } alt='author' />
                     </div>
                     <div className="mr-3 flex flex-col text-[0.9rem]">
                         <span className={cn("name", mvFaseyha.className)}>
                           {
-                            firstArticle?.node?.publishedBy?.name
+                            firstArticle?.node?.articleAuthor?.name || firstArticle?.node?.publishedBy?.name
                           }
                         </span>
                       <span className="time">

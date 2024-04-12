@@ -1,11 +1,11 @@
 {
   "/_not-found": "app/_not-found.js",
   "/api/articles/route": "app/api/articles/route.js",
-  "/api/latestNews/route": "app/api/latestNews/route.js",
+  "/admin/page": "app/admin/page.js",
   "/api/menus/route": "app/api/menus/route.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/admin/page": "app/admin/page.js",
+  "/api/latestNews/route": "app/api/latestNews/route.js",
   "/(landing)/article/[id]/page": "app/(landing)/article/[id]/page.js",
-  "/(landing)/page": "app/(landing)/page.js",
-  "/(landing)/section/page": "app/(landing)/section/page.js"
+  "/(landing)/section/page": "app/(landing)/section/page.js",
+  "/(landing)/page": "app/(landing)/page.js"
 }

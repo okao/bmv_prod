@@ -85,7 +85,9 @@ const ImageBanner = async ({article}: any) => {
                   href="#"
                 >
                   <span className="relative mb-1 aspect-square w-10 overflow-hidden rounded-full bg-gray-800 text-white dark:bg-gray-200">
-                    <img src={article?.publishedBy?.picture} alt="" />
+                    <img src={
+                      article?.articleAuthor?.image?.url || article?.publishedBy?.picture
+                    } alt="" />
                   </span>
                   <p
                     className={cn(
@@ -94,7 +96,7 @@ const ImageBanner = async ({article}: any) => {
                     )}
                   >
                     {
-                      article?.publishedBy?.name
+                      article?.articleAuthor?.name || article?.publishedBy?.name
                     }
                   </p>
                 </a>

@@ -40,19 +40,19 @@ export async function generateMetadata({ params } : { params: { id: string } }) 
 
   const baseUrl = "https://breakingmv.com/article"
 
-  const mets = {
-    title: article?.title,
-    description: article?.subTitle,
+  const meta = {
+    title: article?.latinTitle || article?.title,
+    description: article?.latinSubTitle || article?.subTitle,
     openGraph: {
-      title: article?.title,
-      description: article?.subTitle,
+      title: article?.latinTitle || article?.title,
+      description: article?.latinSubTitle || article?.subTitle,
       url: `${baseUrl}/${article?.id}`,
       images: [
         {
           url: `${article?.newsContent?.mainImage?.url}`,
           width: 600,
           height: 315,
-          alt: article?.subTitle,
+          alt: article?.latinTitle || article?.title,
         },
       ],
       type: "article",
@@ -63,21 +63,21 @@ export async function generateMetadata({ params } : { params: { id: string } }) 
       site: "@okmvok",
       creator: "@okmvok",
       card: "summary_large_image",
-      title: article?.title,
+      title: article?.latinTitle || article?.title,
       description:
-        article?.subTitle,
+        article?.latinSubTitle || article?.subTitle,
       images: [
         {
           url: `${article?.newsContent?.mainImage?.url}`,
           width: 600,
           height: 315,
-          alt: article?.subTitle,
+          alt: article?.latinSubTitle || article?.subTitle,
         },
       ],
     },
   }
 
-  return mets
+  return meta;
 }
 
 const Single = async ({ params }: any) => {
