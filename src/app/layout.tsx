@@ -11,6 +11,7 @@ import { SmoothScrollProvider } from "@/providers/smooth-scroll-provider"
 import { siteConfig } from "@/config/site";
 import NextTopLoader from 'nextjs-toploader';
 import ScrollToTopButton from "@/components/common/scroll-to-top-button";
+import IconFav from "../../public/favicon.ico"
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -26,18 +27,18 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: siteConfig.name,
-  description: siteConfig.description,
-  icons: {
-    icon: "/favicon.ico",
-  },
+  title: "Breaking Mv",
+  description: "Independent news from the Maldives",
+  // icons: {
+  //   icon: IconFav,
+  // },
   openGraph: {
-    title: siteConfig.name,
-    description: siteConfig.description,
-    url: "https://breaking.oala.dev",
+    title: "Breaking Mv",
+    description: "Independent news from the Maldives",
+    url: "https://breakingmv.com",
     images: [
       {
-        url: "https://breaking.oala.dev/_next/static/media/logo.b4bbb8bf.svg",
+        url: "https://breakingmv.com/_next/static/media/logo.b4bbb8bf.svg",
         width: 600,
         height: 315,
         alt: "މި ބަދަލާއެކު ފްރީލާންސް މީހުން ބޭރުން އަންނަ ފައިސާ ރާއްޖޭގެ އެކައުންޓުން ނެގޭނެ އެވެ. މި ބަދަލަކީ ރައީސްގެ ރިޔާސީ ވައުދެކެވެ.",
@@ -51,8 +52,8 @@ export const metadata: Metadata = {
     site: "@okmvok",
     creator: "@okmvok",
     card: "summary_large_image",
-    title: siteConfig.name,
-    description: siteConfig.description,
+    title: "Breaking Mv",
+    description: "Independent news from the Maldives",
     images: [
       {
         url: "https://breaking.oala.dev/_next/static/media/logo.b4bbb8bf.svg",

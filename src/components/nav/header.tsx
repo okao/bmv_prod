@@ -60,7 +60,7 @@ export function Header() {
             <IoIosSearch className="text-xl text-gray-700 dark:text-gray-300 md:hidden lg:flex" />
           </Link> */}
           <Navigation navItems={menus} />
-          <div className="ml-2 block content-center items-center justify-center md:hidden">
+          <div className="my-[40%] ml-2 block content-center items-center justify-center md:hidden">
               <ThemeToggle />
           </div>
           <div className="flex w-full">

@@ -33,6 +33,7 @@ async function myAction(id: string) {
   return data;
 }
 
+
 export async function generateMetadata({ params } : { params: { id: string } }) {
   const getArticle = await myAction(params?.id) || {};
   const article = getArticle[0];

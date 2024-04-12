@@ -12,9 +12,10 @@ const ImageBanner = async ({article}: any) => {
   // const xarticle = getArticle[0];
 
   const articleTags = article?.tags;
-  const url = "http://localhost:3000" + "/article/" + article?.id;
+  // const url = "http://localhost:3000" + "/article/" + article?.id;
+  const url = "https://breakingmv.com" + "/article/" + article?.id;
 
-  console.log("Article URL", url);
+  // console.log("Article URL", url);
 
   return (
     <div className="col-span-12 lg:order-1 lg:col-span-9">
@@ -173,7 +174,8 @@ const ImageBanner = async ({article}: any) => {
                   <ShareNewButton
                     title={article?.title}
                     text={article?.subTitle}
-                    url={`https://breakingmv.com/article/${url}`}
+                    url={url}
+                    image_url={`${article?.mainImage?.url}`}
                   />
               </div>
             </div>
