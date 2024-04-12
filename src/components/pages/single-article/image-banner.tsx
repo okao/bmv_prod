@@ -3,6 +3,7 @@ import { cn } from '@/lib/utils'
 import { mvRasmee, mvWaheed } from '@/config/fonts'
 import ShareButtons from "@/components/common/share-buttons"
 import Image from "next/image"
+import ShareNewButton from '@/components/common/share-new-button'
 
 const imageMainUrl = "https://ap-south-1.graphassets.com/clume5wz10c1507pi8xxhh972"
 
@@ -11,6 +12,9 @@ const ImageBanner = async ({article}: any) => {
   // const xarticle = getArticle[0];
 
   const articleTags = article?.tags;
+  const url = "http://localhost:3000" + "/article/" + article?.id;
+
+  console.log("Article URL", url);
 
   return (
     <div className="col-span-12 lg:order-1 lg:col-span-9">
@@ -144,12 +148,11 @@ const ImageBanner = async ({article}: any) => {
                   }
                 </p>
 
-                <ShareButtons
+                {/* <ShareButtons
                   title={article?.title}
-                  url={`https://breaking.oala.dev/article/${article?.id}`}
+                  url={`${url}`}
                   summary={article?.subTitle}
-
-                />
+                /> */}
               </div>
               <div className="">
                 {
@@ -165,6 +168,13 @@ const ImageBanner = async ({article}: any) => {
                     )
                   })
                 }
+              </div>
+              <div className='flex w-full justify-center'>
+                  <ShareNewButton
+                    title={article?.title}
+                    text={article?.subTitle}
+                    url={`https://breakingmv.com/article/${url}`}
+                  />
               </div>
             </div>
           </div>

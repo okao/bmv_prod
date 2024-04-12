@@ -129,8 +129,6 @@ const HomePage = () => {
   return (
     <div className="flex-1">
       <section className="relative">
-
-
         <div className="md:mt-10">
           <div className="mx-auto md:container">
             <div className="gap-6 md:flex md:flex-row-reverse">
@@ -138,15 +136,12 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-
-
         <div className="mx-4 md:container">
           <div
             id="homebreak"
             className="separator--dotted mx-auto mt-12"
           ></div>
         </div>
-
         <div className="">
           <div className="mx-auto mt-4 pt-0">
             <h2

@@ -14,18 +14,18 @@ const LogoImage = ({ logotheme = null }: { logotheme: string | null }) => {
   const { theme } = useTheme()
   const router = useRouter()
 
-  const home = () => {
-    //show loading for 2 seconds
-    setTimeout(() => {
-      router.push("/")
-    }, 2000)
-  }
+  // const home = () => {
+  //   //show loading for 2 seconds
+  //   setTimeout(() => {
+  //     router.push("/")
+  //   }, 2000)
+  // }
 
   if (logotheme === "dark") {
     return (
       <div
         className="flex w-full items-center justify-center gap-2 md:justify-end"
-        onClick={() => home()}
+        onClick={() => router.push("/")}
       >
         <Image src={darkLogo} alt={siteConfig.name} width={130} height={40} />
       </div>
@@ -34,7 +34,7 @@ const LogoImage = ({ logotheme = null }: { logotheme: string | null }) => {
     return (
       <div
         className="flex w-full items-center justify-center gap-2 md:justify-end"
-        onClick={() => home()}
+        onClick={() => router.push("/")}
       >
         <Image
           className="cursor-pointer"
@@ -47,8 +47,8 @@ const LogoImage = ({ logotheme = null }: { logotheme: string | null }) => {
   if (theme === "dark") {
     return (
       <div
-        className="flex w-full items-center justify-end gap-2 md:justify-end"
-        onClick={() => home()}
+        className="flex w-full items-center justify-center gap-2 md:justify-end"
+        onClick={() => router.push("/")}
       >
         <Image src={darkLogo} alt={siteConfig.name} width={130} height={40} />
       </div>
@@ -56,8 +56,8 @@ const LogoImage = ({ logotheme = null }: { logotheme: string | null }) => {
   } else if (theme === "light") {
     return (
       <div
-        className="flex w-full items-center justify-end gap-2 md:justify-end"
-        onClick={() => home()}
+        className="flex w-full items-center justify-center gap-2 md:justify-end"
+        onClick={() => router.push("/")}
       >
         <Image src={logo} alt={siteConfig.name} width={130} height={40} />
       </div>
@@ -65,8 +65,8 @@ const LogoImage = ({ logotheme = null }: { logotheme: string | null }) => {
   } else {
     return (
       <div
-        className="flex w-full items-center justify-end gap-2 md:justify-end"
-        onClick={() => home()}
+        className="flex w-full items-center justify-center gap-2 md:justify-end"
+        onClick={() => router.push("/")}
       >
         <Image src={logo} alt={siteConfig.name} width={130} height={40} />
       </div>

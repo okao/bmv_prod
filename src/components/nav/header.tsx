@@ -60,11 +60,22 @@ export function Header() {
             <IoIosSearch className="text-xl text-gray-700 dark:text-gray-300 md:hidden lg:flex" />
           </Link> */}
           <Navigation navItems={menus} />
-          <LogoImage logotheme={null} />
+          <div className="ml-2 block content-center items-center justify-center md:hidden">
+              <ThemeToggle />
+          </div>
+          <div className="flex w-full">
+            <LogoImage logotheme={null} />
+          </div>
+
+          {/* <div className="w-full border">
+
+          </div> */}
         </div>
 
         <div className="flex items-center justify-center">
-          <ThemeToggle />
+          <div className="hidden md:block">
+            <ThemeToggle />
+          </div>
           <NavigationMobile navItems={menus} />
 
           {/* <nav className="space-x-1">

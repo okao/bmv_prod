@@ -13,14 +13,14 @@ export default function LandingLayout({ children }: LandingLayoutProps) {
    return (
     <div className="flex min-h-screen flex-col overflow-visible bg-white dark:bg-slate-950">
       <div>
-        <div className="bg-white py-4 dark:bg-slate-900">
+        {/* <div className="bg-white py-4 dark:bg-slate-900">
           <AdBanner
             src={
               "https://minoos-space.sgp1.cdn.digitaloceanspaces.com/content/miad/3G8vkkhnT9BxeJf6w7WbqQYGn.jpg"
             }
             href={"https://www.miadhu.mv/"}
           />
-        </div>
+        </div> */}
         <div className="border-2 border-none md:border-none">
           <div className="container mx-auto">
             <div className="flex">

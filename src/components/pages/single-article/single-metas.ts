@@ -1,6 +1,7 @@
 export function SingleMetas({ article }: any) {
 
   const imageMainUrl = "https://ap-south-1.graphassets.com/clume5wz10c1507pi8xxhh972"
+  const baseUrl = "https://breakingmv.com/article"
 
   return {
     title: article?.title,
@@ -8,7 +9,7 @@ export function SingleMetas({ article }: any) {
     openGraph: {
       title: article?.title,
       description: article?.subTitle,
-      url: `https://breaking.oala.dev/article/${article?.id}`,
+      url: `${baseUrl}/${article?.id}`,
       images: [
         {
           url: `${imageMainUrl}/${article?.newsContent?.mainImage?.handle}`,

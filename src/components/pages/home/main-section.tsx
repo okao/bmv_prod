@@ -52,7 +52,7 @@ const MainSection = ({ articles, loading }: { articles: any, loading: boolean })
 
         <Link
           href={`/article/${firstArticle?.node?.id}`}
-          className="rtl flex w-full flex-col dark:text-gray-300 md:w-[45%] md:px-0 md:py-6"
+          className="rtl flex w-full flex-col px-2 dark:text-gray-300 md:w-[45%] md:px-0 md:py-6"
         >
           <div>
             <h2

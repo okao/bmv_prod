@@ -36,12 +36,53 @@ async function myAction(id: string) {
 export async function generateMetadata({ params } : { params: { id: string } }) {
   const getArticle = await myAction(params?.id) || {};
   const article = getArticle[0];
-  return SingleMetas(article);
+
+  const baseUrl = "https://breakingmv.com/article"
+
+  const mets = {
+    title: article?.title,
+    description: article?.subTitle,
+    openGraph: {
+      title: article?.title,
+      description: article?.subTitle,
+      url: `${baseUrl}/${article?.id}`,
+      images: [
+        {
+          url: `${article?.newsContent?.mainImage?.url}`,
+          width: 600,
+          height: 315,
+          alt: article?.subTitle,
+        },
+      ],
+      type: "article",
+      locale: "en_US",
+      siteName: "Breaking Mv",
+    },
+    twitter: {
+      site: "@okmvok",
+      creator: "@okmvok",
+      card: "summary_large_image",
+      title: article?.title,
+      description:
+        article?.subTitle,
+      images: [
+        {
+          url: `${article?.newsContent?.mainImage?.url}`,
+          width: 600,
+          height: 315,
+          alt: article?.subTitle,
+        },
+      ],
+    },
+  }
+
+  return mets
 }
 
 const Single = async ({ params }: any) => {
 
   const getArticle = await myAction(params?.id) || {};
+
   const article = getArticle[0];
 
   // console.log("Article", article?.articleContent?.[0]?.content?.raw?.children[0]);

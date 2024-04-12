@@ -28,7 +28,7 @@ const ContentBody = ({ article }: { article: any }) => {
             return (
               <div key={index}
                 className={cn(
-                  "rtl mb-6 flex flex-col gap-y-4 text-wrap pl-0 text-lg font-thin leading-8 tracking-widest",
+                  "rtl mb-4 flex flex-col text-wrap pl-0 text-lg font-thin",
                   mvFaseyha.className
                 )}
                 // dangerouslySetInnerHTML={{ __html: content?.content?.html }}
@@ -57,7 +57,20 @@ const ContentBody = ({ article }: { article: any }) => {
                         </p>
                       )
                     }
+
+                    if(child && child?.type === "bulleted-list"){
+                      return (
+                        <ul key={index} className={cn(
+                          "rtl mb-6 list-disc text-wrap pl-0 text-lg font-thin",
+                          mvFaseyha.className
+                        )}>
+                          <li>{child?.children[0]?.children[0]?.children[0]?.text}</li>
+                        </ul>
+                      )
+                    }
                   })
+
+
 
                 }
               </div>
