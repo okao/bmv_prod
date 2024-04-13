@@ -257,14 +257,18 @@ query Article($id: ID!) {
     articleAuthor {
       image {
         mimeType
-        url(transformation: {image: {resize: {width: 300}}})
+        url(
+          transformation: {image: {resize: {width: 300}}, document: {output: {format: jpg}}}
+        )
       }
       name
     }
     mainImage {
       id
-      fileName
-      handle
+      mimeType
+      url(
+        transformation: {image: {resize: {width: 500}}, document: {output: {format: jpg}}}
+      )
     }
     typeOfArticle
     stage
@@ -320,7 +324,9 @@ query Article($id: ID!) {
         image {
           fileName
           handle
-          url(transformation: { image: {resize: {width: 500, height: 500}}})
+          url(
+            transformation: {image: {resize: {width: 300}}, document: {output: {format: jpg}}}
+          )
         }
         link
       }

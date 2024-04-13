@@ -41,18 +41,18 @@ export async function generateMetadata({ params } : { params: { id: string } }) 
   const baseUrl = "https://breakingmv.com/article"
 
   const meta = {
-    title: article?.latinTitle || article?.title,
-    description: article?.latinSubTitle || article?.subTitle,
+    title: article?.latinTitle ? article?.latinTitle : article?.latinTitle,
+    description: article?.latinSubTitle ? article?.latinSubTitle : article?.subTitle,
     openGraph: {
-      title: article?.latinTitle || article?.title,
-      description: article?.latinSubTitle || article?.subTitle,
+      title: article?.latinTitle ? article?.latinTitle : article?.latinTitle,
+      description: article?.latinSubTitle ? article?.latinSubTitle : article?.subTitle,
       url: `${baseUrl}/${article?.id}`,
       images: [
         {
-          url: `${article?.newsContent?.mainImage?.url}`,
-          width: 600,
+          url: `${article?.mainImage?.url}`,
+          width: 500,
           height: 315,
-          alt: article?.latinTitle || article?.title,
+          alt: article?.latinTitle ? article?.latinTitle : article?.latinTitle,
         },
       ],
       type: "article",
@@ -63,15 +63,15 @@ export async function generateMetadata({ params } : { params: { id: string } }) 
       site: "@okmvok",
       creator: "@okmvok",
       card: "summary_large_image",
-      title: article?.latinTitle || article?.title,
+      title: article?.latinTitle ? article?.latinTitle : article?.latinTitle,
       description:
         article?.latinSubTitle || article?.subTitle,
       images: [
         {
-          url: `${article?.newsContent?.mainImage?.url}`,
-          width: 600,
+          url: `${article?.mainImage?.url}`,
+          width: 500,
           height: 315,
-          alt: article?.latinSubTitle || article?.subTitle,
+          alt: article?.latinTitle ? article?.latinTitle : article?.latinTitle,
         },
       ],
     },

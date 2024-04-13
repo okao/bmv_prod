@@ -34,7 +34,7 @@ const ImageBanner = async ({article}: any) => {
                 color: "transparent",
               }}
               className="object-cover"
-              src={`${imageMainUrl}/${article?.mainImage?.handle}`}
+              src={`${article?.mainImage?.url}`}
               alt=""
             />
           </div>
