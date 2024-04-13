@@ -12,6 +12,7 @@ import { siteConfig } from "@/config/site";
 import NextTopLoader from 'nextjs-toploader';
 import ScrollToTopButton from "@/components/common/scroll-to-top-button";
 import IconFav from "../../public/favicon.ico"
+import Script from 'next/script'
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -74,6 +75,21 @@ export default function RootLayout({
 }: Readonly<RootLayoutProps>) {
   return (
     <html lang="en">
+      <head>
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-8C1V51V612"
+        />
+
+        <Script id="google-analytics">
+          {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-8C1V51V612');
+          `}
+        </Script>
+      </head>
       <body>
         <NextTopLoader
             color="#2286dd"
