@@ -11,7 +11,7 @@ import { SmoothScrollProvider } from "@/providers/smooth-scroll-provider"
 import { siteConfig } from "@/config/site";
 import NextTopLoader from 'nextjs-toploader';
 import ScrollToTopButton from "@/components/common/scroll-to-top-button";
-import IconFav from "../../public/favicon.ico"
+// import IconFav from "../../public/favicon.ico"
 import Script from 'next/script'
 
 const inter = Inter({ subsets: ['latin'] });
@@ -28,13 +28,19 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://breakingmv.com"),
   title: "Breaking Mv",
   description: "Independent news from the Maldives",
-  // icons: {
-  //   icon: IconFav,
-  // },
+  keywords: [
+    "Breaking Mv", "Maldives", "News", "Breaking News", "Maldives News", "Maldives Breaking News",
+    "MV Breaking News", "MV News",
+    "Independent news from the Maldives"
+  ],
   openGraph: {
-    title: "Breaking Mv",
+    title: {
+      default: "Breaking Mv",
+      template: "%s | Breaking Mv",
+    },
     description: "Independent news from the Maldives",
     url: "https://breakingmv.com",
     images: [
@@ -42,7 +48,7 @@ export const metadata: Metadata = {
         url: "https://breakingmv.com/_next/static/media/logo.b4bbb8bf.svg",
         width: 600,
         height: 315,
-        alt: "މި ބަދަލާއެކު ފްރީލާންސް މީހުން ބޭރުން އަންނަ ފައިސާ ރާއްޖޭގެ އެކައުންޓުން ނެގޭނެ އެވެ. މި ބަދަލަކީ ރައީސްގެ ރިޔާސީ ވައުދެކެވެ.",
+        alt: "Independent news from the Maldives",
       },
     ],
     type: "website",
@@ -60,7 +66,7 @@ export const metadata: Metadata = {
         url: "https://breaking.oala.dev/_next/static/media/logo.b4bbb8bf.svg",
         width: 600,
         height: 315,
-        alt: "މި ބަދަލާއެކު ފްރީލާންސް މީހުން ބޭރުން އަންނަ ފައިސާ ރާއްޖޭގެ އެކައުންޓުން ނެގޭނެ އެވެ. މި ބަދަލަކީ ރައީސްގެ ރިޔާސީ ވައުދެކެވެ.",
+        alt: "Independent news from the Maldives",
       },
     ],
   },
