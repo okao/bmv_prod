@@ -117,13 +117,13 @@ const Single = async ({ params }: any) => {
               className="text-left text-sm text-gray-800 dark:text-gray-300 md:rounded-b-lg md:px-4 md:pb-4 md:text-base md:font-thin md:leading-6 md:tracking-wider"
             >
               For Advertisement and Sponsored Content, please contact us at{" "}
-              <a href="mailto:admin@breaking.mv"> admin@breaking.mv</a>
+              <a href="mailto:admin@breakingmv.com"> admin@breakingmv.com</a>
             </p>
             <p
               className="rtl text-right text-sm text-gray-800 dark:text-gray-300 md:rounded-b-lg md:px-4 md:pb-4 md:text-base md:font-thin md:leading-6 md:tracking-wider"
             >
               {""} އިޝްތިހާރާއި ޖެހުމަށް އަޅުގަދުމެންނަށް އީމެލްކޮށްލައްވާ
-              <a href="mailto:admin@breaking.mv"> admin@breaking.mv</a>
+              <a href="mailto:admin@breakingmv.com"> admin@breakingmv.com</a>
             </p>
           </div>
           <div className="mt-6  max-w-4xl text-right md:mt-0 lg:pl-6">

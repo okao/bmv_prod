@@ -19,13 +19,13 @@ const RelatedArticlesMobile = ({article}: {article: any}) => {
           className="text-center text-sm text-gray-800 dark:text-slate-500 md:rounded-b-lg md:px-4 md:pb-4 md:text-base md:leading-6 md:tracking-wider"
         >
           For Advertisement and Sponsored Content, please contact us at{" "}
-          <a href="mailto:admin@breaking.mv"> admin@breaking.mv</a>
+          <a href="mailto:admin@breakingmv.com"> admin@breakingmv.com</a>
         </div>
         <div
           className="rtl pt-4 text-center text-sm text-gray-800 dark:text-slate-500 md:rounded-b-lg md:px-4 md:pb-4 md:text-base md:font-thin md:leading-6 md:tracking-wider"
         >
           {""} އިޝްތިހާރާއި ޖެހުމަށް އަޅުގަދުމެންނަށް އީމެލްކޮށްލައްވާ
-          <a href="mailto:admin@breaking.mv"> admin@breaking.mv</a>
+          <a href="mailto:admin@breakingmv.com"> admin@breakingmv.com</a>
         </div>
       </div>
 
