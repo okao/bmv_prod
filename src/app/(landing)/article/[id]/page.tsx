@@ -34,13 +34,13 @@ async function myAction(id: string) {
 }
 
 
-export async function generateMetadata({ params } : { params: { id: string } }) {
+export async function generateMetadata({ params } : { params: { id: string } }): Promise<Metadata> {
   const getArticle = await myAction(params?.id) || {};
   const article = getArticle[0];
 
   const baseUrl = "https://breakingmv.com/article"
 
-  const meta = {
+  const Metas = {
     title: article?.latinTitle ? article?.latinTitle : article?.latinTitle,
     description: article?.latinSubTitle ? article?.latinSubTitle : article?.subTitle,
     openGraph: {
@@ -63,10 +63,10 @@ export async function generateMetadata({ params } : { params: { id: string } }) 
       site: "@okmvok",
       creator: "@okmvok",
       card: "summary_large_image",
-      title: article?.latinTitle ? article?.latinTitle : article?.latinTitle,
+      title: article?.latinTitle ? article?.latinTitle : article?.latinTitle as string,
       description:
-        article?.latinSubTitle || article?.subTitle,
-      images: [
+        article?.latinSubTitle ? article?.latinSubTitle : article?.subTitle,
+      image: [
         {
           url: `${article?.mainImage?.url}`,
           width: 500,
@@ -77,7 +77,7 @@ export async function generateMetadata({ params } : { params: { id: string } }) 
     },
   }
 
-  return meta;
+  return Metas;
 }
 
 const Single = async ({ params }: any) => {
@@ -108,7 +108,7 @@ const Single = async ({ params }: any) => {
       <div className="container">
         <div
           id="homebreak"
-          className="separator--dotted mx-auto mt-8 md:container"
+          className="separator--dotted mx-auto md:container"
         ></div>
         <div className="mt-10 flex justify-end">
           <div className="mb-6 hidden h-[200px] w-full overflow-hidden rounded-[10px] bg-okaogray-500 p-4 pb-8 dark:bg-slate-800 md:block">

@@ -193,7 +193,8 @@ query Article($id: ID!) {
           fileName
           id
           mimeType
-          url(transformation: { image: {resize: {width: 500, height: 500}}})
+          # url(transformation: { image: {resize: {width: 500, height: 500}}})
+          url
         }
       }
       ... on ArticleQuotes {
@@ -226,7 +227,7 @@ query ArticleWithTypeCount($name: String!, $first: Int!) {
     first: $first
     stage: PUBLISHED
     where: {
-      articleMenus_every: {
+      articleMenus_some: {
         name: $name
       }
     }

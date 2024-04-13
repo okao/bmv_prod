@@ -79,9 +79,13 @@ const ContentBody = ({ article }: { article: any }) => {
             return (
               <div className="mb-8 w-full px-4 xl:px-0" key={index}>
                 <div className="flex flex-col items-center sm:flex-row-reverse sm:items-start">
-                  <img className="mb-6 sm:ml-6" src="https://cdn.mihaaru.com/assets/mhr/icons/icon-article-quote.svg" />
+                  <img
+                    alt={content?.title}
+                    className="mb-6 sm:ml-6"
+                    src="https://cdn.mihaaru.com/assets/mhr/icons/icon-article-quote.svg"
+                  />
                   <blockquote
-                    className={cn("rtl max-w-lg break-words text-center  text-[28px]  leading-loose text-black sm:text-right", mvWaheed.className)}
+                    className={cn("rtl max-w-lg break-words text-center  text-[28px]  leading-loose text-black dark:text-white sm:text-right", mvWaheed.className)}
                   >
                     {content?.quote}
                   </blockquote>
@@ -89,6 +93,10 @@ const ContentBody = ({ article }: { article: any }) => {
               </div>
             )
           } else if (content?.__typename === "ArticleImage") {
+
+
+            console.log("Video", content);
+
             return (
               <div
                 className="float-start my-4 overflow-hidden rounded-xl lg:pr-6"
@@ -96,6 +104,8 @@ const ContentBody = ({ article }: { article: any }) => {
               >
 
                 {
+
+
                   content?.image?.mimeType === "video/mp4" ? (
                     <video
                       src={`${content?.image?.url}`}

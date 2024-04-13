@@ -44,10 +44,10 @@ const SectionPage = () => {
 
   return (
     <div>
-      <div className='mb-10 bg-gray-300'>
+      <div className='mb-10 bg-okaogray-600 dark:bg-slate-900'>
         <div className='container mx-auto'>
           <h1 className={
-            cn("mx-4 py-10 text-center text-[40px] text-gray-700 sm:text-[50px]", mvWaheed.className)
+            cn("mx-4 py-10 text-center text-[40px] text-gray-700 dark:text-slate-300 sm:text-[50px]", mvWaheed.className)
           }>
             {section}
           </h1>
@@ -58,8 +58,8 @@ const SectionPage = () => {
           {
             articles?.map((article: any, index: number) => (
 
-              <div className='group flex w-full flex-row-reverse border-l  border-t  border-dashed border-gray-300 p-4 transition
- duration-300  ease-in-out  sm:w-1/3  sm:flex-col lg:w-1/4' key={index}>
+              <div className='group flex w-full flex-row-reverse border-l  border-t  border-dashed border-gray-300 p-4 transition duration-300
+ ease-in-out  dark:border-slate-700  sm:w-1/3  sm:flex-col lg:w-1/4' key={index}>
 
                 <div className='size-[116px] shrink-0 sm:h-[174px] sm:w-full'>
                   <a
@@ -80,7 +80,7 @@ const SectionPage = () => {
                   title={article?.node?.title}
                   className='mr-6 flex w-full flex-col justify-between text-right sm:mr-0 md:justify-start md:text-right'
                 >
-                  <p className={cn("text-xl leading-10 text-gray-700", mvWaheed.className)}>
+                  <p className={cn("text-xl leading-10 text-gray-700 dark:text-slate-300", mvWaheed.className)}>
                    {article?.node?.title}
                   </p>
                   <div className='mr-6 flex justify-end space-x-2 text-[13px] text-gray-400 md:mr-0'>

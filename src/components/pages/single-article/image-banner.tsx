@@ -40,10 +40,10 @@ const ImageBanner = async ({article}: any) => {
           </div>
           <div className="relative mx-4 -mt-[25%] mb-3 flex flex-col rounded-[20px] lg:absolute lg:-bottom-12 lg:mt-0">
             <span className="absolute size-full overflow-hidden">
-              <span className="absolute size-full rounded-[20px] border border-[#00000014] bg-[#FFFFFF75] backdrop-blur-[11.2px] dark:bg-[#00000075]"></span>
+              <span className="absolute size-full rounded-[20px] border border-[#00000014] bg-[#f9eeee75] backdrop-blur-[11.2px] dark:bg-[#00000075]"></span>
             </span>
             <div className="relative mx-auto -mt-7 inline-block self-start rounded-full p-4 lg:ms-14">
-              <span>
+              {/* <span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -68,39 +68,39 @@ const ImageBanner = async ({article}: any) => {
                     strokeLinejoin="round"
                   ></path>
                 </svg>
-              </span>
+              </span> */}
             </div>
             <div className="rtl relative max-w-4xl px-8 py-6 pt-4 lg:px-14">
               <h1
                 className={cn(
-                  "mb-4 line-clamp-5 text-[32px] font-bold transition-all dark:text-white lg:me-12",
+                  "mb-4 line-clamp-5 text-center text-[32px] font-bold transition-all dark:text-white md:text-right lg:me-12",
                   mvWaheed.className
                 )}
               >
                 {article?.title}
               </h1>
-              <div className="mb-4 flex flex-wrap items-center gap-4 gap-y-3">
+              <div className="mb-4 flex flex-col flex-wrap items-center gap-4 gap-y-3 md:flex-row">
                 <a
-                  className="group relative flex items-center gap-2"
+                  className="group relative my-4 flex flex-col items-center gap-2 md:my-0 md:flex-row"
                   href="#"
                 >
-                  <span className="relative mb-1 aspect-square w-10 overflow-hidden rounded-full bg-gray-800 text-white dark:bg-gray-200">
+                  <span className="relative mb-1 aspect-square w-20 overflow-hidden rounded-full bg-gray-800 text-white dark:bg-gray-200 md:w-10">
                     <img src={
                       article?.articleAuthor?.image?.url || article?.publishedBy?.picture
                     } alt="" />
                   </span>
                   <p
                     className={cn(
-                      "text-lg font-bold text-black dark:text-white",
+                      "text-2xl font-black text-black dark:text-white md:text-lg",
                       mvRasmee.className
                     )}
                   >
                     {
-                      article?.articleAuthor?.name || article?.publishedBy?.name
+                      article?.articleAuthor?.name ? article?.articleAuthor?.name : article?.publishedBy?.name
                     }
                   </p>
                 </a>
-                <span className="absolute -top-5 right-2 size-6 overflow-hidden rounded-full">
+                {/* <span className="absolute -top-5 right-2 size-6 overflow-hidden rounded-full">
                   <img
                     alt="logo"
                     loading="lazy"
@@ -116,12 +116,12 @@ const ImageBanner = async ({article}: any) => {
                       color: "transparent",
                     }}
                   />
-                </span>
+                </span> */}
                 <p
                   dir="ltr"
-                  className="text-web-accent dark:text-web-accent-des-dark mt-2 flex flex-1 items-center justify-start leading-snug"
+                  className="mt-2 flex flex-1 items-center justify-start leading-snug"
                 >
-                  <svg
+                  {/* <svg
                     className="mb-2 mr-1 inline h-4"
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -143,7 +143,7 @@ const ImageBanner = async ({article}: any) => {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                     ></path>
-                  </svg>
+                  </svg> */}
                   {/* 29/03/2024, 14:03:50 */}
 
                   {
@@ -186,7 +186,7 @@ const ImageBanner = async ({article}: any) => {
       </div>
       <p
         className={cn(
-          "rtl mx-5 my-10 text-center text-xl opacity-75 dark:text-white lg:mx-14",
+          "rtl mx-5 my-4 text-center text-xl opacity-75 dark:text-white lg:mx-14",
           mvWaheed.className
         )}
       >
