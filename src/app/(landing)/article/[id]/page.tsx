@@ -61,7 +61,7 @@ export async function generateMetadata({ params } : { params: { id: string } }):
           alt: "Breaking MV"
         }
       ],
-      type: "article",
+      type: "website",
       locale: "en_US",
       siteName: "Breaking Mv",
     },
