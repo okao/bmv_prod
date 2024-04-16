@@ -42,16 +42,20 @@ export async function generateMetadata({ params } : { params: { id: string } }):
   const baseUrl = "https://breakingmv.com/article"
 
   const Metas = {
-    title: article?.latinTitle ? article?.latinTitle : article?.latinTitle,
+    title: article?.latinTitle ? article?.latinTitle : article?.title,
     description: article?.latinSubTitle ? article?.latinSubTitle : article?.subTitle,
+    type: "article",
     openGraph: {
-      title: article?.latinTitle ? article?.latinTitle : article?.latinTitle,
-      description: article?.latinSubTitle,
+      locale: "en_GB",
+      type: "article",
+      title: article?.latinTitle ? article?.latinTitle : article?.title,
+      description: article?.latinSubTitle ? article?.latinSubTitle : article?.subTitle,
+      url: `${baseUrl}/${article?.id}`,
+      siteName: "Breaking MV",
+      // publishedTime: "2021-01-31T14:37:34+05:00",
+      // modifiedTime: "2024-03-06T20:11:05+05:00",
       // title: "Open Graph Meta Tags: Everything You Need to Know",
       // description: "Open Graph tags can significantly improve your click-through rate on social media. Learn how to successfully implement them on your website.",
-      determiner: article?.latinSubTitle,
-      section: "Section A",
-      url: `${baseUrl}/${article?.id}`,
       images: [
         {
           url: `${article?.mainImage?.url}`,
@@ -59,8 +63,7 @@ export async function generateMetadata({ params } : { params: { id: string } }):
           height: 315,
           alt: article?.latinTitle ? article?.latinTitle : article?.title,
         }
-      ],
-      type: "article",
+      ]
     },
     twitter: {
       site: "@okmvok",
