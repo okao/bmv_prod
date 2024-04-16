@@ -50,10 +50,16 @@ export async function generateMetadata({ params } : { params: { id: string } }):
       images: [
         {
           url: `${article?.mainImage?.url}`,
-          width: 500,
+          width: 300,
           height: 315,
-          alt: article?.latinTitle ? article?.latinTitle : article?.latinTitle,
+          alt: article?.latinTitle ? article?.latinTitle : article?.title,
         },
+        {
+          url: 'https://breakingmv.com/_next/static/media/logo.b4bbb8bf.svg',
+          width: 300,
+          height: 315,
+          alt: "Breaking MV"
+        }
       ],
       type: "article",
       locale: "en_US",
@@ -64,14 +70,13 @@ export async function generateMetadata({ params } : { params: { id: string } }):
       creator: "@okmvok",
       card: "summary_large_image",
       title: article?.latinTitle ? article?.latinTitle : article?.latinTitle as string,
-      description:
-        article?.latinSubTitle ? article?.latinSubTitle : article?.subTitle,
+      description: article?.latinSubTitle ? article?.latinSubTitle : article?.subTitle,
       image: [
         {
           url: `${article?.mainImage?.url}`,
           width: 500,
           height: 315,
-          alt: article?.latinTitle ? article?.latinTitle : article?.latinTitle,
+          alt: article?.latinTitle ? article?.latinTitle : article?.title,
         },
       ],
     },
