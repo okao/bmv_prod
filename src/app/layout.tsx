@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: {
       default: "Breaking Mv",
-      template: "%s | Breaking Mv",
+      template: "%s",
     },
     description: "Independent news from the Maldives",
     url: "https://breakingmv.com",
@@ -80,7 +80,7 @@ export default function RootLayout({
   children,
 }: Readonly<RootLayoutProps>) {
   return (
-    <html lang="en">
+    <html lang="dv">
       <head>
         <Script
           async

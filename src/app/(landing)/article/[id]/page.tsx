@@ -23,6 +23,7 @@ import ImageBanner from "@/components/pages/single-article/image-banner"
 import SingleMainAd from "@/components/pages/single-article/single-main-ad"
 import ArticleTags from "@/components/pages/single-article/article-tags"
 import { SingleMetas } from "@/components/pages/single-article/single-metas"
+import { title } from "process"
 
 async function myAction(id: string) {
     'use server'
@@ -45,25 +46,21 @@ export async function generateMetadata({ params } : { params: { id: string } }):
     description: article?.latinSubTitle ? article?.latinSubTitle : article?.subTitle,
     openGraph: {
       title: article?.latinTitle ? article?.latinTitle : article?.latinTitle,
-      description: article?.latinSubTitle ? article?.latinSubTitle : article?.subTitle,
+      description: article?.latinSubTitle,
+      // title: "Open Graph Meta Tags: Everything You Need to Know",
+      // description: "Open Graph tags can significantly improve your click-through rate on social media. Learn how to successfully implement them on your website.",
+      determiner: article?.latinSubTitle,
+      section: "Section A",
       url: `${baseUrl}/${article?.id}`,
       images: [
         {
           url: `${article?.mainImage?.url}`,
-          width: 300,
+          width: 1200,
           height: 315,
           alt: article?.latinTitle ? article?.latinTitle : article?.title,
-        },
-        {
-          url: 'https://breakingmv.com/_next/static/media/logo.b4bbb8bf.svg',
-          width: 300,
-          height: 315,
-          alt: "Breaking MV"
         }
       ],
-      type: "website",
-      locale: "en_US",
-      siteName: "Breaking Mv",
+      type: "article",
     },
     twitter: {
       site: "@okmvok",
