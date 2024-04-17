@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { ChevronUp } from "lucide-react"
+import { IoIosArrowUp } from "react-icons/io";
 
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false)
@@ -25,7 +25,7 @@ const ScrollToTopButton = () => {
     isVisible &&
       window.scrollTo({
         top: 0,
-        behavior: "auto",
+        behavior: "smooth",
       })
   }
 
@@ -48,7 +48,7 @@ const ScrollToTopButton = () => {
       }`}
       onClick={scrollToTop}
     >
-      <ChevronUp />
+      <IoIosArrowUp />
     </button>
   )
 }
