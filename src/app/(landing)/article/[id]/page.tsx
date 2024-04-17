@@ -116,7 +116,7 @@ const Single = async ({ params }: any) => {
           className="separator--dotted mx-auto md:container"
         ></div>
         <div className="mt-10 flex justify-end">
-          <div className="mb-6 hidden h-[200px] w-full overflow-hidden rounded-[10px] bg-okaogray-500 p-4 pb-8 dark:bg-slate-800 md:block">
+          <div className="mb-6 hidden h-[250px] w-full overflow-hidden rounded-[10px] bg-okaogray-500 p-4 pb-6 dark:bg-slate-800 md:block">
             {/* <RelatedArticles article={article} /> */}
             <p
               className="text-left text-sm text-gray-800 dark:text-gray-300 md:rounded-b-lg md:px-4 md:pb-4 md:text-base md:font-thin md:leading-6 md:tracking-wider"
@@ -125,7 +125,7 @@ const Single = async ({ params }: any) => {
               <a href="mailto:admin@breakingmv.com"> admin@breakingmv.com</a>
             </p>
             <p
-              className="rtl text-right text-sm text-gray-800 dark:text-gray-300 md:rounded-b-lg md:px-4 md:pb-4 md:text-base md:font-thin md:leading-6 md:tracking-wider"
+              className={cn("rtl text-right text-sm text-gray-800 dark:text-gray-300 md:rounded-b-lg md:px-4 md:pb-10 md:text-base md:font-thin md:leading-6 md:tracking-wider", mvFaseyha.className)}
             >
               {""} އިޝްތިހާރާއި ޖެހުމަށް އަޅުގަދުމެންނަށް އީމެލްކޮށްލައްވާ
               <a href="mailto:admin@breakingmv.com"> admin@breakingmv.com</a>

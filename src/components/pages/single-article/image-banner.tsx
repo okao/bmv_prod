@@ -41,7 +41,7 @@ const ImageBanner = async ({article}: any) => {
               alt=""
             />
           </div>
-          <div className="animate-up relative mx-4 -mt-[35%] mb-3 flex flex-col rounded-[20px] transition  lg:absolute lg:-bottom-12 lg:mt-0">
+          <div className="animate-up relative mx-4 -mt-[25%] mb-3 flex flex-col rounded-[20px] transition  lg:absolute lg:-bottom-12 lg:mt-0">
             <span className="absolute size-full overflow-hidden">
               <span className="absolute size-full rounded-[20px] border border-[#00000014] bg-[#ffffff75] backdrop-blur-[11.2px] dark:bg-[#00000075]"></span>
             </span>

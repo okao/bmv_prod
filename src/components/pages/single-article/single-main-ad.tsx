@@ -1,4 +1,6 @@
 import React from 'react'
+import ArtcleMainImage from "../../../../public/images/ads/article_main_1.webp"
+import Image from 'next/image'
 
 const SingleMainAd = () => {
   return (
@@ -8,15 +10,18 @@ const SingleMainAd = () => {
           href="/"
           className="relative aspect-[300/600] w-full overflow-hidden rounded-xl bg-secondary lg:block"
         >
-          <img
+          <Image
+            fill
             alt="މޯލްޑިވްސް ގޭސް"
             loading="lazy"
             decoding="async"
             data-nimg="fill"
             className="size-full object-cover"
-            sizes="75vw"
-            srcSet="https://gaafu.mv/_next/image?url=%2Fsikundi-content%2Fuploads%2F2024%2F1%2Fmaldives%20gas.gif&amp;w=640&amp;q=75 640w, https://gaafu.mv/_next/image?url=%2Fsikundi-content%2Fuploads%2F2024%2F1%2Fmaldives%20gas.gif&amp;w=750&amp;q=75 750w, https://gaafu.mv/_next/image?url=%2Fsikundi-content%2Fuploads%2F2024%2F1%2Fmaldives%20gas.gif&amp;w=828&amp;q=75 828w, https://gaafu.mv/_next/image?url=%2Fsikundi-content%2Fuploads%2F2024%2F1%2Fmaldives%20gas.gif&amp;w=1080&amp;q=75 1080w, https://gaafu.mv/_next/image?url=%2Fsikundi-content%2Fuploads%2F2024%2F1%2Fmaldives%20gas.gif&amp;w=1200&amp;q=75 1200w, https://gaafu.mv/_next/image?url=%2Fsikundi-content%2Fuploads%2F2024%2F1%2Fmaldives%20gas.gif&amp;w=1920&amp;q=75 1920w, https://gaafu.mv/_next/image?url=%2Fsikundi-content%2Fuploads%2F2024%2F1%2Fmaldives%20gas.gif&amp;w=2048&amp;q=75 2048w, https://gaafu.mv/_next/image?url=%2Fsikundi-content%2Fuploads%2F2024%2F1%2Fmaldives%20gas.gif&amp;w=3840&amp;q=75 3840w"
-            src="https://gaafu.mv/_next/image?url=%2Fsikundi-content%2Fuploads%2F2024%2F1%2Fmaldives%20gas.gif&amp;w=3840&amp;q=75"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+
+
+            // srcSet={ArtcleMainImage}
+            src={ArtcleMainImage}
             style={{
               position: "absolute",
               height: "100%",

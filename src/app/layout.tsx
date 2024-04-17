@@ -119,7 +119,7 @@ export default function RootLayout({
               <div className={inter.className}>{children}</div>
               <Toaster />
               <ScrollToTopButton />
-              <TailwindIndicator />
+              {/* <TailwindIndicator /> */}
             </ThemeProvider>
           </SmoothScrollProvider>
         </ScrollLayout>
