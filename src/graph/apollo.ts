@@ -210,7 +210,7 @@ query HomeArticles {
         articleAuthor {
           image {
             mimeType
-            url(transformation: {image: {resize: {width: 300}}})
+            url(transformation: {image: {resize: {width: 300, height: 300}}, document: {output: {format: jpg}}})
           }
           name
         }
@@ -224,7 +224,7 @@ query HomeArticles {
           handle
           mimeType
           url(
-            transformation: {document: {output: {format: jpg}}, image: {resize: {width: 300}}}
+            transformation: {document: {output: {format: jpg}}, image: {resize: {width: 300, height: 300}}}
           )
         }
         publishedAt
@@ -267,7 +267,7 @@ query Article($id: ID!) {
       id
       mimeType
       url(
-        transformation: {image: {resize: {width: 500}}, document: {output: {format: jpg}}}
+        transformation: {image: {resize: {width: 600, height: 315}}, document: {output: {format: jpg}}}
       )
     }
     typeOfArticle
@@ -307,8 +307,8 @@ query Article($id: ID!) {
           fileName
           id
           mimeType
-          # url(transformation: { image: {resize: {width: 500, height: 500}}})
-          url
+          url(transformation: { image: {resize: {width: 600, height: 315}}, document: {output: {format: jpg}}})
+          # url
         }
       }
       ... on ArticleQuotes {
@@ -326,7 +326,7 @@ query Article($id: ID!) {
           fileName
           handle
           url(
-            transformation: {image: {resize: {width: 300}}, document: {output: {format: jpg}}}
+            transformation: {image: {resize: {width: 300, height: 300}}, document: {output: {format: jpg}}}
           )
         }
         link
@@ -383,7 +383,7 @@ query ArticleWithTypeCount($name: String!, $first: Int!) {
           handle
           mimeType
           url(
-            transformation: {document: {output: {format: jpg}}, image: {resize: {width: 500, height: 500}}}
+            transformation: {document: {output: {format: jpg}}, image: {resize: {width: 300, height: 300}}}
           )
         }
         publishedAt
@@ -443,7 +443,7 @@ query ArticleByTag($tag: String!, $first: Int!) {
           handle
           mimeType
           url(
-            transformation: {document: {output: {format: jpg}}, image: {resize: {width: 300}}}
+            transformation: {document: {output: {format: jpg}}, image: {resize: {width: 300, height: 300}}}
           )
         }
         publishedAt

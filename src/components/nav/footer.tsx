@@ -38,7 +38,7 @@ export function Footer() {
               {/* <div className="rtl mt-5 flex items-center justify-center space-x-4 space-x-reverse md:justify-start"> */}
               <div className="rtl mt-5 flex items-center justify-center space-x-4 space-x-reverse">
                 <a
-                  href="https://twitter.com/minoosmv"
+                  href="https://www.facebook.com/profile.php?id=61556479060350"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -54,7 +54,7 @@ export function Footer() {
                   </svg>
                 </a>
                 <a
-                  href="https://www.facebook.com/minoosmv"
+                  href="https://www.facebook.com/profile.php?id=61556479060350"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -70,7 +70,7 @@ export function Footer() {
                   </svg>
                 </a>
                 <a
-                  href="https://www.instagram.com/minoos.mv/"
+                  href="https://www.facebook.com/profile.php?id=61556479060350"
                   target="_blank"
                   rel="noreferrer"
                 >
