@@ -4,6 +4,9 @@ import { mvRasmee, mvWaheed } from '@/config/fonts'
 import ShareButtons from "@/components/common/share-buttons"
 import Image from "next/image"
 import ShareNewButton from '@/components/common/share-new-button'
+import moment from 'moment'
+// import 'moment/locale/dv'
+
 
 const imageMainUrl = "https://ap-south-1.graphassets.com/clume5wz10c1507pi8xxhh972"
 
@@ -38,9 +41,9 @@ const ImageBanner = async ({article}: any) => {
               alt=""
             />
           </div>
-          <div className="relative mx-4 -mt-[25%] mb-3 flex flex-col rounded-[20px] lg:absolute lg:-bottom-12 lg:mt-0">
+          <div className="animate-up relative mx-4 -mt-[35%] mb-3 flex flex-col rounded-[20px] transition  lg:absolute lg:-bottom-12 lg:mt-0">
             <span className="absolute size-full overflow-hidden">
-              <span className="absolute size-full rounded-[20px] border border-[#00000014] bg-[#f9eeee75] backdrop-blur-[11.2px] dark:bg-[#00000075]"></span>
+              <span className="absolute size-full rounded-[20px] border border-[#00000014] bg-[#ffffff75] backdrop-blur-[11.2px] dark:bg-[#00000075]"></span>
             </span>
             <div className="relative mx-auto -mt-7 inline-block self-start rounded-full p-4 lg:ms-14">
               {/* <span>
@@ -118,8 +121,7 @@ const ImageBanner = async ({article}: any) => {
                   />
                 </span> */}
                 <p
-                  dir="ltr"
-                  className="mt-2 flex flex-1 items-center justify-start leading-snug"
+                  className="ltr mt-2 flex flex-1 items-center justify-start leading-snug"
                 >
                   {/* <svg
                     className="mb-2 mr-1 inline h-4"
@@ -146,8 +148,12 @@ const ImageBanner = async ({article}: any) => {
                   </svg> */}
                   {/* 29/03/2024, 14:03:50 */}
 
-                  {
+                  {/* {
                     article?.publishedAt && new Date(article?.publishedAt).toLocaleString()
+                  } */}
+
+                  {
+                    article?.publishedAt && moment(article?.publishedAt).format('D MMMM Y H:m')
                   }
                 </p>
 

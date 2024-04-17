@@ -375,6 +375,21 @@
   gap: 0.5rem;
 }
 
+@keyframes slide {
+  0% {
+    margin-top: -35%;
+  }
+
+  100% {
+    margin-top: -95%;
+  }
+}
+
+.animate-up {
+  animation: slide 1s ease forwards;
+  animation-delay: 1s;
+}
+
 /* @keyframes spin {
   0% {
     transform: rotate(0deg);

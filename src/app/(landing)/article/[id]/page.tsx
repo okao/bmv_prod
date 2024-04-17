@@ -59,7 +59,7 @@ export async function generateMetadata({ params } : { params: { id: string } }):
       images: [
         {
           url: `${article?.mainImage?.url}`,
-          width: 1200,
+          width: 600,
           height: 315,
           alt: article?.latinTitle ? article?.latinTitle : article?.title,
         }
@@ -69,12 +69,12 @@ export async function generateMetadata({ params } : { params: { id: string } }):
       site: "@okmvok",
       creator: "@okmvok",
       card: "summary_large_image",
-      title: article?.latinTitle ? article?.latinTitle : article?.latinTitle as string,
+      title: article?.latinTitle ? article?.latinTitle : article?.latinTitle,
       description: article?.latinSubTitle ? article?.latinSubTitle : article?.subTitle,
       image: [
         {
           url: `${article?.mainImage?.url}`,
-          width: 500,
+          width: 600,
           height: 315,
           alt: article?.latinTitle ? article?.latinTitle : article?.title,
         },
