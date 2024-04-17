@@ -386,7 +386,7 @@
 }
 
 .animate-up {
-  animation: slide 1s ease forwards;
+  animation: slide 3s ease forwards;
   animation-delay: 1s;
 }
 
