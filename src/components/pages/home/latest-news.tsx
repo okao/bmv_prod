@@ -46,7 +46,7 @@ const LatestNews = ({ homeArticles, loading }: { homeArticles: any, loading: boo
                         article?.node?.title
                       }
                     </h2>
-                    <p
+                    {/* <p
                       className={cn(
                         "mb-2 line-clamp-2 text-gray-500",
                         mvRasmee.className
@@ -55,7 +55,7 @@ const LatestNews = ({ homeArticles, loading }: { homeArticles: any, loading: boo
                       {
                         article?.node?.subTitle
                       }
-                    </p>
+                    </p> */}
                   </a>
                 )
               })

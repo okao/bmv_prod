@@ -23,8 +23,8 @@ export function Skeleton({ number, width, height }: { number: number, width?: st
 }
 
 const PeopleSection = ({ articles, loading }: { articles: any, loading: boolean }) => {
-  const firstArticle = articles?.edges && articles.edges[0].node || null;
-  const otherTwoArticles = articles?.edges && articles.edges.slice(1, 3) || [];
+  const firstArticle = articles?.edges && articles?.edges[0]?.node || null;
+  const otherTwoArticles = articles?.edges && articles?.edges?.slice(1, 3) || [];
 
   return (
     <div className='w-full flex-col'>

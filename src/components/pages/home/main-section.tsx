@@ -24,7 +24,7 @@ export function Skeleton({ number, width, height }: { number: number, width?: st
 
 const MainSection = ({ articles, loading }: { articles: any, loading: boolean }) => {
   const firstArticle = articles[0];
-  const mainOtherArticles = articles.slice(1, 3);
+  const mainOtherArticles = articles?.slice(1, 3);
 
   // console.log("Main Section", firstArticle);
 

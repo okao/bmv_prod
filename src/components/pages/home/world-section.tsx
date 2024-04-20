@@ -5,8 +5,8 @@ import HomeGallery from "@/components/home/home-gallery"
 
 
 const WorldSection = ({ articles, loading }: { articles: any, loading: boolean }) => {
-  const firstArticle = articles?.edges && articles.edges[0].node || null;
-  const otherArticles = articles?.edges && articles.edges.slice(1, 4) || [];
+  const firstArticle = articles?.edges && articles?.edges[0]?.node || null;
+  const otherArticles = articles?.edges && articles?.edges?.slice(1, 4) || [];
 
   return (
     <div className="mt-10 md:mt-16">

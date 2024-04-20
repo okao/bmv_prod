@@ -17,9 +17,9 @@ const ReportSection = ({ articles, loading }: { articles: any, loading: boolean 
     </div>
   }
 
-  const firstArticle = articles?.edges && articles.edges[0].node || null;
+  const firstArticle = articles?.edges && articles?.edges[0]?.node || null;
 
-  const otherTwoArticles = articles?.edges && articles.edges.slice(1, 3) || [];
+  const otherTwoArticles = articles?.edges && articles?.edges?.slice(1, 3) || [];
 
   return (
     <div className="mt-10 w-full md:mt-10">

@@ -6,8 +6,8 @@ import { mvAanamu, mvRasmee, mvWaheed } from '@/config/fonts'
 const MaldivesSection = ({ articles, loading }: { articles: any, loading: boolean }) => {
 
   // console.log("MaldivesSection -> articles", articles);
-  const firstArticle = articles?.edges && articles.edges[0].node || null;
-  const otherArticles = articles?.edges && articles.edges.slice(1, 4) || [];
+  const firstArticle = articles?.edges && articles?.edges[0]?.node || null;
+  const otherArticles = articles?.edges && articles?.edges?.slice(1, 4) || [];
 
   // console.log("MaldivesSection -> firstArticle", firstArticle)
   // console.log("MaldivesSection -> otherArticles", otherArticles)
