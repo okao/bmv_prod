@@ -1,9 +1,10 @@
 "use client"
 import { RWebShare } from "react-web-share";
 import Head from 'next/head';
+import { revalidatePath } from "next/cache";
 
 async function myAction(id: string) {
-    // 'use server'
+  revalidatePath(`/article/${id}`);
   const { getArticleById } = await import('@/graph/apollo');
   // console.log("ID", id);
   const data = await getArticleById(id);
