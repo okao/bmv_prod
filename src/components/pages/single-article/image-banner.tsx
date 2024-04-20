@@ -23,8 +23,8 @@ const ImageBanner = async ({article}: any) => {
   return (
     <div className="col-span-12 lg:order-1 lg:col-span-9">
       <div className="lg:pb-8">
-        <div className="relative flex flex-col items-end lg:mb-8">
-          <div className="relative aspect-square size-full overflow-hidden bg-okaogray-400 p-4 dark:bg-slate-900 lg:aspect-[704/433] lg:rounded-[20px]">
+        <div className="relative flex flex-col items-center lg:mb-8">
+          <div className="relative aspect-square size-full overflow-hidden bg-okaogray-400 p-4 shadow-xl dark:bg-slate-900 lg:aspect-[704/433] lg:rounded-[20px]">
             <img
               loading="lazy"
               decoding="async"
@@ -35,13 +35,14 @@ const ImageBanner = async ({article}: any) => {
                 width: "100%",
                 inset: "0px",
                 color: "transparent",
+                padding: "6px",
               }}
-              className="object-cover"
+              className="rounded-[20px] object-cover transition-all"
               src={`${article?.mainImage?.url}`}
               alt=""
             />
           </div>
-          <div className="animate-up relative mx-4 -mt-[25%] mb-3 flex flex-col rounded-[20px] transition  lg:absolute lg:-bottom-12 lg:mt-0">
+          <div className="animate-up relative mx-auto -mt-[25%] mb-3 flex flex-col rounded-[20px] transition  lg:absolute lg:-bottom-12 lg:mt-0">
             <span className="absolute size-full overflow-hidden">
               <span className="absolute size-full rounded-[20px] border border-[#00000014] bg-[#ffffff75] backdrop-blur-[11.2px] dark:bg-[#00000075]"></span>
             </span>
@@ -73,7 +74,7 @@ const ImageBanner = async ({article}: any) => {
                 </svg>
               </span> */}
             </div>
-            <div className="rtl relative max-w-4xl px-8 py-6 pt-4 lg:px-14">
+            <div className="rtl relative px-8 py-6 pt-4 lg:px-14">
               <h1
                 className={cn(
                   "mb-4 line-clamp-5 text-center text-[32px] font-bold transition-all dark:text-white md:text-right lg:me-12",
@@ -82,7 +83,7 @@ const ImageBanner = async ({article}: any) => {
               >
                 {article?.title}
               </h1>
-              <div className="mb-4 flex flex-col flex-wrap items-center gap-4 gap-y-3 md:flex-row">
+              <div className="mb-4 flex flex-col flex-wrap items-center gap-4 gap-y-3">
                 <a
                   className="group relative my-4 flex flex-col items-center gap-2 md:my-0 md:flex-row"
                   href="#"
