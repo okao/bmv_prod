@@ -70,34 +70,46 @@ const MainSection = ({ articles, loading }: { articles: any, loading: boolean })
           </div>
           <div className="flex flex-1 flex-col justify-between space-y-4 px-4 pb-4 text-base font-thin tracking-wider text-gray-800 dark:text-gray-300 md:rounded-b-lg">
             <div className='py-4'>
-              <div className="flex">
-                <div className="author">
-                  <div className="flex flex-row">
-                    <div>
-                      <img
-                        className='size-12 rounded-full object-cover'
-                          src={
-                            firstArticle?.node?.articleAuthor?.image?.url || firstArticle?.node?.publishedBy?.picture
-                        } alt='author' />
-                    </div>
-                    <div className="mr-3 flex flex-col text-[0.9rem]">
-                        <span className={cn("name", mvFaseyha.className)}>
-                          {
-                            firstArticle?.node?.articleAuthor?.name || firstArticle?.node?.publishedBy?.name
-                          }
-                        </span>
-                      <span className="time">
-                          {
-                            moment(firstArticle?.node?.publishedAt).format('DD MMM YYYY, HH:mm')
-                          }
-                        </span>
-                    </div>
-                  </div>
-                </div>
+              <div className="mb-4 flex flex-col flex-wrap items-center gap-4 gap-y-3 md:items-start">
+                <a
+                  className="group relative my-4 flex flex-col items-center gap-2 md:my-0 md:flex-row"
+                  href="#"
+                >
+                  <span className="relative mb-1">
+                    <img src={
+                      firstArticle?.node?.articleAuthor?.image?.url || firstArticle?.node?.publishedBy?.picture
+                    } alt=""
+                      className='size-12 rounded-full object-cover'
+                    />
+                  </span>
+                  <p
+                    className={cn(
+                      "text-2xl font-black text-black dark:text-white md:text-lg",
+                      mvRasmee.className
+                    )}
+                  >
+                    {
+                      firstArticle?.node?.articleAuthor?.name ? firstArticle?.node?.articleAuthor?.name : firstArticle?.node?.publishedBy?.name
+                    }
+                  </p>
+                </a>
+                <p
+                  className="ltr mt-2 flex flex-1 items-center justify-start leading-snug"
+                >
+                  {
+                    firstArticle?.node?.publishedAt && moment(firstArticle?.node?.publishedAt).format('D MMMM Y H:m')
+                  }
+                </p>
+
+                {/* <ShareButtons
+                  title={article?.title}
+                  url={`${url}`}
+                  summary={article?.subTitle}
+                /> */}
               </div>
             </div>
 
-            <div>
+            <div className='flex justify-center text-center md:text-right'>
               <p className={cn("pl-2", mvRasmee.className)}>
                 {
                   firstArticle?.node?.subTitle
@@ -139,7 +151,7 @@ const MainSection = ({ articles, loading }: { articles: any, loading: boolean })
                     </div>
                     <h2
                       className={cn(
-                        "my-3 text-xl font-normal leading-loose",
+                        "my-3 text-wrap text-xl font-normal  leading-loose",
                         mvAanamu.className
                       )}
                     >
@@ -147,11 +159,11 @@ const MainSection = ({ articles, loading }: { articles: any, loading: boolean })
                         article?.node?.title
                       }
                     </h2>
-                    <p className={cn("mb-2 line-clamp-2 text-gray-500", mvRasmee.className)}>
+                    {/* <p className={cn("mb-2 line-clamp-2 text-gray-500", mvRasmee.className)}>
                       {
                         article?.node?.subTitle
                       }
-                    </p>
+                    </p> */}
                 </a>
                 {
                   showBorder && <hr className="border-okaogray-600" />

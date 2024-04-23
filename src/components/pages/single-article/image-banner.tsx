@@ -104,55 +104,9 @@ const ImageBanner = async ({article}: any) => {
                     }
                   </p>
                 </a>
-                {/* <span className="absolute -top-5 right-2 size-6 overflow-hidden rounded-full">
-                  <img
-                    alt="logo"
-                    loading="lazy"
-                    decoding="async"
-                    data-nimg="fill"
-                    sizes="100vw"
-                    src="https://www.al-monitor.com/sites/default/files/styles/article_header/public/2023-10/49f608a6bf2fa038d6c6388bc5686b2867ea4d5f.jpg?h=69f2b9d0&itok=p0Ar_W7D"
-                    style={{
-                      position: "absolute",
-                      height: "100%",
-                      width: "100%",
-                      inset: "0px",
-                      color: "transparent",
-                    }}
-                  />
-                </span> */}
                 <p
                   className="ltr mt-2 flex flex-1 items-center justify-start leading-snug"
                 >
-                  {/* <svg
-                    className="mb-2 mr-1 inline h-4"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                  >
-                    <path
-                      d="M22 12c0 5.52-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2s10 4.48 10 10Z"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    ></path>
-                    <path
-                      d="m15.71 15.18-3.1-1.85c-.54-.32-.98-1.09-.98-1.72v-4.1"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    ></path>
-                  </svg> */}
-                  {/* 29/03/2024, 14:03:50 */}
-
-                  {/* {
-                    article?.publishedAt && new Date(article?.publishedAt).toLocaleString()
-                  } */}
-
                   {
                     article?.publishedAt && moment(article?.publishedAt).format('D MMMM Y H:m')
                   }
