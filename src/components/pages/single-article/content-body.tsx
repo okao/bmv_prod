@@ -94,12 +94,9 @@ const ContentBody = ({ article }: { article: any }) => {
             )
           } else if (content?.__typename === "ArticleImage") {
 
-
-            console.log("Video", content);
-
             return (
               <div
-                className="float-start my-4 overflow-hidden rounded-xl lg:pr-6"
+                className="my-4 overflow-hidden rounded-xl lg:pr-6"
                 key={index}
               >
 
@@ -133,7 +130,7 @@ const ContentBody = ({ article }: { article: any }) => {
             )
           } else if (content?.__typename === "ExternalLinks") {
             return (
-              <div key={index} className="float-end my-4 flex overflow-hidden lg:pl-6">
+              <div key={index} className="my-4 flex overflow-hidden lg:pl-6">
                 <div className="mb-8 flex w-full max-w-lg flex-col">
                   <a href={`${content?.link}`} target="_blank" className="flex w-full px-4 lg:px-0">
                     <div className="flex w-2/3 flex-col justify-between border border-r-0 border-gray-200  bg-white p-4 ">
