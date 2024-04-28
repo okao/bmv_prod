@@ -21,10 +21,10 @@ const ImageBanner = async ({article}: any) => {
   // console.log("Article URL", url);
 
   return (
-    <div className="col-span-12 lg:order-1 lg:col-span-9">
+    <div className="col-span-12">
       <div className="lg:pb-8">
         <div className="relative flex flex-col items-center lg:mb-8">
-          <div className="relative aspect-square size-full overflow-hidden bg-okaogray-400 p-4 shadow-xl dark:bg-slate-900 lg:aspect-[704/433] lg:rounded-[20px]">
+          <div className="relative aspect-square size-full overflow-hidden bg-okaogray-400 p-4 shadow-xl dark:bg-slate-900 lg:aspect-[704/433] lg:h-[500px] lg:rounded-[20px]">
             <img
               loading="lazy"
               decoding="async"

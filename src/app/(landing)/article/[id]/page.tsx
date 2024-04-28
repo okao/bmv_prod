@@ -105,7 +105,7 @@ const Single = async ({ params }: any) => {
         <ImageBanner article={article} />
 
         {/* Single Article Main Ad */}
-        <SingleMainAd />
+        {/* <SingleMainAd /> */}
       </div>
 
       {/* <ArticleTags tags={article?.articleTags?.value} /> */}
@@ -116,8 +116,8 @@ const Single = async ({ params }: any) => {
           className="separator--dotted mx-auto md:container"
         ></div>
         <div className="mt-10 flex justify-end">
-          <div className="mb-6 hidden h-[250px] w-full overflow-hidden rounded-[10px] bg-okaogray-500 p-4 pb-6 dark:bg-slate-800 md:block">
-            {/* <RelatedArticles article={article} /> */}
+          {/* <div className="mb-6 hidden h-[250px] w-full overflow-hidden rounded-[10px] bg-okaogray-500 p-4 pb-6 dark:bg-slate-800 md:block">
+
             <p
               className="text-left text-sm text-gray-800 dark:text-gray-300 md:rounded-b-lg md:px-4 md:pb-4 md:text-base md:font-thin md:leading-6 md:tracking-wider"
             >
@@ -130,8 +130,8 @@ const Single = async ({ params }: any) => {
               {""} އިޝްތިހާރާއި ޖެހުމަށް އަޅުގަދުމެންނަށް އީމެލްކޮށްލައްވާ
               <a href="mailto:admin@breakingmv.com"> admin@breakingmv.com</a>
             </p>
-          </div>
-          <div className="mt-6  max-w-4xl text-right md:mt-0 lg:pl-6">
+          </div> */}
+          <div className="mt-6  max-w-4xl content-center text-right md:mt-0 lg:pl-6">
             <ContentBody article={article} />
           </div>
         </div>

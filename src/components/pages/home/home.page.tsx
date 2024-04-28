@@ -18,6 +18,7 @@ import {
   getMainArticles,
   getArticleWithTypeCount
 } from '@/graph/apollo';
+import AdMain from '../../../../public/images/ads/wellco_banner.jpeg'
 
 
 const HomePage = () => {
@@ -158,10 +159,7 @@ const HomePage = () => {
 
         <div className="mt-10 md:mt-16">
           <AdBanner
-            href={"https://www.mwsc.com.mv/"}
-            src={
-              "https://minoos-space.sgp1.cdn.digitaloceanspaces.com/content/miad/iauBm60Jix0j3BcWCxSxhXb2S.jpg"
-            }
+            href={"https://www.facebook.com/wezipmv/"}
           />
         </div>
 
@@ -170,9 +168,6 @@ const HomePage = () => {
 
         <div className="mt-10 md:mt-16">
           <AdBanner
-            src={
-              "https://minoos-space.sgp1.cdn.digitaloceanspaces.com/content/miad/kKJIC6cELvUxqmcp7ww3AO4AG.png"
-            }
             href={"https://www.maldivesfinest.com/"}
           />
         </div>
@@ -192,9 +187,6 @@ const HomePage = () => {
 
         <div className="mt-8 md:mt-10">
           <AdBanner
-            src={
-              "https://minoos-space.sgp1.cdn.digitaloceanspaces.com/content/miad/2H8HgAVl6nqr3KxdWq0hMAo9M.jpeg"
-            }
             href={"https://www.maldivesfinest.com/"}
           />
         </div>
