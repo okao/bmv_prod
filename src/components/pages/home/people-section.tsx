@@ -72,8 +72,18 @@ const PeopleSection = ({ articles, loading }: { articles: any, loading: boolean 
                   className="col-span-12 h-full md:col-span-3 md:py-20"
                   key={index}
                 >
-                  <div className="flex h-full flex-col justify-between bg-okaogray-400 bg-opacity-50 dark:bg-slate-800">
+                  <div className="flex h-full flex-col bg-okaogray-400 bg-opacity-50 dark:bg-slate-800">
+
+                    <div className="relative">
+                      <img
+                        className="h-[300px] w-full object-cover"
+                        src={article?.node?.mainImage?.url}
+                        alt=""
+                      />
+                    </div>
+
                     <div className="p-4">
+                      <div className="mx-auto mt-8 h-0.5 w-2/3 border-t border-okaoblue-300"></div>
                       <h2
                         className={cn(
                           "rtl mx-auto w-2/3 text-center text-2xl leading-loose md:text-3xl md:leading-loose",
@@ -90,10 +100,10 @@ const PeopleSection = ({ articles, loading }: { articles: any, loading: boolean 
                       >
                         އައިޝާ މުހައްމަދު
                       </p> */}
-                      <div className="mx-auto mt-8 h-0.5 w-2/3 border-t border-okaoblue-300"></div>
+
                     </div>
 
-                    <div className="p-8">
+                    {/* <div className="p-8">
                       <p
                         className={cn(
                           "font-randhoo line-clamp-7 leading-relaxed",
@@ -102,7 +112,7 @@ const PeopleSection = ({ articles, loading }: { articles: any, loading: boolean 
                       >
                         {article?.node?.subTitle}
                       </p>
-                    </div>
+                    </div> */}
                   </div>
                 </a>
               )

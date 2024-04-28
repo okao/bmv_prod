@@ -1,6 +1,7 @@
 import React from 'react'
 import { cn } from '@/lib/utils'
 import { mvAanamu, mvRasmee, mvWaheed } from '@/config/fonts'
+import moment from 'moment';
 
 
 const MaldivesSection = ({ articles, loading }: { articles: any, loading: boolean }) => {
@@ -56,31 +57,49 @@ const MaldivesSection = ({ articles, loading }: { articles: any, loading: boolea
               otherArticles?.map((article: any, index: number) => {
                 return (
                   <a
-                    className="flex md:border-b-2"
+                    className="flex"
                     href={`/article/${article?.node?.id}`}
                     key={index}
                   >
                     <div className="flex-1">
-                      <h2
-                        className={cn(
-                          "mb-3 text-xl font-normal leading-relaxed",
-                          mvAanamu.className
-                        )}
-                      >
-                        {article?.node?.title}
-                      </h2>
-                      <p
-                        className={cn(
-                          "mb-3 hidden text-gray-500 md:line-clamp-3",
-                          mvRasmee.className
-                        )}
-                      >
-                        {article?.node?.subTitle}
-                      </p>
+                      <div className='flex flex-col justify-between'>
+                        <h2
+                          className={cn(
+                            "mb-3 text-xl font-normal leading-relaxed",
+                            mvAanamu.className
+                          )}
+                        >
+                          {article?.node?.title}
+                        </h2>
+                        {/* <p
+                          className={cn(
+                            "mb-3 hidden text-gray-500 md:line-clamp-3",
+                            mvRasmee.className
+                          )}
+                        >
+                          {article?.node?.subTitle}
+                        </p> */}
+                        <div
+                          className='flex'
+                        >
+                          <p
+                            className={cn(
+                              "ltr text-gray-500",
+                              mvRasmee.className
+                            )}
+                          >
+                            {/* {article?.node?.subTitle} */}
+
+                            {
+                              moment(article?.node?.createdAt).fromNow()
+                            }
+                          </p>
+                        </div>
+                      </div>
                     </div>
                     <div className="mb-4 mr-4 w-40 md:w-48">
                       <img
-                        className=""
+                        className="size-full rounded-lg object-cover"
                         src={article?.node?.mainImage?.url}
                         alt=""
                       />

@@ -17,17 +17,29 @@ const LatestNews = ({ homeArticles, loading }: { homeArticles: any, loading: boo
                 return (
                   <a
                     key={index}
-                    className="block rounded-lg bg-okaogray-500 p-4 dark:z-10 dark:border-gray-100 dark:bg-slate-900 dark:shadow-lg"
+                    className="grid gap-x-2 rounded-lg bg-okaogray-500 p-4 dark:z-10 dark:border-gray-100 dark:bg-slate-900 dark:shadow-lg"
                     href={`/article/${article?.node?.id}`}
                   >
-                    <div className="relative float-right mb-2 ml-6">
+                    <div className="">
                       <img
-                        className="float-right w-32 md:w-44"
+                        className="z-10 size-full rounded-lg object-cover"
                         src={article?.node?.mainImage?.url}
                         alt=""
                       />
                     </div>
-                    <div className="flex items-center space-x-3 space-x-reverse">
+                    <div className="grid items-center">
+                      <div>
+                        <h2
+                          className={cn(
+                            "my-3 text-xl font-normal leading-loose",
+                            mvAanamu.className
+                          )}
+                        >
+                          {
+                            article?.node?.title
+                          }
+                        </h2>
+                      </div>
                       <div className="flex items-center space-x-1 space-x-reverse">
                         <span className="ltr text-xs text-gray-500">
                           {
@@ -36,16 +48,7 @@ const LatestNews = ({ homeArticles, loading }: { homeArticles: any, loading: boo
                         </span>
                       </div>
                     </div>
-                    <h2
-                      className={cn(
-                        "my-3 text-xl font-normal leading-loose",
-                        mvAanamu.className
-                      )}
-                    >
-                      {
-                        article?.node?.title
-                      }
-                    </h2>
+
                     {/* <p
                       className={cn(
                         "mb-2 line-clamp-2 text-gray-500",

@@ -127,48 +127,45 @@ const MainSection = ({ articles, loading }: { articles: any, loading: boolean })
             const showBorder = index !== mainOtherArticles.length - 1;
 
             return (
-              <>
+              <div key={index}>
                 <a
                   key={index}
-                  className="rtl"
+                  className="rtl grid gap-x-4 lg:flex"
                   href={`/article/${article?.node?.id}`}>
-                    <div className="relative float-right mb-2 ml-6">
+                    <div className="mb-2 border">
                       <img
-                        className="float-right w-32 md:w-44"
+                        className="size-full rounded-lg object-cover"
                         src={`${article?.node?.mainImage?.url}`}
                         alt=""
                       />
                     </div>
-                    <div className="flex items-center space-x-3 space-x-reverse">
-                      <div className="flex items-center space-x-1 space-x-reverse">
-                        <span className="ltr text-xs text-gray-500">
-                          {
-                            // hours ago
-                            moment(article?.node?.createdAt).fromNow()
-                          }
-                        </span>
+                    <div className="grid items-center space-x-reverse">
+                      <div>
+                        <h2
+                        className={cn(
+                          "my-3 text-wrap text-xl font-normal  leading-loose",
+                          mvAanamu.className
+                        )}
+                      >
+                        {
+                          article?.node?.title
+                        }
+                      </h2>
                       </div>
+                        <div className="flex items-center">
+                          <span className="ltr text-xs text-gray-500">
+                            {
+                              // hours ago
+                              moment(article?.node?.createdAt).fromNow()
+                            }
+                          </span>
+                        </div>
                     </div>
-                    <h2
-                      className={cn(
-                        "my-3 text-wrap text-xl font-normal  leading-loose",
-                        mvAanamu.className
-                      )}
-                    >
-                      {
-                        article?.node?.title
-                      }
-                    </h2>
-                    {/* <p className={cn("mb-2 line-clamp-2 text-gray-500", mvRasmee.className)}>
-                      {
-                        article?.node?.subTitle
-                      }
-                    </p> */}
                 </a>
                 {
-                  showBorder && <hr className="border-okaogray-600" />
+                  showBorder && <hr className="mt-2 border-okaogray-600" />
                 }
-              </>
+              </div>
 
 
             )
