@@ -17,10 +17,10 @@ const LatestNews = ({ homeArticles, loading }: { homeArticles: any, loading: boo
                 return (
                   <a
                     key={index}
-                    className="grid gap-x-2 rounded-lg bg-okaogray-500 p-4 dark:z-10 dark:border-gray-100 dark:bg-slate-900 dark:shadow-lg"
+                    className="grid rounded-lg bg-okaogray-500 p-4 dark:z-10 dark:border-gray-100 dark:bg-slate-900 dark:shadow-lg"
                     href={`/article/${article?.node?.id}`}
                   >
-                    <div className="">
+                    <div className="h-[200px]">
                       <img
                         className="z-10 size-full rounded-lg object-cover"
                         src={article?.node?.mainImage?.url}

@@ -61,16 +61,25 @@ const MaldivesSection = ({ articles, loading }: { articles: any, loading: boolea
                     href={`/article/${article?.node?.id}`}
                     key={index}
                   >
+                    <div className="mb-4 ml-4 h-[146px] w-40 md:w-48">
+                      <img
+                        className="size-full rounded-lg object-cover"
+                        src={article?.node?.mainImage?.url}
+                        alt=""
+                      />
+                    </div>
                     <div className="flex-1">
-                      <div className='flex flex-col justify-between'>
-                        <h2
-                          className={cn(
-                            "mb-3 text-xl font-normal leading-relaxed",
-                            mvAanamu.className
-                          )}
-                        >
-                          {article?.node?.title}
-                        </h2>
+                      <div className='grid h-full content-between justify-between'>
+                        <div>
+                          <h2
+                            className={cn(
+                              "mb-3 text-xl font-normal leading-relaxed",
+                              mvAanamu.className
+                            )}
+                          >
+                            {article?.node?.title}
+                          </h2>
+                        </div>
                         {/* <p
                           className={cn(
                             "mb-3 hidden text-gray-500 md:line-clamp-3",
@@ -97,13 +106,7 @@ const MaldivesSection = ({ articles, loading }: { articles: any, loading: boolea
                         </div>
                       </div>
                     </div>
-                    <div className="mb-4 mr-4 w-40 md:w-48">
-                      <img
-                        className="size-full rounded-lg object-cover"
-                        src={article?.node?.mainImage?.url}
-                        alt=""
-                      />
-                    </div>
+
                   </a>
                 )
               })

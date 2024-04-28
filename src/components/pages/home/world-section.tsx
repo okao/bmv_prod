@@ -2,6 +2,7 @@ import React from 'react'
 import { cn } from '@/lib/utils'
 import { mvAanamu, mvRasmee, mvWaheed } from '@/config/fonts'
 import HomeGallery from "@/components/home/home-gallery"
+import moment from 'moment'
 
 
 const WorldSection = ({ articles, loading }: { articles: any, loading: boolean }) => {
@@ -51,34 +52,50 @@ const WorldSection = ({ articles, loading }: { articles: any, loading: boolean }
               otherArticles?.map((article: any, index: number) => {
                 return (
                   <a
-                    className="flex md:border-b-2"
+                    className="flex"
                     href={`/article/${article?.node?.id}`}
                     key={index}
                   >
-                    <div className="flex-1">
-                      <h2
-                        className={cn(
-                          "mb-3 text-xl font-normal leading-relaxed",
-                          mvAanamu.className
-                        )}
-                      >
-                        {article?.node?.title}
-                      </h2>
-                      <p
-                        className={cn(
-                          "mb-3 hidden text-gray-500 md:line-clamp-3",
-                          mvRasmee.className
-                        )}
-                      >
-                        {article?.node?.subTitle}
-                      </p>
-                    </div>
-                    <div className="mb-4 mr-4 w-40 md:w-48">
+                    <div className="mb-4 ml-4 h-[146px] w-40 md:w-48">
                       <img
-                        className=""
+                        className="size-full rounded-lg object-cover"
                         src={article?.node?.mainImage?.url}
                         alt=""
                       />
+                    </div>
+                    <div className="flex-1">
+                      <div className='grid h-full content-between justify-between'>
+                        <div>
+                          <h2
+                            className={cn(
+                              "mb-3 text-xl font-normal leading-relaxed",
+                              mvAanamu.className
+                            )}
+                          >
+                            {article?.node?.title}
+                          </h2>
+                        </div>
+                        {/* <p
+                          className={cn(
+                            "mb-3 text-gray-500",
+                            mvRasmee.className
+                          )}
+                        >
+                          {article?.node?.subTitle}
+                        </p> */}
+                        <div className='flex'>
+                          <p
+                            className={cn(
+                              "ltr mb-3 text-gray-500",
+                              mvRasmee.className
+                            )}
+                          >
+                            {
+                              moment(article?.node?.createdAt).fromNow()
+                            }
+                          </p>
+                        </div>
+                      </div>
                     </div>
                   </a>
                 )
