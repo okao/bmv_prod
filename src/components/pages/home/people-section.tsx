@@ -49,7 +49,7 @@ const PeopleSection = ({ articles, loading }: { articles: any, loading: boolean 
                 alt=""
               />
               <div
-                className="mt-8 w-full bg-okaogray-500 pb-10 pt-20 text-center dark:bg-slate-900 dark:bg-opacity-50"
+                className="mt-8 w-full bg-okaogray-500 pb-10 pt-20 text-center dark:bg-slate-800 dark:bg-opacity-50"
                 style={{ minHeight: "200px" }}
               >
                 <h2
@@ -72,7 +72,7 @@ const PeopleSection = ({ articles, loading }: { articles: any, loading: boolean 
                   className="col-span-12 h-full md:col-span-3 md:py-20"
                   key={index}
                 >
-                  <div className="flex h-full flex-col bg-okaogray-400 bg-opacity-50 dark:bg-slate-800">
+                  <div className="flex h-full flex-col bg-okaogray-400 dark:bg-slate-800">
 
                     <div className="relative">
                       <img

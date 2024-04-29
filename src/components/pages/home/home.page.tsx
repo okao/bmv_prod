@@ -178,7 +178,7 @@ const HomePage = () => {
 
         <MaldivesSection articles={maldivesArticles} loading={loading} />
 
-        <div className="mt-4 bg-gray-200 py-4 md:mt-10">
+        <div className="mt-4 bg-gray-200 py-4 dark:bg-slate-900 md:mt-10">
           <div className="mx-auto">
             <div className="gap-6 md:flex md:flex-row-reverse">
               <PeopleSection articles={peopleArticles} loading={loading} />
