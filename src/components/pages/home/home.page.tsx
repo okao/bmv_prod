@@ -145,6 +145,11 @@ const HomePage = () => {
             className="separator--dotted mx-auto mt-12"
           ></div>
         </div>
+        <div className="mt-10 md:mt-16">
+          <AdBanner
+            href={"https://www.facebook.com/wezipmv/"}
+          />
+        </div>
         <div className="">
           <div className="mx-auto mt-4 pt-0">
             <h2
@@ -157,12 +162,6 @@ const HomePage = () => {
             </h2>
             <LatestNews homeArticles={homeArticles} loading={loading} />
           </div>
-        </div>
-
-        <div className="mt-10 md:mt-16">
-          <AdBanner
-            href={"https://www.facebook.com/wezipmv/"}
-          />
         </div>
 
         <ReportSection articles={reportArticles} loading={loading} />
