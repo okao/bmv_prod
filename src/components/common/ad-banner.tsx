@@ -7,7 +7,7 @@ const AdBanner = ({ href }: { href: string }) => {
   return (
     <div>
       <a
-        className="container mx-auto block"
+        className="mx-auto block md:container"
         target="_blank"
         rel="noopener noreferrer"
         href={href}

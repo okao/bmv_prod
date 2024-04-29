@@ -142,10 +142,10 @@ const HomePage = () => {
         <div className="mx-4 md:container">
           <div
             id="homebreak"
-            className="separator--dotted mx-auto mt-12"
+            className="separator--dotted mx-auto mt-5"
           ></div>
         </div>
-        <div className="mt-10 md:mt-16">
+        <div className="mt-5 hidden md:block">
           <AdBanner
             href={"https://www.facebook.com/wezipmv/"}
           />

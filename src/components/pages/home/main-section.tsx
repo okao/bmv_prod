@@ -5,6 +5,7 @@ import moment from 'moment'
 import React, { useContext, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import AdBanner from '@/components/common/ad-banner'
 
 export function Skeleton({ number, width, height }: { number: number, width?: string, height?: string }) {
   return (
@@ -71,7 +72,7 @@ const MainSection = ({ articles, loading }: { articles: any, loading: boolean })
           <div className="flex flex-1 flex-col justify-between space-y-4 px-4 pb-4 text-base font-thin tracking-wider text-gray-800 dark:text-gray-300 md:rounded-b-lg">
             <div className='py-4'>
               <div className="mb-4 flex flex-col flex-wrap items-center gap-4 gap-y-3 md:items-start">
-                <a
+                {/* <a
                   className="group relative my-4 flex flex-col items-center gap-2 md:my-0 md:flex-row"
                   href="#"
                 >
@@ -92,7 +93,7 @@ const MainSection = ({ articles, loading }: { articles: any, loading: boolean })
                       firstArticle?.node?.articleAuthor?.name ? firstArticle?.node?.articleAuthor?.name : firstArticle?.node?.publishedBy?.name
                     }
                   </p>
-                </a>
+                </a> */}
                 <p
                   className="ltr mt-2 flex flex-1 items-center justify-start leading-snug"
                 >
@@ -118,6 +119,12 @@ const MainSection = ({ articles, loading }: { articles: any, loading: boolean })
             </div>
           </div>
         </Link>
+      </div>
+
+      <div className="m-10 md:mt-16 md:hidden lg:hidden">
+        <AdBanner
+          href={"https://www.facebook.com/wezipmv/"}
+        />
       </div>
 
       <div className="flex flex-col space-y-4 bg-okaogray-500 p-5 opacity-90 dark:bg-slate-900 dark:shadow-lg md:ml-3 md:w-2/6 md:rounded-lg">
