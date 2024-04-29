@@ -19,6 +19,8 @@ import {
   getArticleWithTypeCount
 } from '@/graph/apollo';
 import AdMain from '../../../../public/images/ads/wellco_banner.jpeg'
+import AdBannerTwo from '@/components/common/ad-banner-two'
+import AdBannerThree from '@/components/common/ad-banner-three'
 
 
 const HomePage = () => {
@@ -167,7 +169,7 @@ const HomePage = () => {
 
 
         <div className="mt-10 md:mt-16">
-          <AdBanner
+          <AdBannerTwo
             href={"https://www.maldivesfinest.com/"}
           />
         </div>
@@ -186,7 +188,7 @@ const HomePage = () => {
 
 
         <div className="mt-8 md:mt-10">
-          <AdBanner
+          <AdBannerThree
             href={"https://www.maldivesfinest.com/"}
           />
         </div>
