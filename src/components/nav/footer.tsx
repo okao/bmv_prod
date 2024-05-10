@@ -31,10 +31,7 @@ export function Footer() {
                   <LogoImageFooter logotheme="dark" />
                 </div>
               </a>
-              <p className={cn("mt-8 text-gray-100", mvRasmee.className)}>
-                މި މަސައްކަތުގައި އަހަރެމެން ހަމަ ހަމަ ވާނެ، އިންސާފުވެރި ވާނެ،
-                އިތުބާރު ދަމަހައްޓާނެ
-              </p>
+              <p className={cn("mt-8 text-gray-100", mvRasmee.className)}>ސިކުނޑިތައް ބާރުވެރި ކުރުވައި، ނަޒާޙަތްތެރިކަމާއިއެކު މަޢުލޫމާތު ގެނެސްދޭ ތިބޭފުޅުންގެ ޚަޒާނާ “ ބްރޭކިންގ އެމްވީ “</p>
               {/* <div className="rtl mt-5 flex items-center justify-center space-x-4 space-x-reverse md:justify-start"> */}
               <div className="rtl mt-5 flex items-center justify-center space-x-4 space-x-reverse">
                 <a
