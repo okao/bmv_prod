@@ -45,7 +45,7 @@ const MainSection = ({ articles, loading }: { articles: any, loading: boolean })
                   alt=""
                   width={400}
                   height={200}
-                  className="h-[300px] w-full object-cover opacity-0 transition-opacity md:rounded-r lg:h-[450px]"
+                  className="h-[250px] w-full object-cover opacity-0 transition-opacity md:rounded-r lg:h-[450px]"
                   onLoadingComplete={(image) => { image.classList.remove('opacity-0') }}
                   quality={80}
                 />
