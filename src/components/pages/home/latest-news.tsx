@@ -10,17 +10,17 @@ const LatestNews = ({ homeArticles, loading }: { homeArticles: any, loading: boo
     <div className="rtl mx-auto px-4 md:container">
       <div className="grid-cols-1 gap-8 md:grid md:grid-cols-12">
         <div className="col-span-12 md:col-span-12 md:ml-2">
-          <div className="mb-10 grid grid-cols-2 gap-2 md:grid-cols-3">
+          <div className="mb-10 grid gap-10 md:grid-cols-3">
 
             {
               homeArticles?.edges?.map((article: any, index: number) => {
                 return (
                   <a
                     key={index}
-                    className="grid rounded-lg bg-okaogray-500 p-4 dark:z-10 dark:border-gray-100 dark:bg-slate-900 dark:shadow-lg"
+                    className="rounded-lg bg-okaogray-500 p-4 dark:z-10 dark:border-gray-100 dark:bg-slate-900 dark:shadow-lg"
                     href={`/article/${article?.node?.id}`}
                   >
-                    <div className="h-[200px]">
+                    <div className="h-[200px] lg:h-[300px]">
                       <img
                         className="z-10 size-full rounded-lg object-cover"
                         src={article?.node?.mainImage?.url}
