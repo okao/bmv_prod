@@ -32,7 +32,7 @@ const MainSection = ({ articles, loading }: { articles: any, loading: boolean })
   return (
     <>
       <div className="rtl mb-10 cursor-pointer justify-between bg-okaogray-400 dark:bg-slate-900 dark:shadow-lg md:mb-0 md:flex md:w-4/6 md:rounded-lg">
-        <div className="mb-6 flex-1 md:mb-0">
+        <div className="flex-1 md:mb-0">
           <Link
             className="relative flex size-full"
             href={`/article/${firstArticle?.node?.id}`}
@@ -43,9 +43,9 @@ const MainSection = ({ articles, loading }: { articles: any, loading: boolean })
                     `${firstArticle?.node?.mainImage?.url}`
                   }
                   alt=""
-                  width={600}
-                  height={400}
-                  className="w-full object-cover opacity-0 transition-opacity md:rounded-r"
+                  width={400}
+                  height={200}
+                  className="h-[300px] w-full object-cover opacity-0 transition-opacity md:rounded-r lg:h-[450px]"
                   onLoadingComplete={(image) => { image.classList.remove('opacity-0') }}
                   quality={80}
                 />
@@ -55,7 +55,7 @@ const MainSection = ({ articles, loading }: { articles: any, loading: boolean })
 
         <Link
           href={`/article/${firstArticle?.node?.id}`}
-          className="rtl flex w-full flex-col px-2 dark:text-gray-300 md:w-[45%] md:px-0 md:py-6"
+          className="rtl flex w-full flex-col px-2 dark:text-gray-300 md:w-[45%] md:px-0 md:py-6 lg:h-[400px]"
         >
           <div>
             <h2
@@ -72,28 +72,6 @@ const MainSection = ({ articles, loading }: { articles: any, loading: boolean })
           <div className="flex flex-1 flex-col justify-between space-y-4 px-4 pb-4 text-base font-thin tracking-wider text-gray-800 dark:text-gray-300 md:rounded-b-lg">
             <div className='py-4'>
               <div className="mb-4 flex flex-col flex-wrap items-center gap-4 gap-y-3 md:items-start">
-                {/* <a
-                  className="group relative my-4 flex flex-col items-center gap-2 md:my-0 md:flex-row"
-                  href="#"
-                >
-                  <span className="relative mb-1">
-                    <img src={
-                      firstArticle?.node?.articleAuthor?.image?.url || firstArticle?.node?.publishedBy?.picture
-                    } alt=""
-                      className='size-12 rounded-full object-cover'
-                    />
-                  </span>
-                  <p
-                    className={cn(
-                      "text-2xl font-black text-black dark:text-white md:text-lg",
-                      mvRasmee.className
-                    )}
-                  >
-                    {
-                      firstArticle?.node?.articleAuthor?.name ? firstArticle?.node?.articleAuthor?.name : firstArticle?.node?.publishedBy?.name
-                    }
-                  </p>
-                </a> */}
                 <p
                   className="ltr mt-2 flex flex-1 items-center justify-start leading-snug"
                 >
@@ -101,12 +79,6 @@ const MainSection = ({ articles, loading }: { articles: any, loading: boolean })
                     firstArticle?.node?.publishedAt && moment(firstArticle?.node?.publishedAt).format('D MMMM Y H:m')
                   }
                 </p>
-
-                {/* <ShareButtons
-                  title={article?.title}
-                  url={`${url}`}
-                  summary={article?.subTitle}
-                /> */}
               </div>
             </div>
 
@@ -121,28 +93,35 @@ const MainSection = ({ articles, loading }: { articles: any, loading: boolean })
         </Link>
       </div>
 
-      <div className="m-10 md:mt-16 md:hidden lg:hidden">
+      {/* <div className="m-10 md:mt-16 md:hidden lg:hidden">
         <AdBanner
           href={"https://www.facebook.com/wezipmv/"}
         />
-      </div>
+      </div> */}
 
-      <div className="flex flex-col space-y-4 bg-okaogray-500 p-5 opacity-90 dark:bg-slate-900 dark:shadow-lg md:ml-3 md:w-2/6 md:rounded-lg">
+      <div className="flex flex-row space-x-4 bg-okaogray-500 p-5 opacity-90 dark:bg-slate-900 dark:shadow-lg md:ml-3 md:w-2/6 md:rounded-lg">
         {
           mainOtherArticles.map((article: any, index: number) => {
 
-            const showBorder = index !== mainOtherArticles.length - 1;
+            // const showBorder = index !== mainOtherArticles.length - 1;
 
             return (
-              <div key={index}>
+              <div key={index} className='flex-1'>
                 <a
                   key={index}
-                  className="rtl grid gap-x-4 lg:flex"
+                  className="rtl grid gap-x-4"
                   href={`/article/${article?.node?.id}`}>
-                    <div className="mb-2 border">
+                    {/* <div className="mb-2 border">
                       <img
                         className="size-full rounded-lg object-cover"
                         src={`${article?.node?.mainImage?.url}`}
+                        alt=""
+                      />
+                    </div> */}
+                    <div className="mb-2 h-[200px] border">
+                      <img
+                        className="z-10 size-full rounded-lg object-cover"
+                        src={article?.node?.mainImage?.url}
                         alt=""
                       />
                     </div>
@@ -169,9 +148,9 @@ const MainSection = ({ articles, loading }: { articles: any, loading: boolean })
                         </div>
                     </div>
                 </a>
-                {
+                {/* {
                   showBorder && <hr className="mt-2 border-okaogray-600" />
-                }
+                } */}
               </div>
 
 

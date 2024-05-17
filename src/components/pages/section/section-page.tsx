@@ -54,22 +54,23 @@ const SectionPage = () => {
         </div>
       </div>
       <div className='mt-4 overflow-hidden md:container md:mx-auto'>
-        <div className='-my-4 flex flex-row-reverse flex-wrap text-center sm:-mx-4 xl:mx-0'>
+        <div className='-my-4 grid grid-cols-2 text-center sm:-mx-4 md:flex md:flex-row-reverse md:flex-wrap xl:mx-0'>
           {
             articles?.map((article: any, index: number) => (
 
-              <div className='group flex w-full flex-row-reverse border-l  border-t  border-dashed border-gray-300 p-4 transition duration-300
+              <div className='group grid w-full border-l  border-t  border-dashed border-gray-300 p-4 transition duration-300
  ease-in-out  dark:border-slate-700  sm:w-1/3  sm:flex-col lg:w-1/4' key={index}>
 
-                <div className='size-[116px] shrink-0 sm:h-[174px] sm:w-full'>
+                <div className='size-[216px] shrink-0 sm:h-[254px] sm:w-full'>
                   <a
                     href={`/article/${article?.node?.id}`}
                     title={article?.node?.title}
                   >
-                    <div className='relative size-full overflow-hidden bg-[#cfb9af]'>
+                    <div className='relative h-[200px] overflow-hidden '>
                       <img
                         src={article?.node?.mainImage?.url}
                         alt=""
+                        className='size-full object-cover'
                       />
                     </div>
                   </a>
