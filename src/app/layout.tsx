@@ -109,10 +109,16 @@ export default function RootLayout({
         </Script>
         <meta name="google-adsense-account" content="ca-pub-3231959529193850" />
         {/* <GoogleAdsense pId={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ID || "3231959529193850"} /> */}
-        <Script
+        {/* <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3231959529193850"
-        />
+        /> */}
+        <Script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADS_CLIENT_ID || "ca-pub-3231959529193850"}`}
+          strategy="lazyOnload"
+          crossOrigin="anonymous"
+        ></Script>
       </head>
       <body>
         <NextTopLoader
