@@ -45,9 +45,6 @@ export async function generateMetadata({ params } : { params: { id: string } }):
     title: article?.latinTitle ? article?.latinTitle : article?.title,
     description: article?.latinSubTitle ? article?.latinSubTitle : article?.subTitle,
     type: "article",
-    other: {
-      ["fb:app_id"]: "61556479060350",
-    },
     openGraph: {
       locale: "en_US",
       type: "article",

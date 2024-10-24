@@ -108,6 +108,7 @@ export default function RootLayout({
           `}
         </Script>
         <meta name="google-adsense-account" content="ca-pub-3231959529193850" />
+        <meta property="fb:app_id" content="61556479060350" />
         {/* <GoogleAdsense pId={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ID || "3231959529193850"} /> */}
         {/* <Script
           async
