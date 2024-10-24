@@ -47,14 +47,14 @@ const AdBanner = (props: AdsBannerProps) => {
 
  return (
   <ins
-   className="adsbygoogle adbanner-customize mt-2"
+   className="mt-2"
    style={{
     display: "block",
     overflow: "hidden",
     border: process.env.NODE_ENV === "development" ? "1px solid red" : "none",
    }}
    data-adtest="on"
-   data-ad-client={process.env.NEXT_PUBLIC_GOOGLE_ADS_CLIENT_ID}
+   data-ad-client={process.env.NEXT_PUBLIC_GOOGLE_ADS_CLIENT_ID || "ca-pub-3231959529193850"}
    {...props}
   />
  );
