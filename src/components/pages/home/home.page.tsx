@@ -132,6 +132,11 @@ const HomePage = () => {
   return (
     <div className="flex-1">
       <section className="relative">
+        <div className="md:mt-5">
+          <AdBanner
+            href={"https://www.coca-cola.com/mv/en"}
+          />
+        </div>
         <div className="md:mt-10">
           <div className="mx-auto md:container">
             <div className="gap-6 md:flex md:flex-row-reverse">
@@ -145,11 +150,11 @@ const HomePage = () => {
             className="separator--dotted mx-auto mt-5"
           ></div>
         </div>
-        <div className="mt-5 hidden md:block">
+        {/* <div className="mt-5 hidden md:block">
           <AdBanner
-            href={"https://www.facebook.com/wezipmv/"}
+            href={"https://www.coca-cola.com/mv/en"}
           />
-        </div>
+        </div> */}
         <div className="">
           <div className="mx-auto mt-4 pt-0">
             <h2
