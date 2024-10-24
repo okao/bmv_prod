@@ -5,7 +5,6 @@ import { Footer } from "@/components/nav/footer"
 import { Header } from "@/components/nav/header"
 import NextTopLoader from "nextjs-toploader"
 import AdBannerMain from "@/components/common/ad-banner-main"
-import GoogleAdsense from "@/lib/GoogleAdsense"
 interface LandingLayoutProps {
   children: React.ReactNode
 }
@@ -71,7 +70,6 @@ export default function LandingLayout({ children }: LandingLayoutProps) {
          {children}
        </main>
        <Footer />
-       <GoogleAdsense pId={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ID || "3231959529193850"} />
     </div>
   )
 }

@@ -27,6 +27,7 @@ export const viewport: Viewport = {
   ],
 };
 
+import GoogleAdsense from "@/lib/GoogleAdsense"
 export const metadata: Metadata = {
   metadataBase: new URL("https://breakingmv.com"),
   title: "Breaking Mv",
@@ -95,6 +96,7 @@ export default function RootLayout({
               gtag('config', 'G-8C1V51V612');
           `}
         </Script>
+        <GoogleAdsense pId={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ID || "3231959529193850"} />
       </head>
       <body>
         <NextTopLoader
