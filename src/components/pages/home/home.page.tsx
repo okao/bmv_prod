@@ -203,7 +203,6 @@ const HomePage = () => {
 
         <WorldSection articles={worldArticles} loading={loading} />
 
-
       </section>
       <GoogleAdBanner
         data-ad-slot="6068850440"
