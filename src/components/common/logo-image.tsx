@@ -8,7 +8,7 @@ import { useTheme } from "next-themes"
 import { siteConfig } from "@/config/site"
 
 import logo from "../../../public/logos/logo.svg"
-import darkLogo from "../../../public/logos/logodark.svg"
+import darkLogo from "../../../public/logos/logo.svg"
 
 const LogoImage = ({ logotheme = null }: { logotheme: string | null }) => {
   const { theme } = useTheme()
@@ -24,10 +24,10 @@ const LogoImage = ({ logotheme = null }: { logotheme: string | null }) => {
   if (logotheme === "dark") {
     return (
       <div
-        className="flex w-full items-center justify-center gap-2 md:justify-end"
+        className="flex w-full items-center justify-center gap-2 text-white md:justify-end"
         onClick={() => router.push("/")}
       >
-        <Image src={darkLogo} alt={siteConfig.name} width={130} height={40} />
+        <Image src={darkLogo} alt={siteConfig.name} width={130} height={40} color="white" />
       </div>
     )
   } else if (logotheme === "light") {
@@ -47,10 +47,10 @@ const LogoImage = ({ logotheme = null }: { logotheme: string | null }) => {
   if (theme === "dark") {
     return (
       <div
-        className="flex w-full items-center justify-center gap-2 md:justify-end"
+        className="flex w-full items-center justify-center gap-2 text-white md:justify-end"
         onClick={() => router.push("/")}
       >
-        <Image src={darkLogo} alt={siteConfig.name} width={130} height={40} />
+        <Image src={darkLogo} alt={siteConfig.name} width={130} height={40} color="white" />
       </div>
     )
   } else if (theme === "light") {
@@ -65,10 +65,10 @@ const LogoImage = ({ logotheme = null }: { logotheme: string | null }) => {
   } else {
     return (
       <div
-        className="flex w-full items-center justify-center gap-2 md:justify-end"
+        className="flex w-full items-center justify-center gap-2 text-white md:justify-end"
         onClick={() => router.push("/")}
       >
-        <Image src={logo} alt={siteConfig.name} width={130} height={40} />
+        <Image src={logo} alt={siteConfig.name} width={130} height={40} color="white" />
       </div>
     )
   }
