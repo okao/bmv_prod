@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { cn } from '@/lib/utils'
 import { mvFaseyha, mvWaheed } from '@/config/fonts'
 import Ad1 from '../../../../public/images/ads/article_section_coke.png'
+import Link from 'next/link'
 
 //remove eslint-disable
 // eslint-disable-next-line
@@ -14,14 +15,18 @@ const ContentBody = ({ article }: { article: any }) => {
   return (
     <div>
 
-      <div className='flex justify-center'>
+      <div className='flex justify-center'
+
+      >
+        <Link href="https://2ly.link/20VeX" target="_blank">
         <Image
           src={Ad1}
           alt="Picture of the author"
           width={500}
           height={500}
           className="mb-8 w-full rounded-lg object-cover shadow-lg lg:w-[500px]"
-        />
+          />
+        </Link>
       </div>
 
       <div>

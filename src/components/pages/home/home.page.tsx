@@ -134,7 +134,7 @@ const HomePage = () => {
       <section className="relative">
         <div className="md:mt-5">
           <AdBanner
-            href={"https://www.coca-cola.com/mv/en"}
+            href={"https://2ly.link/20VeX"}
           />
         </div>
         <div className="md:mt-10">
@@ -193,7 +193,7 @@ const HomePage = () => {
 
         <div className="mt-8 md:mt-10">
           <AdBannerThree
-            href={"https://www.coca-cola.com/mv/en"}
+            href={"https://2ly.link/20VeX"}
           />
         </div>
 
