@@ -45,15 +45,18 @@ export async function generateMetadata({ params } : { params: { id: string } }):
     title: article?.latinTitle ? article?.latinTitle : article?.title,
     description: article?.latinSubTitle ? article?.latinSubTitle : article?.subTitle,
     type: "article",
+    facebook: {
+      appId: "61556479060350",
+    },
     openGraph: {
-      locale: "en_GB",
+      locale: "en_US",
       type: "article",
       title: article?.latinTitle ? article?.latinTitle : article?.title,
       description: article?.latinSubTitle ? article?.latinSubTitle : article?.subTitle,
       url: `${baseUrl}/${article?.id}`,
       siteName: "Breaking MV",
-      // publishedTime: "2021-01-31T14:37:34+05:00",
-      // modifiedTime: "2024-03-06T20:11:05+05:00",
+      publishedTime: article?.publishedAt,
+      modifiedTime: article?.updatedAt,
       // title: "Open Graph Meta Tags: Everything You Need to Know",
       // description: "Open Graph tags can significantly improve your click-through rate on social media. Learn how to successfully implement them on your website.",
       images: [
