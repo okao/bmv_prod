@@ -3,7 +3,14 @@ import { type MetadataRoute } from 'next'
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
-      userAgent: '*',
+      userAgent: [
+        '*',
+        'facebookexternalhit/1.1',
+        'Twitterbot',
+        'LinkedInBot',
+        'WhatsApp',
+        'Googlebot',
+      ],
       allow: '/',
       disallow: '/admin/',
     },

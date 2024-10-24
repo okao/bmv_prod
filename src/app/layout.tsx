@@ -27,7 +27,6 @@ export const viewport: Viewport = {
   ],
 };
 
-import GoogleAdsense from "@/lib/GoogleAdsense"
 export const metadata: Metadata = {
   metadataBase: new URL("https://breakingmv.com"),
   title: "Breaking Mv",

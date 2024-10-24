@@ -1,4 +1,9 @@
 User-Agent: *
+User-Agent: facebookexternalhit/1.1
+User-Agent: Twitterbot
+User-Agent: LinkedInBot
+User-Agent: WhatsApp
+User-Agent: Googlebot
 Allow: /
 Disallow: /admin/
 
