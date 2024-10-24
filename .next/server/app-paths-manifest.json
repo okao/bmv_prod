@@ -1,15 +1,15 @@
 {
   "/_not-found": "app/_not-found.js",
-  "/api/latestNews/route": "app/api/latestNews/route.js",
   "/admin/page": "app/admin/page.js",
-  "/api/menus/route": "app/api/menus/route.js",
-  "/sitemap.xml/route": "app/sitemap.xml/route.js",
-  "/apple-icon.png/route": "app/apple-icon.png/route.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
   "/robots.txt/route": "app/robots.txt/route.js",
   "/api/articles/route": "app/api/articles/route.js",
-  "/(landing)/article/[id]/page": "app/(landing)/article/[id]/page.js",
-  "/(landing)/tag/page": "app/(landing)/tag/page.js",
+  "/api/latestNews/route": "app/api/latestNews/route.js",
+  "/api/menus/route": "app/api/menus/route.js",
+  "/sitemap.xml/route": "app/sitemap.xml/route.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/apple-icon.png/route": "app/apple-icon.png/route.js",
+  "/(landing)/section/page": "app/(landing)/section/page.js",
   "/(landing)/page": "app/(landing)/page.js",
-  "/(landing)/section/page": "app/(landing)/section/page.js"
+  "/(landing)/article/[id]/page": "app/(landing)/article/[id]/page.js",
+  "/(landing)/tag/page": "app/(landing)/tag/page.js"
 }
