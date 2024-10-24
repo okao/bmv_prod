@@ -19,9 +19,7 @@ const ContentBody = ({ article }: { article: any }) => {
   return (
     <div>
 
-      <div className='flex justify-center'
-
-      >
+      <div className='flex justify-center'>
         <Link href="https://2ly.link/20VeX" target="_blank">
         <Image
           src={Ad1}
@@ -31,6 +29,16 @@ const ContentBody = ({ article }: { article: any }) => {
           className="mb-8 w-full rounded-lg object-cover shadow-lg lg:w-[500px]"
           />
         </Link>
+      </div>
+
+      <div className="flex justify-center">
+        <GoogleAdBanner
+          data-ad-slot="1290132642"
+          data-full-width-responsive="true"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-layout-key="+31+qv-2o-7g+lz"
+        />
       </div>
 
       <div>
@@ -225,12 +233,6 @@ const ContentBody = ({ article }: { article: any }) => {
           }
         </div>
       </div>
-      <GoogleAdBanner
-        data-ad-slot="6068850440"
-        data-full-width-responsive="true"
-        data-ad-layout="in-article"
-        data-ad-format="fluid"
-      />
     </div>
   )
 }
