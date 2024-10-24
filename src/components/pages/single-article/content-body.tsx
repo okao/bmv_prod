@@ -5,6 +5,10 @@ import { cn } from '@/lib/utils'
 import { mvFaseyha, mvWaheed } from '@/config/fonts'
 import Ad1 from '../../../../public/images/ads/article_section_coke.png'
 import Link from 'next/link'
+import dynamic from "next/dynamic";
+const GoogleAdBanner = dynamic(() => import("@/lib/_AdsBanner"), {
+  ssr: false,
+});
 
 //remove eslint-disable
 // eslint-disable-next-line
@@ -221,6 +225,12 @@ const ContentBody = ({ article }: { article: any }) => {
           }
         </div>
       </div>
+      <GoogleAdBanner
+        data-ad-slot="6068850440"
+        data-full-width-responsive="true"
+        data-ad-layout="in-article"
+        data-ad-format="fluid"
+      />
     </div>
   )
 }
