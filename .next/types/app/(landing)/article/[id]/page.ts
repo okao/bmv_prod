@@ -1,4 +1,4 @@
-// File: /Users/okao/Documents/Dev/NewsSites/bmv_prod/src/app/(landing)/article/[id]/page.tsx
+// File: /Users/okao/bmv_prod/src/app/(landing)/article/[id]/page.tsx
 import * as entry from '../../../../../../src/app/(landing)/article/[id]/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

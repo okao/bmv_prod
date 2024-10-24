@@ -3,7 +3,7 @@ import React from 'react'
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
 import { mvFaseyha, mvWaheed } from '@/config/fonts'
-import Ad1 from '../../../../public/images/ads/ad1.jpg'
+import Ad1 from '../../../../public/images/ads/article_section_coke.png'
 
 //remove eslint-disable
 // eslint-disable-next-line

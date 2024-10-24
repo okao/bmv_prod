@@ -188,7 +188,7 @@ const HomePage = () => {
 
         <div className="mt-8 md:mt-10">
           <AdBannerThree
-            href={"https://www.maldivesfinest.com/"}
+            href={"https://www.coca-cola.com/mv/en"}
           />
         </div>
 

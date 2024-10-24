@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import MainAd from '../../../public/images/ads/wellco-3.jpeg';
+import MainAd from '../../../public/images/ads/main_ad_coke.png';
 import Image from 'next/image';
 
 
@@ -13,11 +13,10 @@ const AdBannerTwo = ({ href }: { href: string }) => {
         href={href}
       >
         {/* <img src={src} className="w-full md:rounded" alt="" /> */}
-        <div className='mb-4 h-[280px] lg:h-[350px]'>
+        <div className='mb-4'>
           <Image
             src={MainAd}
             className="size-full " alt=""
-            sizes='(max-width: 640px) 100vw, (max-width: 768px) 728px, 970px 90vw, 970px 728px'
 
           />
           <span className="ml-auto px-2 text-xs tracking-wide opacity-30 md:px-0">
