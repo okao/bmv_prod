@@ -8,7 +8,7 @@ import { useTheme } from "next-themes"
 import { siteConfig } from "@/config/site"
 
 import logo from "../../../public/logos/logo.svg"
-import darkLogo from "../../../public/logos/logodark.svg"
+import darkLogo from "../../../public/logos/logo.svg"
 
 const LogoImageFooter = ({ logotheme = null }: { logotheme: string | null }) => {
   const { theme } = useTheme()
