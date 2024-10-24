@@ -71,6 +71,16 @@ export const metadata: Metadata = {
       },
     ],
   },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      nocache: true,
+    },
+  },
 };
 
 interface RootLayoutProps {
@@ -83,6 +93,7 @@ export default function RootLayout({
   return (
     <html lang="dv">
       <head>
+
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-8C1V51V612"
@@ -96,6 +107,7 @@ export default function RootLayout({
               gtag('config', 'G-8C1V51V612');
           `}
         </Script>
+        <meta name="google-adsense-account" content="ca-pub-3231959529193850" />
         <GoogleAdsense pId={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ID || "3231959529193850"} />
       </head>
       <body>
