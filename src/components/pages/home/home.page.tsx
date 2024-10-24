@@ -206,7 +206,7 @@ const HomePage = () => {
 
       </section>
       <GoogleAdBanner
-        data-ad-slot="slotnumber"
+        data-ad-slot="6068850440"
         data-full-width-responsive="true"
         data-ad-layout="in-article"
         data-ad-format="fluid"

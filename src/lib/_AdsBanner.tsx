@@ -47,7 +47,7 @@ const AdBanner = (props: AdsBannerProps) => {
 
  return (
   <ins
-   className="mt-2"
+   className="adsbygoogle adbanner-customize mt-2"
    style={{
     display: "block",
     overflow: "hidden",
