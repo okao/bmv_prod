@@ -21,6 +21,10 @@ import {
 import AdMain from '../../../../public/images/ads/wellco_banner.jpeg'
 import AdBannerTwo from '@/components/common/ad-banner-two'
 import AdBannerThree from '@/components/common/ad-banner-three'
+import dynamic from "next/dynamic";
+const GoogleAdBanner = dynamic(() => import("@/lib/_AdsBanner"), {
+ ssr: false,
+});
 
 
 const HomePage = () => {
@@ -201,6 +205,12 @@ const HomePage = () => {
 
 
       </section>
+      <GoogleAdBanner
+        data-ad-slot="slotnumber"
+        data-full-width-responsive="true"
+        data-ad-layout="in-article"
+        data-ad-format="fluid"
+      />
     </div>
   )
 }
