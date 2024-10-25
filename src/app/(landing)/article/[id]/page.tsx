@@ -24,6 +24,17 @@ import SingleMainAd from "@/components/pages/single-article/single-main-ad"
 import ArticleTags from "@/components/pages/single-article/article-tags"
 import { SingleMetas } from "@/components/pages/single-article/single-metas"
 import { title } from "process"
+import AdCarousel from "@/components/AdCarousel"
+
+type Advertisement = {
+  id: string;
+  name: string;
+  adsType: string;
+  adsAsset: {
+    url: string;
+  };
+  link: string;
+};
 
 async function myAction(id: string) {
     'use server'
@@ -32,6 +43,17 @@ async function myAction(id: string) {
   const data = await getArticleById(id);
 
   return data;
+}
+
+async function getAdvertisementArticle(id: string) {
+  'use server'
+  const { getAdvertisements } = await import('@/graph/apollo');
+  const data = await getAdvertisements() as Advertisement[];
+
+  // advertisementArticle is an array of Advertisement objects which has adsType of article
+  const advertisementArticle = data.filter((ad: Advertisement) => ad.adsType === id);
+
+  return advertisementArticle;
 }
 
 
@@ -88,6 +110,11 @@ export async function generateMetadata({ params } : { params: { id: string } }):
 const Single = async ({ params }: any) => {
 
   const getArticle = await myAction(params?.id) || {};
+  const getAdvertisementForArticleTop = await getAdvertisementArticle("articleTop");
+  const getAdvertisementForArticleMiddle = await getAdvertisementArticle("articleMiddle");
+
+  console.log("getAdvertisementForArticleMiddle", getAdvertisementForArticleMiddle);
+  console.log("getAdvertisementForArticleTop", getAdvertisementForArticleTop);
 
   const article = getArticle[0];
 
@@ -100,6 +127,9 @@ const Single = async ({ params }: any) => {
 
   return (
     <div>
+      <div className="mx-auto md:container">
+        <AdCarousel advertisements={getAdvertisementForArticleTop} />
+      </div>
       <div className="container grid grid-cols-12 px-0 lg:gap-x-8 lg:gap-y-4 lg:p-4">
         {/* Single Article Image Banner Title and SubTitle */}
         <ImageBanner article={article} />
@@ -132,7 +162,7 @@ const Single = async ({ params }: any) => {
             </p>
           </div> */}
           <div className="mt-6  max-w-4xl content-center text-right md:mt-0 lg:pl-6">
-            <ContentBody article={article} />
+            <ContentBody article={article} advertisements={getAdvertisementForArticleMiddle} />
           </div>
         </div>
         <RelatedArticlesMobile article={article} />

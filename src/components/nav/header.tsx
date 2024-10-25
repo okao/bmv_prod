@@ -12,7 +12,7 @@ import { NavigationMobile } from "@/components/nav/navigation-mobile"
 import { ThemeToggle } from "@/components/theme-toggle"
 import LogoImage from "@/components/common/logo-image"
 import { useEffect, useState } from "react"
-import { getMenu } from '@/graph/apollo';
+import { getMenu, getAdvertisements } from '@/graph/apollo';
 
 
 // const fetchMenu = async () => {
@@ -34,6 +34,7 @@ export function Header() {
   // })
 
   const [menus, setMenus] = useState([]);
+  const [advertisements, setAdvertisements] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const fetchMenus = async () => {
@@ -41,8 +42,14 @@ export function Header() {
     setMenus(data);
   };
 
+  const fetchAdvertisements = async () => {
+    const data = await getAdvertisements();
+    setAdvertisements(data);
+  };
+
   useEffect(() => {
     fetchMenus();
+    fetchAdvertisements();
   }, []);
 
 

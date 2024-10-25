@@ -5,11 +5,15 @@ import { Footer } from "@/components/nav/footer"
 import { Header } from "@/components/nav/header"
 import NextTopLoader from "nextjs-toploader"
 import AdBannerMain from "@/components/common/ad-banner-main"
+import useHomePage from "@/components/pages/home/home.page"
 interface LandingLayoutProps {
   children: React.ReactNode
 }
 
+
 export default function LandingLayout({ children }: LandingLayoutProps) {
+
+
    return (
     <div className="flex min-h-screen flex-col overflow-visible bg-white dark:bg-slate-950">
       <div>

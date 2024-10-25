@@ -326,4 +326,18 @@ query ArticleByTag($tag: String!, $first: Int!) {
     }
   }
 }
+`,ix`
+query Advertisements {
+  advertisement {
+    id, name, adsType ,
+    link,
+    adsAsset {
+      id
+      fileName
+      handle
+      mimeType
+      url
+    }
+  }
+}
 `}};

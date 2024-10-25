@@ -9,17 +9,36 @@ import dynamic from "next/dynamic";
 const GoogleAdBanner = dynamic(() => import("@/lib/_AdsBanner"), {
   ssr: false,
 });
+const AdCarousel = dynamic(() => import("@/components/AdCarousel"), {
+  ssr: false,
+});
+
+type Advertisement = {
+  id: string;
+  name: string;
+  adsType: string;
+  adsAsset: {
+    url: string;
+  };
+  link?: string;
+}
+
+type Props = {
+  article: any;
+  advertisements?: Advertisement[];
+}
 
 //remove eslint-disable
 // eslint-disable-next-line
-const ContentBody = ({ article }: { article: any }) => {
+const ContentBody = ({ article, advertisements }: Props) => {
 
   // console.log("Article", article?.articleContent?.[0]?.content?.raw?.children);
+
 
   return (
     <div>
 
-      <div className='flex justify-center'>
+      {/* <div className='flex justify-center'>
         <Link href="https://2ly.link/20VeX" target="_blank">
         <Image
           src={Ad1}
@@ -29,7 +48,13 @@ const ContentBody = ({ article }: { article: any }) => {
           className="mb-8 w-full rounded-lg object-cover shadow-lg lg:w-[500px]"
           />
         </Link>
-      </div>
+      </div> */}
+
+      {advertisements && advertisements.length > 0 && (
+        <div className='flex justify-center'>
+          <AdCarousel advertisements={advertisements} />
+        </div>
+      )}
 
       <div className="flex justify-center">
         <GoogleAdBanner

@@ -470,3 +470,27 @@ export async function getArticleByTag(tag: string, first: number = 8) {
   return data.articleConnection;
 }
 
+//get Advertisements by type
+const GET_ADVERTISEMENTS = gql`
+query Advertisements {
+  advertisement {
+    id, name, adsType ,
+    link,
+    adsAsset {
+      id
+      fileName
+      handle
+      mimeType
+      url
+    }
+  }
+}
+`;
+
+export async function getAdvertisements() {
+  const { data } = await client.query({
+    query: GET_ADVERTISEMENTS
+  });
+
+  return data.advertisement;
+}

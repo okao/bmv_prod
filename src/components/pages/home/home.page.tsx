@@ -16,16 +16,27 @@ import { useEffect, useState } from "react"
 import {
   getHomeArticles,
   getMainArticles,
-  getArticleWithTypeCount
+  getArticleWithTypeCount,
+  getAdvertisements
 } from '@/graph/apollo';
 import AdMain from '../../../../public/images/ads/wellco_banner.jpeg'
 import AdBannerTwo from '@/components/common/ad-banner-two'
 import AdBannerThree from '@/components/common/ad-banner-three'
 import dynamic from "next/dynamic";
+import AdCarousel from '@/components/AdCarousel';
 const GoogleAdBanner = dynamic(() => import("@/lib/_AdsBanner"), {
  ssr: false,
 });
 
+type Advertisement = {
+  id: string;
+  name: string;
+  adsType: string;
+  adsAsset: {
+    url: string;
+  };
+  link: string;
+};
 
 const HomePage = () => {
   const [articles, setArticles] = useState([]);
@@ -34,7 +45,10 @@ const HomePage = () => {
   const [maldivesArticles, setMaldivesArticles] = useState([]);
   const [worldArticles, setWorldArticles] = useState([]);
   const [peopleArticles, setPeopleArticles] = useState([]);
+  const [homeAdvertisements, setHomeAdvertisements] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [homeTopAds, setHomeTopAds] = useState<Advertisement[]>([]);
+  const [homeCatagoryAds, setHomeCatagoryAds] = useState<Advertisement[]>([]);
 
   const fetchArticles = async () => {
     setLoading(true);
@@ -78,6 +92,25 @@ const HomePage = () => {
     setLoading(false);
   }
 
+  const fetchAdvertisements = async () => {
+    setLoading(true);
+    const advertisements = await getAdvertisements();
+    setHomeAdvertisements(advertisements);
+
+    // Filter out homeTop advertisements
+    const homeTopAdvertisements = advertisements.filter(
+      (ad: Advertisement) => ad.adsType === "homeTop"
+    );
+
+    const homeCategoryAdvertisements = advertisements.filter(
+      (ad: Advertisement) => ad.adsType === "homeCategories"
+    );
+
+    setHomeTopAds(homeTopAdvertisements);
+    setHomeCatagoryAds(homeCategoryAdvertisements);
+    setLoading(false);
+  }
+
   useEffect(() => {
     fetchArticles();
     fetchHomeArticles();
@@ -85,6 +118,7 @@ const HomePage = () => {
     fetchMaldivesArticles();
     fetchWorldArticles();
     fetchPeopleArticles();
+    fetchAdvertisements();
   }, []);
 
   if (loading) {
@@ -131,16 +165,17 @@ const HomePage = () => {
     )
   }
 
-  // console.log("Home Articles", homeArticles);
+  console.log("homeCatagoryAds", homeCatagoryAds);
 
   return (
     <div className="flex-1">
+      <div className="mx-auto md:container">
+        <AdCarousel
+          advertisements={homeTopAds}
+          time={10000}
+        />
+      </div>
       <section className="relative">
-        <div className="md:mt-5">
-          <AdBanner
-            href={"https://2ly.link/20VeX"}
-          />
-        </div>
         <div className="md:mt-10">
           <div className="mx-auto md:container">
             <div className="gap-6 md:flex md:flex-row-reverse">
@@ -176,10 +211,11 @@ const HomePage = () => {
         <ReportSection articles={reportArticles} loading={loading} />
 
 
-        <div className="mt-10 md:mt-16">
-          <AdBannerTwo
+        <div className="mx-auto mt-4 md:container md:mt-6">
+          {/* <AdBannerTwo
             href={"https://www.maldivesfinest.com/"}
-          />
+          /> */}
+          <AdCarousel advertisements={homeCatagoryAds} />
         </div>
 
 
@@ -195,9 +231,13 @@ const HomePage = () => {
         </div>
 
 
-        <div className="mt-8 md:mt-10">
-          <AdBannerThree
+        <div className="mx-auto mt-8 md:container md:mt-10">
+          {/* <AdBannerThree
             href={"https://2ly.link/20VeX"}
+          /> */}
+          <AdCarousel
+            advertisements={homeCatagoryAds}
+            time={10000}
           />
         </div>
 
